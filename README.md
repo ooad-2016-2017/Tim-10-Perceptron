@@ -1,4 +1,4 @@
-# Perceptron
+﻿# Perceptron
 
 ![alt text](/neuron.png "Neuron")
 
@@ -30,7 +30,7 @@ Ako se mušterija želi detaljnije informisati o specifičnom eventu, klikom na 
 informacijama(potpuniji opis eventa, link na profil vlasnika, link za najavu dolaska, itd). 
 
 ## Prijava na event / Poništavanje prijave za event
-Mušterija se prijavljuje na event preko interfejsa za koji postoji beacon na mapi i obavijest na sidebar-u. Ako mušterija ima osobe koje prati na aplikaciji, na interfejsu vidi koje osobe idu na event. Također, ima mogućnost poništavanje prijave na taj event.
+Mušterija se prijavljuje na event preko interfejsa za koji postoji beacon na mapi. Ako mušterija ima osobe koje prati na aplikaciji, na interfejsu vidi koje osobe idu na event. Također, ima mogućnost poništavanje prijave na taj event.
 
 ## Validacija dolaska 
 Fizičko prisustvo na eventu se validira generisanjem QR code-a na korisnikovom uređaju koji potom biva skeniran drugim uređajom, povezanim sa vlasnikom, a koji šalje potvrdu dolaska mušterije na server. Nakon validacije, mušterija dobija pristup promotivnoj ponudi, reklamiranoj putem aplikacije.
