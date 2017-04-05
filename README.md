@@ -3,9 +3,9 @@
 ![alt text](/neuron.png "Neuron")
 
 ## Članovi Tima:
-* Vedad Fejzagic
-* Amar Buric
-* Elvir Crncevic
+* Vedad Fejzagić
+* Amar Burić
+* Elvir Crnčević
 
 # Interaktivna Mapa Evenata
 
