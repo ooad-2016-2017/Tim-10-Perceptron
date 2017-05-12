@@ -7,7 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="10,10,0,0">
+
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <TextBox Name="textBox" Padding="5,0" Text="txt" Height="30" Width="Auto" VerticalAlignment="Top" Grid.ColumnSpan="2" BorderThickness="0"/>
+            <Rectangle RadiusX="5" RadiusY="5" Width="{Binding Width,ElementName=textBlock}" Height="{Binding Height,ElementName=textBlock}" Stroke="Black" StrokeThickness="1" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <Button x:Name="button" Content="Provjeri konekciju&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,66,0,0" VerticalAlignment="Top" Height="36" Click="button_Click"/>
+        </Grid>
 
     </Grid>
 </Page>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -24,7 +25,17 @@ namespace InteraktivnaMapaEvenata
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            this.InitializeComponent();            
+
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            if (NetworkInterface.GetIsNetworkAvailable())
+            {
+                textBox.Text = "Konektovan si";
+            }
+            else textBox.Text = "debilu nisi konektovan";
         }
     }
 }
