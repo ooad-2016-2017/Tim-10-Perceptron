@@ -1,0 +1,19 @@
+Single responsibility principle
+Single responsibility je prva stvar na koju smo pazili pri dizajniranju ovog sistema. Naš sistem sadrži tri vrste klasa:
+Domain model klase - klase koje modeliraju objekte unutar sistema. Sadrže isključivo atribute relevantne za te objekte i getere/setere za iste atribute. 
+Manageri, odnosno servisi - klase koje su zadužene za grupno upravljanje klasama iz Domain Modela i koje služe za perzistenciju podataka. Svaka manager klasa je vezana za isključivo jednu klasu domain modela.
+Validatorske klase - služe za validaciju klasa tipa Domain Model. Svaka validatorska klasa je vezana za samo jedanu klasu domain modela. 
+Iz načina kako su odgovornosti podijeljene po klasama, da se primjetiti da je uslov zadovoljen. 
+
+Open/closed principle
+Kako smo mi ti koji postavljamo zahtjeve za aplikaciju, to je vjerovatnoća da će se sistem mijenjati jako mala. Ono što definitivno planiramo imati u stvarnoj implementaciji, a nismo naveli u dijagramu klasa su interface-i za svakog od manager klasa koji sadrži odgovarajuće CRUD metode koje planiramo koristiti kao primarno sredstvo za komunikaciju sa web-servisima i bazom podataka. Njihovom upotrebom, omogućeno nam je, npr. ‘injectanje’ klasa za potrebe testiranja. 
+
+Liskov substitution principle
+Pošto je klasa User generalizacija klase QRScannera, a QRScanner je uređaj, to znači da QRScanner ima suvišne atribute: profileImage, email, isBanned koji nisu potrebni toj klasi. Zbog ovoga, Liskov princip nije zadovoljen. Potrebno je napraviti klasu za QRScanner uređaj koji nije vezan za klasu User, ili redefinirati klasu User(određene atribute premjestiti).
+
+Interface segregation principle
+Svaka klasa sadrži samo one metode koje će sasvim sigurno biti upotrebljene isključivo za potrebe te klase u kojoj su definirane. Kako klase imaju relativno mal broj metoda, do kršenja ovog principa ne može doći.
+
+Dependency inversion principle
+Najveća tačka ranjivosti ovog sistema leži u činjenici da veliki broj klasa ovisi o ne-apstraktnoj i ne-interface klasi Event. Međutim, imajući u vidu da se projekat zove InteractiveEventManager, to je, donekle, i za očekivati. U budućnosti, mnoge UI komponente će ovisiti od manager (servisnih) klasa što je problem koji planiramo riješiti uvođenjem interface-a za svaki od njih.
+
