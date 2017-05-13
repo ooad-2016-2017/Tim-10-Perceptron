@@ -1,0 +1,54 @@
+﻿<Page
+    x:Class="InteraktivnaMapaEvenata.OrganizatorUrediEvent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InteraktivnaMapaEvenata"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="grid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <ScrollViewer Height="{Binding Height,ElementName=grid}">
+
+            <Grid Height="1000">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="eventNameTextBlock" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Text="Naziv Eventa" HorizontalAlignment="Center" FontSize="30"/>
+                <TextBlock x:Name="startTextBlock" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Pocetak" HorizontalAlignment="Center" FontSize="20"/>
+                <CalendarDatePicker x:Name="startCalendar" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+                <TextBlock x:Name="endTextBlock" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Zavrsetak" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Center"/>
+                <CalendarDatePicker x:Name="endCalendar" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                <TextBlock x:Name="descriptionTextBlock" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Text="Opis" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top"/>
+                <TextBox x:Name="descriptionTextBox"  Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Stretch"/>
+                <TextBlock x:Name="tagsTextBlock" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Text="Tagovi" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top"/>
+                <TextBox x:Name="tagsTextBox"  Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Stretch"/>
+                <TextBlock x:Name="locationTextBlock" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" Text="Lokacija" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top"/>
+                <TextBox x:Name="searchTextBox" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
+                <TextBlock x:Name="benefitsTextBlock"  Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="2" Text="Pogodnosti" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top" />
+                <TextBox x:Name="benefitsTextBox" Grid.Column="3" Grid.Row="6" Grid.ColumnSpan="2" VerticalAlignment="Stretch"/>
+                <Button x:Name="acceptButton" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Content="Potvrdi"/>
+
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="InteraktivnaMapaEvenata.OrganizatorUrediProfil"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InteraktivnaMapaEvenata"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="settingsTextBlock" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Center" FontSize="30" Text="Postavke"/>
+
+        <TextBlock x:Name="currentPWTextBlock" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Trenutna lozinka"/>
+        <TextBox x:Name="currentPWTextBox" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+        <TextBlock x:Name="newPWTextBlock" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Potvrdi trenutnu"/>
+        <TextBox x:Name="newPWTextBox" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
+        <TextBlock x:Name="newnewPWTextBlock" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Nova lozinka"/>
+        <TextBox x:Name="newnewPWTextBox" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+        <Button x:Name="acceptButtonPW" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Potvrdi"/>
+
+        <TextBlock x:Name="currentEmailTextBlock" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Trenutni e-mail"/>
+        <TextBox x:Name="currentEmailTextBox" Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
+        <TextBlock x:Name="newEmailTextBlock"  Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Novi e-mail"/>
+        <TextBox x:Name="newEmailTextBox" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+        <Button x:Name="acceptButtonEmail" Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" Content="Potvrdi"/>
+
+        <Button x:Name="changeProfilePictureTextBlock" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top" Content="Promijeni sliku profila" />
+
+    </Grid>
+</Page>

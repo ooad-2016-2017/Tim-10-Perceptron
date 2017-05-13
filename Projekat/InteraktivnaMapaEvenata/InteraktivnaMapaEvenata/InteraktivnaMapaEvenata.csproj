@@ -98,6 +98,36 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MusterijaMainPage.xaml.cs">
+      <DependentUpon>MusterijaMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MusterijaProfilOrganizatora.xaml.cs">
+      <DependentUpon>MusterijaProfilOrganizatora.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MusterijaProfilKorisnika.xaml.cs">
+      <DependentUpon>MusterijaProfilKorisnika.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizatorMainPage.xaml.cs">
+      <DependentUpon>OrganizatorMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizatorPlacanje.xaml.cs">
+      <DependentUpon>OrganizatorPlacanje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizatorPregledEvenata.xaml.cs">
+      <DependentUpon>OrganizatorPregledEvenata.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizatorTipNaloga.xaml.cs">
+      <DependentUpon>OrganizatorTipNaloga.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizatorUrediEvent.xaml.cs">
+      <DependentUpon>OrganizatorUrediEvent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MusterijaUrediProfil.xaml.cs">
+      <DependentUpon>MusterijaUrediProfil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrganizatorUrediProfil.xaml.cs">
+      <DependentUpon>OrganizatorUrediProfil.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +137,8 @@
     <None Include="InteraktivnaMapaEvenata_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\BackArrow.png" />
+    <Content Include="Assets\Images\FrontArrow.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -124,6 +156,46 @@
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MusterijaMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MusterijaProfilOrganizatora.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MusterijaProfilKorisnika.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrganizatorMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrganizatorPlacanje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrganizatorPregledEvenata.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrganizatorTipNaloga.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrganizatorUrediEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MusterijaUrediProfil.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="OrganizatorUrediProfil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup />

@@ -25,17 +25,16 @@ namespace InteraktivnaMapaEvenata
     {
         public MainPage()
         {
-            this.InitializeComponent();            
-
+            this.InitializeComponent();
         }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            if (NetworkInterface.GetIsNetworkAvailable())
-            {
-                textBox.Text = "Konektovan si";
-            }
-            else textBox.Text = "debilu nisi konektovan";
-        }
+        /*
+private void button_Click(object sender, RoutedEventArgs e)
+{
+   if (NetworkInterface.GetIsNetworkAvailable())
+   {
+       textBox.Text = "Konektovan si";
+   }
+   else textBox.Text = "debilu nisi konektovan";
+}*/
     }
 }

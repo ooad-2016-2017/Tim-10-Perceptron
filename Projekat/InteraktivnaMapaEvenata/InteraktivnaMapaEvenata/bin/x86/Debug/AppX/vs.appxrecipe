@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-12T11:36:02.380</Modified>
+      <Modified>2017-05-13T13:17:59.854</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\InteraktivnaMapaEvenata.exe">
       <PackagePath>entrypoint\InteraktivnaMapaEvenata.exe</PackagePath>
-      <Modified>2017-05-12T11:36:02.068</Modified>
+      <Modified>2017-05-13T13:17:59.067</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\veda_\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -448,9 +448,13 @@
       <PackagePath>System.Xml.XmlSerializer.dll</PackagePath>
       <Modified>2015-07-22T21:11:12.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2017-03-25T19:11:58.188</Modified>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\BackArrow.png">
+      <PackagePath>Assets\Images\BackArrow.png</PackagePath>
+      <Modified>2017-05-12T22:06:39.385</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\FrontArrow.png">
+      <PackagePath>Assets\Images\FrontArrow.png</PackagePath>
+      <Modified>2017-05-12T22:05:41.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -486,9 +490,13 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-03-25T19:11:58.184</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2017-03-25T19:11:58.188</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\InteraktivnaMapaEvenata.xr.xml">
       <PackagePath>InteraktivnaMapaEvenata.xr.xml</PackagePath>
-      <Modified>2017-05-12T11:34:38.854</Modified>
+      <Modified>2017-05-13T13:17:58.829</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -497,11 +505,11 @@
     <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-12T11:34:39.890</Modified>
+      <Modified>2017-05-13T13:17:59.642</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\Core\InteraktivnaMapaEvenata.exe">
       <PackagePath>InteraktivnaMapaEvenata.exe</PackagePath>
-      <Modified>2017-05-12T11:36:02.374</Modified>
+      <Modified>2017-05-13T13:17:59.850</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
