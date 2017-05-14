@@ -28,13 +28,13 @@
     <AppXManifest Include="C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2017-05-14T15:42:32.263</Modified>
+      <Modified>2017-05-14T21:30:06.502</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\InteraktivnaMapaEvenata.exe">
       <PackagePath>entrypoint\InteraktivnaMapaEvenata.exe</PackagePath>
-      <Modified>2017-05-14T15:42:31.369</Modified>
+      <Modified>2017-05-14T21:30:04.555</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\elvircrn\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -472,6 +472,10 @@
       <PackagePath>Assets\Images\pie.png</PackagePath>
       <Modified>2017-05-14T11:50:49.625</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\piesquare.png">
+      <PackagePath>Assets\Images\piesquare.png</PackagePath>
+      <Modified>2017-05-14T21:15:28.191</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\profile.png">
       <PackagePath>Assets\Images\profile.png</PackagePath>
       <Modified>2017-05-14T14:11:43.755</Modified>
@@ -520,7 +524,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\InteraktivnaMapaEvenata.xr.xml">
       <PackagePath>InteraktivnaMapaEvenata.xr.xml</PackagePath>
-      <Modified>2017-05-14T15:42:31.094</Modified>
+      <Modified>2017-05-14T21:23:43.582</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -528,11 +532,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2017-05-14T15:42:31.884</Modified>
+      <Modified>2017-05-14T21:30:06.256</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\Core\InteraktivnaMapaEvenata.exe">
       <PackagePath>InteraktivnaMapaEvenata.exe</PackagePath>
-      <Modified>2017-05-14T15:42:32.252</Modified>
+      <Modified>2017-05-14T21:30:06.497</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

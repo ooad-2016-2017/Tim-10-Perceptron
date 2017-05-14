@@ -22,9 +22,41 @@ namespace InteraktivnaMapaEvenata.Admin
     /// </summary>
     public sealed partial class AdminFlagInfoPage : Page
     {
+        Flag Flag;
         public AdminFlagInfoPage()
         {
             this.InitializeComponent();
+            Flag = new Flag();
+        }
+
+        public AdminFlagInfoPage(Flag Flag)
+        {
+            this.InitializeComponent();
+            this.Flag = Flag;
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            if (e.Parameter is Flag)
+                this.Flag = (Flag)e.Parameter;
+        }
+
+        private async void DisplayTakeActionDialog()
+        {
+            ContentDialog takeAction = new ContentDialog
+            {
+                Title = "Odaberite radnju",
+                PrimaryButtonText = "Izbrisi korisnika",
+                SecondaryButtonText = "Izbrisi korisnika"
+            };
+
+            ContentDialogResult result = await takeAction.ShowAsync();
+        }
+        
+        private void ButtonConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            DisplayTakeActionDialog();
         }
     }
 }

@@ -352,6 +352,9 @@
     <AppxPackagedFile Include="C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\pie.png">
       <PackagePath>Assets\Images\pie.png</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\piesquare.png">
+      <PackagePath>Assets\Images\piesquare.png</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\profile.png">
       <PackagePath>Assets\Images\profile.png</PackagePath>
     </AppxPackagedFile>

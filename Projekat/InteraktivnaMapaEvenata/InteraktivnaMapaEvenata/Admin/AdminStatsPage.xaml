@@ -8,6 +8,19 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Image Grid.Row="0" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="Uniform"   Source="/Assets/Images/piesquare.png" />
+        <Image Grid.Row="0" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="Uniform"   Source="/Assets/Images/piesquare.png" />
+        <Image Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="Uniform"   Source="/Assets/Images/piesquare.png" />
+        <Image Grid.Row="1" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Stretch="Uniform"   Source="/Assets/Images/piesquare.png" />
+        <Image Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="0" VerticalAlignment="Stretch" Stretch="Uniform" Source="/Assets/Images/piesquare.png" />
     </Grid>
 </Page>

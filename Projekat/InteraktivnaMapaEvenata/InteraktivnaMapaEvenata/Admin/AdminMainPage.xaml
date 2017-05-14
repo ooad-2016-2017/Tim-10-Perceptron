@@ -8,19 +8,24 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Pivot x:Name="rootPivot" Title="Pivot Title">
+        <Pivot x:Name="rootPivot" Title="Admin Panel">
             <PivotItem Header="Lista Musterija">
+                <local:AdminUsersPage />
             </PivotItem>
             <PivotItem Header="Eventi">
                 <local:AdminEventsPage />
             </PivotItem>
             <PivotItem Header="Tagovi">
+                <local:AdminTagsPage />
             </PivotItem>
             <PivotItem Header="Lista Organizatora">
                 <local:AdminOwnersPage />
             </PivotItem>
             <PivotItem Header="Lista flagova">
                 <local:AdminFlagsPage />
+            </PivotItem>
+            <PivotItem Header="Statistike">
+                <local:AdminStats/>
             </PivotItem>
         </Pivot>
 

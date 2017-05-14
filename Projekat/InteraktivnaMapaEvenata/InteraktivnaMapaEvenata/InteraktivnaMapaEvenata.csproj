@@ -119,8 +119,16 @@
     <Compile Include="Admin\AdminStatsPage.xaml.cs">
       <DependentUpon>AdminStatsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Admin\AdminTagsPage.xaml.cs">
+      <DependentUpon>AdminTagsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminUsersPage.xaml.cs">
+      <DependentUpon>AdminUsersPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Event.cs" />
+    <Compile Include="Admin\Flag.cs" />
     <Compile Include="Admin\Owner.cs" />
+    <Compile Include="Admin\User.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -174,6 +182,7 @@
     <Content Include="Assets\Images\info.png" />
     <Content Include="Assets\Images\lookingglass.png" />
     <Content Include="Assets\Images\pie.png" />
+    <Content Include="Assets\Images\piesquare.png" />
     <Content Include="Assets\Images\profile.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -222,6 +231,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Admin\AdminStatsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminTagsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminUsersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

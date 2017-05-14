@@ -132,7 +132,7 @@ namespace InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[22];
+            _typeNameTable = new string[24];
             _typeNameTable[0] = "InteraktivnaMapaEvenata.Admin.AdminCustomersPage";
             _typeNameTable[1] = "Windows.UI.Xaml.Controls.Page";
             _typeNameTable[2] = "Windows.UI.Xaml.Controls.UserControl";
@@ -140,23 +140,25 @@ namespace InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo
             _typeNameTable[4] = "InteraktivnaMapaEvenata.Admin.AdminEventsPage";
             _typeNameTable[5] = "InteraktivnaMapaEvenata.Admin.AdminFlagInfoPage";
             _typeNameTable[6] = "InteraktivnaMapaEvenata.Admin.AdminFlagsPage";
-            _typeNameTable[7] = "InteraktivnaMapaEvenata.Admin.AdminOwnersPage";
-            _typeNameTable[8] = "InteraktivnaMapaEvenata.Admin.AdminMainPage";
-            _typeNameTable[9] = "InteraktivnaMapaEvenata.Admin.AdminOwnerDetailPage";
-            _typeNameTable[10] = "InteraktivnaMapaEvenata.Admin.AdminStats";
-            _typeNameTable[11] = "InteraktivnaMapaEvenata.MainPage";
-            _typeNameTable[12] = "InteraktivnaMapaEvenata.MusterijaMainPage";
-            _typeNameTable[13] = "InteraktivnaMapaEvenata.MusterijaProfilOrganizatora";
-            _typeNameTable[14] = "InteraktivnaMapaEvenata.MusterijaProfilKorisnika";
-            _typeNameTable[15] = "InteraktivnaMapaEvenata.OrganizatorMainPage";
-            _typeNameTable[16] = "InteraktivnaMapaEvenata.OrganizatorPlacanje";
-            _typeNameTable[17] = "InteraktivnaMapaEvenata.OrganizatorPregledEvenata";
-            _typeNameTable[18] = "InteraktivnaMapaEvenata.OrganizatorTipNaloga";
-            _typeNameTable[19] = "InteraktivnaMapaEvenata.OrganizatorUrediEvent";
-            _typeNameTable[20] = "InteraktivnaMapaEvenata.MusterijaUrediProfil";
-            _typeNameTable[21] = "InteraktivnaMapaEvenata.OrganizatorUrediProfil";
+            _typeNameTable[7] = "InteraktivnaMapaEvenata.Admin.AdminStats";
+            _typeNameTable[8] = "InteraktivnaMapaEvenata.Admin.AdminOwnersPage";
+            _typeNameTable[9] = "InteraktivnaMapaEvenata.Admin.AdminTagsPage";
+            _typeNameTable[10] = "InteraktivnaMapaEvenata.Admin.AdminUsersPage";
+            _typeNameTable[11] = "InteraktivnaMapaEvenata.Admin.AdminMainPage";
+            _typeNameTable[12] = "InteraktivnaMapaEvenata.Admin.AdminOwnerDetailPage";
+            _typeNameTable[13] = "InteraktivnaMapaEvenata.MainPage";
+            _typeNameTable[14] = "InteraktivnaMapaEvenata.MusterijaMainPage";
+            _typeNameTable[15] = "InteraktivnaMapaEvenata.MusterijaProfilOrganizatora";
+            _typeNameTable[16] = "InteraktivnaMapaEvenata.MusterijaProfilKorisnika";
+            _typeNameTable[17] = "InteraktivnaMapaEvenata.OrganizatorMainPage";
+            _typeNameTable[18] = "InteraktivnaMapaEvenata.OrganizatorPlacanje";
+            _typeNameTable[19] = "InteraktivnaMapaEvenata.OrganizatorPregledEvenata";
+            _typeNameTable[20] = "InteraktivnaMapaEvenata.OrganizatorTipNaloga";
+            _typeNameTable[21] = "InteraktivnaMapaEvenata.OrganizatorUrediEvent";
+            _typeNameTable[22] = "InteraktivnaMapaEvenata.MusterijaUrediProfil";
+            _typeNameTable[23] = "InteraktivnaMapaEvenata.OrganizatorUrediProfil";
 
-            _typeTable = new global::System.Type[22];
+            _typeTable = new global::System.Type[24];
             _typeTable[0] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminCustomersPage);
             _typeTable[1] = typeof(global::Windows.UI.Xaml.Controls.Page);
             _typeTable[2] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
@@ -164,21 +166,23 @@ namespace InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo
             _typeTable[4] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminEventsPage);
             _typeTable[5] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminFlagInfoPage);
             _typeTable[6] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminFlagsPage);
-            _typeTable[7] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminOwnersPage);
-            _typeTable[8] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminMainPage);
-            _typeTable[9] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminOwnerDetailPage);
-            _typeTable[10] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminStats);
-            _typeTable[11] = typeof(global::InteraktivnaMapaEvenata.MainPage);
-            _typeTable[12] = typeof(global::InteraktivnaMapaEvenata.MusterijaMainPage);
-            _typeTable[13] = typeof(global::InteraktivnaMapaEvenata.MusterijaProfilOrganizatora);
-            _typeTable[14] = typeof(global::InteraktivnaMapaEvenata.MusterijaProfilKorisnika);
-            _typeTable[15] = typeof(global::InteraktivnaMapaEvenata.OrganizatorMainPage);
-            _typeTable[16] = typeof(global::InteraktivnaMapaEvenata.OrganizatorPlacanje);
-            _typeTable[17] = typeof(global::InteraktivnaMapaEvenata.OrganizatorPregledEvenata);
-            _typeTable[18] = typeof(global::InteraktivnaMapaEvenata.OrganizatorTipNaloga);
-            _typeTable[19] = typeof(global::InteraktivnaMapaEvenata.OrganizatorUrediEvent);
-            _typeTable[20] = typeof(global::InteraktivnaMapaEvenata.MusterijaUrediProfil);
-            _typeTable[21] = typeof(global::InteraktivnaMapaEvenata.OrganizatorUrediProfil);
+            _typeTable[7] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminStats);
+            _typeTable[8] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminOwnersPage);
+            _typeTable[9] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminTagsPage);
+            _typeTable[10] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminUsersPage);
+            _typeTable[11] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminMainPage);
+            _typeTable[12] = typeof(global::InteraktivnaMapaEvenata.Admin.AdminOwnerDetailPage);
+            _typeTable[13] = typeof(global::InteraktivnaMapaEvenata.MainPage);
+            _typeTable[14] = typeof(global::InteraktivnaMapaEvenata.MusterijaMainPage);
+            _typeTable[15] = typeof(global::InteraktivnaMapaEvenata.MusterijaProfilOrganizatora);
+            _typeTable[16] = typeof(global::InteraktivnaMapaEvenata.MusterijaProfilKorisnika);
+            _typeTable[17] = typeof(global::InteraktivnaMapaEvenata.OrganizatorMainPage);
+            _typeTable[18] = typeof(global::InteraktivnaMapaEvenata.OrganizatorPlacanje);
+            _typeTable[19] = typeof(global::InteraktivnaMapaEvenata.OrganizatorPregledEvenata);
+            _typeTable[20] = typeof(global::InteraktivnaMapaEvenata.OrganizatorTipNaloga);
+            _typeTable[21] = typeof(global::InteraktivnaMapaEvenata.OrganizatorUrediEvent);
+            _typeTable[22] = typeof(global::InteraktivnaMapaEvenata.MusterijaUrediProfil);
+            _typeTable[23] = typeof(global::InteraktivnaMapaEvenata.OrganizatorUrediProfil);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -218,21 +222,23 @@ namespace InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo
         private object Activate_4_AdminEventsPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminEventsPage(); }
         private object Activate_5_AdminFlagInfoPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminFlagInfoPage(); }
         private object Activate_6_AdminFlagsPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminFlagsPage(); }
-        private object Activate_7_AdminOwnersPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminOwnersPage(); }
-        private object Activate_8_AdminMainPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminMainPage(); }
-        private object Activate_9_AdminOwnerDetailPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminOwnerDetailPage(); }
-        private object Activate_10_AdminStats() { return new global::InteraktivnaMapaEvenata.Admin.AdminStats(); }
-        private object Activate_11_MainPage() { return new global::InteraktivnaMapaEvenata.MainPage(); }
-        private object Activate_12_MusterijaMainPage() { return new global::InteraktivnaMapaEvenata.MusterijaMainPage(); }
-        private object Activate_13_MusterijaProfilOrganizatora() { return new global::InteraktivnaMapaEvenata.MusterijaProfilOrganizatora(); }
-        private object Activate_14_MusterijaProfilKorisnika() { return new global::InteraktivnaMapaEvenata.MusterijaProfilKorisnika(); }
-        private object Activate_15_OrganizatorMainPage() { return new global::InteraktivnaMapaEvenata.OrganizatorMainPage(); }
-        private object Activate_16_OrganizatorPlacanje() { return new global::InteraktivnaMapaEvenata.OrganizatorPlacanje(); }
-        private object Activate_17_OrganizatorPregledEvenata() { return new global::InteraktivnaMapaEvenata.OrganizatorPregledEvenata(); }
-        private object Activate_18_OrganizatorTipNaloga() { return new global::InteraktivnaMapaEvenata.OrganizatorTipNaloga(); }
-        private object Activate_19_OrganizatorUrediEvent() { return new global::InteraktivnaMapaEvenata.OrganizatorUrediEvent(); }
-        private object Activate_20_MusterijaUrediProfil() { return new global::InteraktivnaMapaEvenata.MusterijaUrediProfil(); }
-        private object Activate_21_OrganizatorUrediProfil() { return new global::InteraktivnaMapaEvenata.OrganizatorUrediProfil(); }
+        private object Activate_7_AdminStats() { return new global::InteraktivnaMapaEvenata.Admin.AdminStats(); }
+        private object Activate_8_AdminOwnersPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminOwnersPage(); }
+        private object Activate_9_AdminTagsPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminTagsPage(); }
+        private object Activate_10_AdminUsersPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminUsersPage(); }
+        private object Activate_11_AdminMainPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminMainPage(); }
+        private object Activate_12_AdminOwnerDetailPage() { return new global::InteraktivnaMapaEvenata.Admin.AdminOwnerDetailPage(); }
+        private object Activate_13_MainPage() { return new global::InteraktivnaMapaEvenata.MainPage(); }
+        private object Activate_14_MusterijaMainPage() { return new global::InteraktivnaMapaEvenata.MusterijaMainPage(); }
+        private object Activate_15_MusterijaProfilOrganizatora() { return new global::InteraktivnaMapaEvenata.MusterijaProfilOrganizatora(); }
+        private object Activate_16_MusterijaProfilKorisnika() { return new global::InteraktivnaMapaEvenata.MusterijaProfilKorisnika(); }
+        private object Activate_17_OrganizatorMainPage() { return new global::InteraktivnaMapaEvenata.OrganizatorMainPage(); }
+        private object Activate_18_OrganizatorPlacanje() { return new global::InteraktivnaMapaEvenata.OrganizatorPlacanje(); }
+        private object Activate_19_OrganizatorPregledEvenata() { return new global::InteraktivnaMapaEvenata.OrganizatorPregledEvenata(); }
+        private object Activate_20_OrganizatorTipNaloga() { return new global::InteraktivnaMapaEvenata.OrganizatorTipNaloga(); }
+        private object Activate_21_OrganizatorUrediEvent() { return new global::InteraktivnaMapaEvenata.OrganizatorUrediEvent(); }
+        private object Activate_22_MusterijaUrediProfil() { return new global::InteraktivnaMapaEvenata.MusterijaUrediProfil(); }
+        private object Activate_23_OrganizatorUrediProfil() { return new global::InteraktivnaMapaEvenata.OrganizatorUrediProfil(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -287,107 +293,121 @@ namespace InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 7:   //  InteraktivnaMapaEvenata.Admin.AdminOwnersPage
+            case 7:   //  InteraktivnaMapaEvenata.Admin.AdminStats
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_7_AdminOwnersPage;
+                userType.Activator = Activate_7_AdminStats;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 8:   //  InteraktivnaMapaEvenata.Admin.AdminMainPage
+            case 8:   //  InteraktivnaMapaEvenata.Admin.AdminOwnersPage
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_8_AdminMainPage;
+                userType.Activator = Activate_8_AdminOwnersPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 9:   //  InteraktivnaMapaEvenata.Admin.AdminOwnerDetailPage
+            case 9:   //  InteraktivnaMapaEvenata.Admin.AdminTagsPage
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_9_AdminOwnerDetailPage;
+                userType.Activator = Activate_9_AdminTagsPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 10:   //  InteraktivnaMapaEvenata.Admin.AdminStats
+            case 10:   //  InteraktivnaMapaEvenata.Admin.AdminUsersPage
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_10_AdminStats;
+                userType.Activator = Activate_10_AdminUsersPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 11:   //  InteraktivnaMapaEvenata.MainPage
+            case 11:   //  InteraktivnaMapaEvenata.Admin.AdminMainPage
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_11_MainPage;
+                userType.Activator = Activate_11_AdminMainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 12:   //  InteraktivnaMapaEvenata.MusterijaMainPage
+            case 12:   //  InteraktivnaMapaEvenata.Admin.AdminOwnerDetailPage
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_12_MusterijaMainPage;
+                userType.Activator = Activate_12_AdminOwnerDetailPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 13:   //  InteraktivnaMapaEvenata.MusterijaProfilOrganizatora
+            case 13:   //  InteraktivnaMapaEvenata.MainPage
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_13_MusterijaProfilOrganizatora;
+                userType.Activator = Activate_13_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 14:   //  InteraktivnaMapaEvenata.MusterijaProfilKorisnika
+            case 14:   //  InteraktivnaMapaEvenata.MusterijaMainPage
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_14_MusterijaProfilKorisnika;
+                userType.Activator = Activate_14_MusterijaMainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 15:   //  InteraktivnaMapaEvenata.OrganizatorMainPage
+            case 15:   //  InteraktivnaMapaEvenata.MusterijaProfilOrganizatora
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_15_OrganizatorMainPage;
+                userType.Activator = Activate_15_MusterijaProfilOrganizatora;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 16:   //  InteraktivnaMapaEvenata.OrganizatorPlacanje
+            case 16:   //  InteraktivnaMapaEvenata.MusterijaProfilKorisnika
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_16_OrganizatorPlacanje;
+                userType.Activator = Activate_16_MusterijaProfilKorisnika;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 17:   //  InteraktivnaMapaEvenata.OrganizatorPregledEvenata
+            case 17:   //  InteraktivnaMapaEvenata.OrganizatorMainPage
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_17_OrganizatorPregledEvenata;
+                userType.Activator = Activate_17_OrganizatorMainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 18:   //  InteraktivnaMapaEvenata.OrganizatorTipNaloga
+            case 18:   //  InteraktivnaMapaEvenata.OrganizatorPlacanje
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_18_OrganizatorTipNaloga;
+                userType.Activator = Activate_18_OrganizatorPlacanje;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 19:   //  InteraktivnaMapaEvenata.OrganizatorUrediEvent
+            case 19:   //  InteraktivnaMapaEvenata.OrganizatorPregledEvenata
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_19_OrganizatorUrediEvent;
+                userType.Activator = Activate_19_OrganizatorPregledEvenata;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 20:   //  InteraktivnaMapaEvenata.MusterijaUrediProfil
+            case 20:   //  InteraktivnaMapaEvenata.OrganizatorTipNaloga
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_20_MusterijaUrediProfil;
+                userType.Activator = Activate_20_OrganizatorTipNaloga;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 21:   //  InteraktivnaMapaEvenata.OrganizatorUrediProfil
+            case 21:   //  InteraktivnaMapaEvenata.OrganizatorUrediEvent
                 userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_21_OrganizatorUrediProfil;
+                userType.Activator = Activate_21_OrganizatorUrediEvent;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 22:   //  InteraktivnaMapaEvenata.MusterijaUrediProfil
+                userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_22_MusterijaUrediProfil;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 23:   //  InteraktivnaMapaEvenata.OrganizatorUrediProfil
+                userType = new global::InteraktivnaMapaEvenata.InteraktivnaMapaEvenata_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_23_OrganizatorUrediProfil;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;

@@ -8,6 +8,34 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <StackPanel>
+            <ComboBox HorizontalAlignment="Stretch">
+                <ComboBoxItem>Laz</ComboBoxItem>
+                <ComboBoxItem>Kleveta</ComboBoxItem>
+                <ComboBoxItem>Ucjena</ComboBoxItem>
+            </ComboBox>
+            <ListView ItemClick="FlagsList_ItemClick" ItemsSource="{x:Bind Flags}" IsItemClickEnabled="True" x:Name="FlagsList">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:Flag">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" HorizontalAlignment="Left" Grid.Column="0" Text="{Binding Username}" Style="{StaticResource BodyTextBlockStyle}"/>
+                            <TextBlock Grid.Row="0" HorizontalAlignment="Right" Grid.Column="1" Text="{Binding Category}" Style="{StaticResource BodyTextBlockStyle}"/>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
     </Grid>
 </Page>

@@ -8,6 +8,20 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+        <StackPanel Margin="10,20,10,0">
+            <StackPanel Orientation="Horizontal">
+                <Image Width="50" Height="50" HorizontalAlignment="Left" Source="/Assets/Images/profile.png" />
+                <TextBlock Style="{StaticResource SubheaderTextBlockStyle}">
+                    Elvir Crncevic
+                </TextBlock>
+            </StackPanel>
+            <TextBlock TextAlignment="Justify" Margin="10,0,20,0" TextWrapping="Wrap">
+                <Run Text="{x:Bind Flag.Explanation}"/>
+            </TextBlock>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Potvrdi" Click="ButtonConfirm_Click"/>
+                <Button Margin="5,0,0,0" Content="Odbij"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Page>

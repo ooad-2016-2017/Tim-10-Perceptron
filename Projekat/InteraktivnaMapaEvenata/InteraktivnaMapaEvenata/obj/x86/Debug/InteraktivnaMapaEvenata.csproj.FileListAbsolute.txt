@@ -527,3 +527,13 @@ C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEve
 C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminFlagsPage.g.cs
 C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminFlagsPage.xaml
 C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminFlagsPage.xbf
+C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminUsersPage.g.i.cs
+C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminUsersPage.g.cs
+C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminUsersPage.xaml
+C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminUsersPage.xbf
+C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\Admin\AdminUsersPage.xbf
+C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\Admin\AdminTagsPage.xbf
+C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminTagsPage.g.i.cs
+C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminTagsPage.g.cs
+C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminTagsPage.xaml
+C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\obj\x86\Debug\Admin\AdminTagsPage.xbf
