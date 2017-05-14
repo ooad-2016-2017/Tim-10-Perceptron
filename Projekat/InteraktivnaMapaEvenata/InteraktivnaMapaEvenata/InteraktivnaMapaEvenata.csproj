@@ -237,17 +237,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-<<<<<<< HEAD
-    <Page Include="KreiranjeEventa1.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="KreiranjeEventa2.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="KreiranjeEventa3.xaml">
-=======
     <Page Include="Admin\AdminCustomersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -281,7 +270,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Admin\AdminStatsPage.xaml">
->>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
