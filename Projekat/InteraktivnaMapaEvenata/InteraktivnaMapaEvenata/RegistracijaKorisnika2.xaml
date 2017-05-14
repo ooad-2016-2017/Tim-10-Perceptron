@@ -1,0 +1,58 @@
+﻿<Page
+    x:Class="InteraktivnaMapaEvenata.RegistracijaKorisnika2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InteraktivnaMapaEvenata"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock x:Name="personalDataTextBlock" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Left" FontSize="30" Text="Lični podaci"/>
+        <TextBlock x:Name="pictureTextBlock" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Slika profila"/>
+        <Image x:Name="pictureImage" Grid.ColumnSpan="2" Grid.Column="3" HorizontalAlignment="Stretch"  Grid.Row="2" Grid.RowSpan="1" VerticalAlignment="Stretch" />
+        <TextBlock x:Name="nameTextBlock" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text="Korisničko ime"/>
+        <TextBox x:Name="nameTextBox" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+        <TextBlock x:Name="surnameTextBlock" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Text="Lozinka" />
+        <TextBox x:Name="surnameTextBox" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
+        <Button x:Name="nextButton" Content="Dalje" Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+        <TextBlock x:Name="genderTextBlock" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Spol" />
+        <Grid Grid.ColumnSpan="2" Grid.Column="3"  Grid.Row="4" Margin="0, 10">
+            <RadioButton x:Name="maleRadioButton" Content="Muško" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <RadioButton x:Name="femaleRadioButton" Content="Žensko" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+
+        </Grid>
+        <TextBlock x:Name="dateOfBirthTextBlock" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Datum rođenja" />
+        <CalendarDatePicker  x:Name="dateOfBirthDatePicker" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+
+        <Grid Grid.ColumnSpan="4" VerticalAlignment="center"  Grid.Row="76" Grid.Column="1">
+            <Rectangle RadiusX="100" RadiusY="100" Width="20" Height="20" Stroke="Black" StrokeThickness="1" HorizontalAlignment="center" VerticalAlignment="center" Margin="0,0,144,0"/>
+            <Rectangle RadiusX="100" RadiusY="100" Width="20" Height="20" Stroke="Black" StrokeThickness="1" HorizontalAlignment="center" VerticalAlignment="center" Margin="72,0"/>
+            <Rectangle RadiusX="100" RadiusY="100" Width="20" Height="20" Stroke="Black" StrokeThickness="1" HorizontalAlignment="center" VerticalAlignment="center" Margin="144,0,0,0"/>
+
+        </Grid>
+        <Button x:Name="previousButton" Content="Nazad" Grid.Column="1" Grid.ColumnSpan="1" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+
+    </Grid>
+</Page>

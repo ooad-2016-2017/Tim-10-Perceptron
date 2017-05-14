@@ -95,6 +95,15 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="KreiranjeEventa1.xaml.cs">
+      <DependentUpon>KreiranjeEventa1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KreiranjeEventa2.xaml.cs">
+      <DependentUpon>KreiranjeEventa2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KreiranjeEventa3.xaml.cs">
+      <DependentUpon>KreiranjeEventa3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -129,6 +138,36 @@
       <DependentUpon>OrganizatorUrediProfil.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registracija.xaml.cs">
+      <DependentUpon>Registracija.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistracijaKorisnika1.xaml.cs">
+      <DependentUpon>RegistracijaKorisnika1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistracijaKorisnika2.xaml.cs">
+      <DependentUpon>RegistracijaKorisnika2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistracijaKorisnika3.xaml.cs">
+      <DependentUpon>RegistracijaKorisnika3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistracijaKorisnika4.xaml.cs">
+      <DependentUpon>RegistracijaKorisnika4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistracijaOrganizatora2.xaml.cs">
+      <DependentUpon>RegistracijaOrganizatora2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistracijaOrganizatora3.xaml.cs">
+      <DependentUpon>RegistracijaOrganizatora3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistracijaOrganizatora4.xaml.cs">
+      <DependentUpon>RegistracijaOrganizatora4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistracijaOrganizatora5.xaml.cs">
+      <DependentUpon>RegistracijaOrganizatora5.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RegistracijaOrgnizatora1.xaml.cs">
+      <DependentUpon>RegistracijaOrgnizatora1.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -153,6 +192,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="KreiranjeEventa1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KreiranjeEventa2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KreiranjeEventa3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -194,6 +245,46 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="OrganizatorUrediProfil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Registracija.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistracijaKorisnika1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistracijaKorisnika2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistracijaKorisnika3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistracijaKorisnika4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistracijaOrganizatora2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistracijaOrganizatora3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistracijaOrganizatora4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistracijaOrganizatora5.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RegistracijaOrgnizatora1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
