@@ -337,10 +337,32 @@
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\BackArrow.png">
       <PackagePath>Assets\Images\BackArrow.png</PackagePath>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\FrontArrow.png">
       <PackagePath>Assets\Images\FrontArrow.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\LockScreenLogo.scale-200.png">
+=======
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\event.png">
+      <PackagePath>Assets\Images\event.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\FrontArrow.png">
+      <PackagePath>Assets\Images\FrontArrow.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\info.png">
+      <PackagePath>Assets\Images\info.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\lookingglass.png">
+      <PackagePath>Assets\Images\lookingglass.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\pie.png">
+      <PackagePath>Assets\Images\pie.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\profile.png">
+      <PackagePath>Assets\Images\profile.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\LockScreenLogo.scale-200.png">
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\SplashScreen.scale-200.png">
@@ -367,7 +389,14 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Properties\Default.rd.xml">
+=======
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\eventstock.jpg">
+      <PackagePath>Assets\Images\eventstock.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Properties\Default.rd.xml">
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
       <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\InteraktivnaMapaEvenata.xr.xml">

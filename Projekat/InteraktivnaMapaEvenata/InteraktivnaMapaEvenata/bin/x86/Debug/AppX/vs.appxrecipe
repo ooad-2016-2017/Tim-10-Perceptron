@@ -16,7 +16,11 @@
     <PackageRegistrationPath>
     </PackageRegistrationPath>
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
+<<<<<<< HEAD
     <RegisteredManifestChecksum>4DB032655DC1A32E6A715F4D48E845F846FA3E490623AF9F38C271DAD17DE71A</RegisteredManifestChecksum>
+=======
+    <RegisteredManifestChecksum>ED26F2DF1E64383DAA25677FAB971F32C7C4737609B40B464AE60AC5A8D3D6AB</RegisteredManifestChecksum>
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
     <RegisteredPackageMoniker>923c41b5-a54a-44c3-8af0-51b3ac7d7b74_1.0.0.0_x86__rjkvsc122aydr</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>923c41b5-a54a-44c3-8af0-51b3ac7d7b74_rjkvsc122aydr!App</RegisteredUserModeAppID>
     <RegisteredPackageID>923c41b5-a54a-44c3-8af0-51b3ac7d7b74</RegisteredPackageID>
@@ -28,13 +32,21 @@
     <AppXManifest Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+<<<<<<< HEAD
       <Modified>2017-05-13T21:06:55.783</Modified>
+=======
+      <Modified>2017-05-14T19:12:07.076</Modified>
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\InteraktivnaMapaEvenata.exe">
       <PackagePath>entrypoint\InteraktivnaMapaEvenata.exe</PackagePath>
+<<<<<<< HEAD
       <Modified>2017-05-13T21:06:50.894</Modified>
+=======
+      <Modified>2017-05-14T19:12:06.750</Modified>
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Amar.B\.nuget\packages\Microsoft.CSharp\4.0.0\lib\netcore50\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>
@@ -452,11 +464,39 @@
       <PackagePath>Assets\Images\BackArrow.png</PackagePath>
       <Modified>2017-05-13T19:12:12.223</Modified>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\FrontArrow.png">
+=======
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\event.png">
+      <PackagePath>Assets\Images\event.png</PackagePath>
+      <Modified>2017-05-14T18:28:35.123</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\FrontArrow.png">
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
       <PackagePath>Assets\Images\FrontArrow.png</PackagePath>
       <Modified>2017-05-13T19:12:12.227</Modified>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\LockScreenLogo.scale-200.png">
+=======
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\info.png">
+      <PackagePath>Assets\Images\info.png</PackagePath>
+      <Modified>2017-05-14T18:28:35.170</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\lookingglass.png">
+      <PackagePath>Assets\Images\lookingglass.png</PackagePath>
+      <Modified>2017-05-14T18:28:35.170</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\pie.png">
+      <PackagePath>Assets\Images\pie.png</PackagePath>
+      <Modified>2017-05-14T18:28:35.170</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\profile.png">
+      <PackagePath>Assets\Images\profile.png</PackagePath>
+      <Modified>2017-05-14T18:28:35.170</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\LockScreenLogo.scale-200.png">
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2017-03-26T20:10:50.068</Modified>
     </AppxPackagedFile>
@@ -490,13 +530,25 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2017-03-26T20:10:50.078</Modified>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Properties\Default.rd.xml">
+=======
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Assets\Images\eventstock.jpg">
+      <PackagePath>Assets\Images\eventstock.jpg</PackagePath>
+      <Modified>2017-05-14T18:28:35.170</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\Properties\Default.rd.xml">
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2017-03-26T20:10:50.168</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\InteraktivnaMapaEvenata.xr.xml">
       <PackagePath>InteraktivnaMapaEvenata.xr.xml</PackagePath>
+<<<<<<< HEAD
       <Modified>2017-05-13T19:12:30.191</Modified>
+=======
+      <Modified>2017-05-14T19:08:44.307</Modified>
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -504,11 +556,20 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
+<<<<<<< HEAD
       <Modified>2017-05-13T21:06:54.062</Modified>
+=======
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2017-05-14T19:08:45.133</Modified>
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Amar.B\Desktop\OOAD\Tim10-Perceptron\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\bin\x86\Debug\Core\InteraktivnaMapaEvenata.exe">
       <PackagePath>InteraktivnaMapaEvenata.exe</PackagePath>
+<<<<<<< HEAD
       <Modified>2017-05-13T21:06:55.746</Modified>
+=======
+      <Modified>2017-05-14T19:12:07.072</Modified>
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

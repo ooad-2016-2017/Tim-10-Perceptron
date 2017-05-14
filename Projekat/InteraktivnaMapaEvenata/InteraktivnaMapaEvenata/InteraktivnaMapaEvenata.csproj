@@ -92,6 +92,35 @@
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\AdminCustomersPage.xaml.cs">
+      <DependentUpon>AdminCustomersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminEventPage.xaml.cs">
+      <DependentUpon>AdminEventPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminEventsPage.xaml.cs">
+      <DependentUpon>AdminEventsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminFlagInfoPage.xaml.cs">
+      <DependentUpon>AdminFlagInfoPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminFlagsPage.xaml.cs">
+      <DependentUpon>AdminFlagsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminMainPage.xaml.cs">
+      <DependentUpon>AdminMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminOwnerDetailPage.xaml.cs">
+      <DependentUpon>AdminOwnerDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminOwnersPage.xaml.cs">
+      <DependentUpon>AdminOwnersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AdminStatsPage.xaml.cs">
+      <DependentUpon>AdminStatsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Event.cs" />
+    <Compile Include="Admin\Owner.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -107,34 +136,34 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MusterijaMainPage.xaml.cs">
+    <Compile Include="Customer\MusterijaMainPage.xaml.cs">
       <DependentUpon>MusterijaMainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MusterijaProfilOrganizatora.xaml.cs">
+    <Compile Include="Customer\MusterijaProfilOrganizatora.xaml.cs">
       <DependentUpon>MusterijaProfilOrganizatora.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MusterijaProfilKorisnika.xaml.cs">
+    <Compile Include="Customer\MusterijaProfilKorisnika.xaml.cs">
       <DependentUpon>MusterijaProfilKorisnika.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OrganizatorMainPage.xaml.cs">
+    <Compile Include="Owner\OrganizatorMainPage.xaml.cs">
       <DependentUpon>OrganizatorMainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OrganizatorPlacanje.xaml.cs">
+    <Compile Include="Owner\OrganizatorPlacanje.xaml.cs">
       <DependentUpon>OrganizatorPlacanje.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OrganizatorPregledEvenata.xaml.cs">
+    <Compile Include="Owner\OrganizatorPregledEvenata.xaml.cs">
       <DependentUpon>OrganizatorPregledEvenata.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OrganizatorTipNaloga.xaml.cs">
+    <Compile Include="Owner\OrganizatorTipNaloga.xaml.cs">
       <DependentUpon>OrganizatorTipNaloga.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OrganizatorUrediEvent.xaml.cs">
+    <Compile Include="Owner\OrganizatorUrediEvent.xaml.cs">
       <DependentUpon>OrganizatorUrediEvent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MusterijaUrediProfil.xaml.cs">
+    <Compile Include="Customer\MusterijaUrediProfil.xaml.cs">
       <DependentUpon>MusterijaUrediProfil.xaml</DependentUpon>
     </Compile>
-    <Compile Include="OrganizatorUrediProfil.xaml.cs">
+    <Compile Include="Owner\OrganizatorUrediProfil.xaml.cs">
       <DependentUpon>OrganizatorUrediProfil.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -176,8 +205,15 @@
     <None Include="InteraktivnaMapaEvenata_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Tax.cs" />
     <Content Include="Assets\Images\BackArrow.png" />
+    <Content Include="Assets\Images\event.png" />
+    <Content Include="Assets\Images\eventstock.jpg" />
     <Content Include="Assets\Images\FrontArrow.png" />
+    <Content Include="Assets\Images\info.png" />
+    <Content Include="Assets\Images\lookingglass.png" />
+    <Content Include="Assets\Images\pie.png" />
+    <Content Include="Assets\Images\profile.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -192,6 +228,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
     <Page Include="KreiranjeEventa1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +238,41 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="KreiranjeEventa3.xaml">
+=======
+    <Page Include="Admin\AdminCustomersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminEventPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminEventsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminFlagInfoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminFlagsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminOwnerDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminOwnersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin\AdminStatsPage.xaml">
+>>>>>>> 92245eeb0e0d52fc40eff72d829a3ce0dea818de
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -208,43 +280,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MusterijaMainPage.xaml">
+    <Page Include="Customer\MusterijaMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MusterijaProfilOrganizatora.xaml">
+    <Page Include="Customer\MusterijaProfilOrganizatora.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MusterijaProfilKorisnika.xaml">
+    <Page Include="Customer\MusterijaProfilKorisnika.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OrganizatorMainPage.xaml">
+    <Page Include="Owner\OrganizatorMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OrganizatorPlacanje.xaml">
+    <Page Include="Owner\OrganizatorPlacanje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OrganizatorPregledEvenata.xaml">
+    <Page Include="Owner\OrganizatorPregledEvenata.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OrganizatorTipNaloga.xaml">
+    <Page Include="Owner\OrganizatorTipNaloga.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="OrganizatorUrediEvent.xaml">
+    <Page Include="Owner\OrganizatorUrediEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MusterijaUrediProfil.xaml">
+    <Page Include="Customer\MusterijaUrediProfil.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="OrganizatorUrediProfil.xaml">
+    <Page Include="Owner\OrganizatorUrediProfil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -289,7 +361,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
