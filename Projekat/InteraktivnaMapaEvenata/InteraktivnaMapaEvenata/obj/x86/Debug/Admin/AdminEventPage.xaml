@@ -1,0 +1,50 @@
+﻿<Page x:ConnectionId='1'
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InteraktivnaMapaEvenata.Admin"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
+    x:Class="InteraktivnaMapaEvenata.Admin.AdminEventPage"
+    mc:Ignorable="d">
+    <!--xmlns:Charts="using:Syncfusion.UI.Xaml.Charts"-->
+    <ScrollViewer>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <StackPanel Margin="0,0,0,188">
+                <TextBlock x:ConnectionId='2' VerticalAlignment="Bottom" Foreground="Black" Margin="20,0,20,0"                            FontWeight="Bold" Style="{StaticResource HeaderTextBlockStyle}"/>
+                <Image Margin="20,0,20,0" Source="/Assets/Images/eventstock.jpg" />
+                <StackPanel Orientation="Horizontal"/>
+                <Grid HorizontalAlignment="Stretch">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="20" Grid.Row="0" Style="{StaticResource SubheaderTextBlockStyle}" Grid.Column="0" Text="Opis" />
+                    <CalendarDatePicker Header="Datum" Margin="0,0,20,0" HorizontalAlignment="Right" Grid.Column="1" IsEnabled="False" />
+                </Grid>
+                <TextBlock TextAlignment="Justify" Margin="20,0,20,0" TextWrapping="Wrap">
+                    <Run x:ConnectionId='4'                                  />
+                </TextBlock>
+                <!--<Charts:PieSeries HorizontalAlignment="Stretch" Height="{Binding ElementName=LeftChart, Path=Width}" XBindingPath="Category" YBindingPath="Count" ItemsSource="{Binding Tax}" Name="LeftChart" />-->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Image Grid.Column="0" Source="/Assets/Images/pie.png" />
+                    <Image Grid.Column="1" Source="/Assets/Images/pie.png" />
+                </Grid>
+                <Maps:MapControl x:ConnectionId='3'
+                       x:Name="MapControl1"            
+                       ZoomInteractionMode="GestureAndControl"
+                       TiltInteractionMode="GestureAndControl"   
+                       MapServiceToken="EYWVf18BD40zQrcZWgD8~n0vB5Saq4m21VR02_tj98A~AimecBVie9he4w6ReIkroObpniXA9jwFlopLaVYcdWyaqXbYy8SHXi9uuDLwridt"
+                       HorizontalAlignment="Stretch" Height="500" />
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Page>
+

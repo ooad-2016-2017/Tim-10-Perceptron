@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="InteraktivnaMapaEvenata.Admin.AdminEventsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InteraktivnaMapaEvenata.Admin"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <TextBox Text="{Binding FallbackValue=Pretraga}"/>
+        <ListView ItemsSource="{x:Bind Events }" ItemClick="EventsList_ItemClick" IsItemClickEnabled="True" x:Name="EventsList">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="local:Event">
+                   <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Image Width="{Binding ActualHeight, ElementName=eventName}" Grid.Row="0" Grid.Column="0" Source="/Assets/Images/event.png"/>
+                        <StackPanel Grid.Row="0" Grid.Column="1" Name="eventName" Margin="5,0,0,0">
+                            <TextBlock Text="{x:Bind Name}" Style="{StaticResource BodyTextBlockStyle}"/>
+                            <TextBlock Text="{x:Bind Subtitle}" Style="{StaticResource CaptionTextBlockStyle}"/>
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackPanel>
+</Page>
