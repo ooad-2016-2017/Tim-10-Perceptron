@@ -1,4 +1,4 @@
-Single responsibility principle
+﻿Single responsibility principle
 Single responsibility je prva stvar na koju smo pazili pri dizajniranju ovog sistema. Naš sistem sadrži tri vrste klasa:
 Domain model klase - klase koje modeliraju objekte unutar sistema. Sadrže isključivo atribute relevantne za te objekte i getere/setere za iste atribute. 
 Manageri, odnosno servisi - klase koje su zadužene za grupno upravljanje klasama iz Domain Modela i koje služe za perzistenciju podataka. Svaka manager klasa je vezana za isključivo jednu klasu domain modela.
@@ -10,6 +10,8 @@ Kako smo mi ti koji postavljamo zahtjeve za aplikaciju, to je vjerovatnoća da �
 
 Liskov substitution principle
 Pošto je klasa User generalizacija klase QRScannera, a QRScanner je uređaj, to znači da QRScanner ima suvišne atribute: profileImage, email, isBanned koji nisu potrebni toj klasi. Zbog ovoga, Liskov princip nije zadovoljen. Potrebno je napraviti klasu za QRScanner uređaj koji nije vezan za klasu User, ili redefinirati klasu User(određene atribute premjestiti).
+
+//Popravljeno: klasa QRScanner vise nije generalizacija klase User, te je Liskov princip zadovoljen.
 
 Interface segregation principle
 Svaka klasa sadrži samo one metode koje će sasvim sigurno biti upotrebljene isključivo za potrebe te klase u kojoj su definirane. Kako klase imaju relativno mal broj metoda, do kršenja ovog principa ne može doći.
