@@ -4,9 +4,8 @@
     <RootPropertyPathName Name="ActualHeight" />
     <RootPropertyPathName Name="Surname" />
     <RootPropertyPathName Name="Name" />
-    <RootPropertyPathName Name="Width" />
-    <RootPropertyPathName Name="Height" />
     <RootPropertyPathName Name="Visibility" />
+    <RootPropertyPathName Name="Height" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
     <RootType FullName="Windows.UI.Xaml.Application">
@@ -94,7 +93,6 @@
       <RootProperty Name="Text" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
-      <RootProperty Name="BorderThickness" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
     </RootType>
@@ -126,34 +124,20 @@
     <RootType FullName="InteraktivnaMapaEvenata.Admin.AdminMainPage" />
     <RootType FullName="InteraktivnaMapaEvenata.Admin.AdminOwnerDetailPage" />
     <RootType FullName="InteraktivnaMapaEvenata.Admin.AdminStats" />
-    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
-      <RootProperty Name="RadiusX" />
-      <RootProperty Name="RadiusY" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Height" />
-      <RootProperty Name="Stroke" />
-      <RootProperty Name="StrokeThickness" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Fill" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Visibility" />
-      <RootProperty Name="Opacity" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.PasswordBox">
       <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="BorderThickness" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
-      <RootProperty Name="BorderThickness" />
       <RootProperty Name="Content" />
-      <RootProperty Name="Background" />
       <RootProperty Name="Foreground" />
+      <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Background" />
       <RootProperty Name="Opacity" />
       <RootProperty Name="FontFamily" />
       <RootProperty Name="Margin" />
@@ -174,6 +158,15 @@
       <RootProperty Name="Content" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.NullExtension" />
+    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
+      <RootProperty Name="Fill" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="Opacity" />
+      <RootProperty Name="Stroke" />
+      <RootProperty Name="StrokeThickness" />
+      <RootProperty Name="RadiusX" />
+      <RootProperty Name="RadiusY" />
+    </RootType>
     <RootType FullName="InteraktivnaMapaEvenata.MusterijaMainPage" />
     <RootType FullName="InteraktivnaMapaEvenata.MusterijaProfilOrganizatora" />
     <RootType FullName="InteraktivnaMapaEvenata.MusterijaProfilKorisnika" />

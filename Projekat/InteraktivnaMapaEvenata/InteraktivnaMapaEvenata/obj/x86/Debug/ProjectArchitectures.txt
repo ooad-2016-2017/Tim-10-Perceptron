@@ -1,1 +1,1 @@
-C:\Users\elvircrn\Documents\codes2\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata.csproj;x86
+C:\Users\veda_\Desktop\OOAD git\Tim10-Perceptron\Projekat\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata\InteraktivnaMapaEvenata.csproj;x86
