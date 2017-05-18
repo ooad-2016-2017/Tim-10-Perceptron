@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="InteraktivnaMapaEvenata.RegistracijaOrganizatora4"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InteraktivnaMapaEvenata"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+        <TextBlock x:Name="paymentInfoTextBlock" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" HorizontalAlignment="Left" FontSize="30" Text="Informacije o plaćanju"/>
+        <Image Source="Assets/credit-card-3.png" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Image Source="Assets/paypal.png" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+        <Button x:Name="nextButton" Content="Završi" Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="6" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+
+        <Rectangle RadiusX="100" RadiusY="100" Width="20" Height="20" Stroke="Black" StrokeThickness="1" HorizontalAlignment="center" VerticalAlignment="center" Grid.Column="1" Grid.Row="8"/>
+        <Rectangle RadiusX="100" RadiusY="100" Width="20" Height="20" Stroke="Black" StrokeThickness="1" HorizontalAlignment="center" VerticalAlignment="center" Grid.Column="2" Grid.Row="8"/>
+        <Rectangle RadiusX="100" RadiusY="100" Width="20" Height="20" Stroke="Black" StrokeThickness="1" HorizontalAlignment="center" VerticalAlignment="center" Grid.Column="3" Grid.Row="8"/>
+        <Rectangle RadiusX="100" RadiusY="100" Width="20" Height="20" Stroke="Black" StrokeThickness="1" HorizontalAlignment="center" VerticalAlignment="center" Grid.Column="4" Grid.Row="8"/>
+
+    </Grid>
+</Page>

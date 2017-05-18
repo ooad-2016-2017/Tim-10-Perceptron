@@ -166,6 +166,18 @@
       <DependentUpon>OrganizatorUrediProfil.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration\KreiranjeEventa1.xaml.cs" />
+    <Compile Include="Registration\KreiranjeEventa2.xaml.cs" />
+    <Compile Include="Registration\KreiranjeEventa3.xaml.cs" />
+    <Compile Include="Registration\RegistracijaKorisnika1.xaml.cs" />
+    <Compile Include="Registration\RegistracijaKorisnika2.xaml.cs" />
+    <Compile Include="Registration\RegistracijaKorisnika3.xaml.cs" />
+    <Compile Include="Registration\RegistracijaKorisnika4.xaml.cs" />
+    <Compile Include="Registration\RegistracijaOrganizatora2.xaml.cs" />
+    <Compile Include="Registration\RegistracijaOrganizatora3.xaml.cs" />
+    <Compile Include="Registration\RegistracijaOrganizatora4.xaml.cs" />
+    <Compile Include="Registration\RegistracijaOrganizatora5.xaml.cs" />
+    <Compile Include="Registration\RegistracijaOrgnizatora1.xaml.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -285,6 +297,54 @@
     <Page Include="Owner\OrganizatorUrediProfil.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Registration\KreiranjeEventa1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\KreiranjeEventa2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\KreiranjeEventa3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\RegistracijaKorisnika1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\RegistracijaKorisnika2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\RegistracijaKorisnika3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\RegistracijaKorisnika4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\RegistracijaOrganizatora2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\RegistracijaOrganizatora3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\RegistracijaOrganizatora4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\RegistracijaOrganizatora5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\RegistracijaOrgnizatora1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
