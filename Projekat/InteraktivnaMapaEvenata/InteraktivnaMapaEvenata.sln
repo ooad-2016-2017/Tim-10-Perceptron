@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteraktivnaMapaEvenata.UWP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteraktivnaMapaEvenata.Models", "InteraktivnaMapaEvenata.Models\InteraktivnaMapaEvenata.Models.csproj", "{420F97AA-F7DB-43B3-BB32-C81F8AEB8D59}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InteraktivnaMapaEvenata.DAL", "InteraktivnaMapaEvenata.DAL\InteraktivnaMapaEvenata.DAL.csproj", "{05181101-DC55-4799-99A4-5341D940225A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,22 @@ Global
 		{420F97AA-F7DB-43B3-BB32-C81F8AEB8D59}.Release|x64.Build.0 = Release|Any CPU
 		{420F97AA-F7DB-43B3-BB32-C81F8AEB8D59}.Release|x86.ActiveCfg = Release|Any CPU
 		{420F97AA-F7DB-43B3-BB32-C81F8AEB8D59}.Release|x86.Build.0 = Release|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Debug|ARM.Build.0 = Debug|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Debug|x64.Build.0 = Debug|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Debug|x86.Build.0 = Debug|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Release|ARM.Build.0 = Release|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Release|x64.ActiveCfg = Release|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Release|x64.Build.0 = Release|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Release|x86.ActiveCfg = Release|Any CPU
+		{05181101-DC55-4799-99A4-5341D940225A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
