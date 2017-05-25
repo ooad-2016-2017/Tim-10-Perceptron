@@ -8,10 +8,16 @@ namespace InteraktivnaMapaEvenata.Models
 {
     public class Promotion
     {
-        public int PromotionId { get; set; }
-
         public int? CustomerLimit { get; set; }
 
-        public List<Customer> Customers { get; set; }
+        public ICollection<Customer> Customers { get; set; }
+
+        public Owner Owner { get; set; }
+
+        public ICollection<QRScanner> QRScanners { get; set; }
+
+        public String Description { get; set; }
+
+        public String Name { get; set; }
     }
 }

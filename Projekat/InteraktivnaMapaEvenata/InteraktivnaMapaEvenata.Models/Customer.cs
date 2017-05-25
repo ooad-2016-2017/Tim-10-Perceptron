@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Models
 {
-    public class Customer
+    public class Customer : ApplicationUser
     {
         public int CustomerId { get; set; }
 
-        public enum Genders { Male, Female }
+        public enum Genders { Male, Female, Unspecified }
 
         [Required]
         public string Name { get; set; }
@@ -24,5 +24,15 @@ namespace InteraktivnaMapaEvenata.Models
 
         [Required]
         public Genders Gender { get; set; }
+
+        public ICollection<Owner> FollowedOwners { get; set; }
+
+        public ICollection<Promotion> FollowedPromotions { get; set; }
+
+        public ICollection<Event> FollowedEvents { get; set; }
+
+        public ICollection<Customer> Friends { get; set; }
+
+        public ICollection<Flag> Flags { get; set; }
     }
 }

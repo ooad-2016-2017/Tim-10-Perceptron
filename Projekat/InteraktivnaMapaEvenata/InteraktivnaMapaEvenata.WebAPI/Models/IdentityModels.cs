@@ -21,7 +21,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("LocalDb", throwIfV1Schema: false)
         {
         }
         

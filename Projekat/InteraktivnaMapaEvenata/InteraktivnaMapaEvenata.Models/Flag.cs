@@ -7,16 +7,14 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Models
 {
-    public class Notification
+    public class Flag
     {
         [Required]
-        public Owner Source { get; set; }
+        public String Description { get; set; }
 
         [Required]
-        public ApplicationUser DestinationUser { get; set; }
+        public Customer Customer { get; set; }
 
-        public string Text { get; set; }
-
-        public string LongText { get; set; }
+        public FlagState FlagState { get; set; }
     }
 }

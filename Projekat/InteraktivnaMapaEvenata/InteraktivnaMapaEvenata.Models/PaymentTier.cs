@@ -7,13 +7,20 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Models
 {
-    public class EventState
+    public class PaymentTier
     {
-        public int EventStateId { get; set; }
+        public ICollection<Owner> Owners { get; set; }
+
+        [Required]
+        public double Price { get; set; }
 
         [Required]
         public string Description { get; set; }
 
-        public ICollection<Event> Events { get; set; }
+        [Required]
+        public string Label { get; set; }
+
+        [Required]
+        public DateTime Duration { get; set; }
     }
 }
