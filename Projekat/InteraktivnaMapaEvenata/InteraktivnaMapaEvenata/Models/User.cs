@@ -8,8 +8,16 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 {
     public class User
     {
-        public string Name { get; set; }
+        public int id { get; set; }
 
-        public int FriendsCount { get; set; }
+        public string username { get; set; }
+
+        public string password { get; set; }
+
+        public string email { get; set; }
+
+        //bitmap
+
+        public bool isBanned { get; set; }        
     }
 }
