@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.UWP.Models
 {
-    public class Owner
+    public class Owner : User
     {
-        public String Name { get; set; }
+        public string organizationName { get; set; }
 
-        public String Surname { get; set; }
+        public string Surname { get; set; }
     }
 }

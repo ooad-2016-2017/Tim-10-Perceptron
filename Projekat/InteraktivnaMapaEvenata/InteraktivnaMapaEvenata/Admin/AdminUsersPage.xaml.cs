@@ -33,8 +33,8 @@ namespace InteraktivnaMapaEvenata.Admin
             {
                 Users.Add(new User()
                 {
-                    Name = "Elvir",
-                    FriendsCount = -10
+                    username = "Elvir",
+                    id = -10
                 });
             }
         }

@@ -140,6 +140,7 @@
     <Compile Include="Customer\CustomerUserProfile.xaml.cs">
       <DependentUpon>CustomerUserProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\Flag.cs" />
     <Compile Include="Models\Owner.cs" />
