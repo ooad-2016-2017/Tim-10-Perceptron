@@ -20,11 +20,16 @@ namespace InteraktivnaMapaEvenata
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MusterijaProfilKorisnika : Page
+    public sealed partial class OwnerAccountType : Page
     {
-        public MusterijaProfilKorisnika()
+        public OwnerAccountType()
         {
             this.InitializeComponent();
+        }
+
+        private void nextButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(OwnerPayment));
         }
     }
 }

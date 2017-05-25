@@ -20,27 +20,11 @@ namespace InteraktivnaMapaEvenata
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class OrganizatorMainPage : Page
+    public sealed partial class CustomerUserProfile : Page
     {
-        public OrganizatorMainPage()
+        public CustomerUserProfile()
         {
             this.InitializeComponent();
         }
-
-        private void viewEventsButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(OrganizatorPregledEvenata));
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(OrganizatorUrediProfil));
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(OrganizatorTipNaloga));
-        }        
-        
     }
 }

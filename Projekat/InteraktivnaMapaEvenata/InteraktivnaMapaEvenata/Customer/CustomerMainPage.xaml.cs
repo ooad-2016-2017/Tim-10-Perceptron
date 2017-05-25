@@ -22,13 +22,13 @@ namespace InteraktivnaMapaEvenata
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MusterijaMainPage : Page
+    public sealed partial class CustomerMainPage : Page
     {
         bool splitViewOpened = true;
         bool findUsersOpened = false;
         bool favoriteOpened = false;
 
-        public MusterijaMainPage()
+        public CustomerMainPage()
         {
             this.InitializeComponent();
             
@@ -102,17 +102,17 @@ namespace InteraktivnaMapaEvenata
 
         private void settingsButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MusterijaUrediProfil));
+            Frame.Navigate(typeof(CustomerEditProfile));
         }
 
         private void u1_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MusterijaProfilKorisnika));
+            Frame.Navigate(typeof(CustomerUserProfile));
         }
 
         private void o1_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MusterijaProfilOrganizatora));
+            Frame.Navigate(typeof(CustomerOwnerProfile));
         }
     }
 }

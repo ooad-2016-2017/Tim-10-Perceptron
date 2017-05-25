@@ -135,35 +135,35 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer\MusterijaMainPage.xaml.cs">
-      <DependentUpon>MusterijaMainPage.xaml</DependentUpon>
+    <Compile Include="Customer\CustomerMainPage.xaml.cs">
+      <DependentUpon>CustomerMainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer\MusterijaProfilOrganizatora.xaml.cs">
-      <DependentUpon>MusterijaProfilOrganizatora.xaml</DependentUpon>
+    <Compile Include="Customer\CustomerOwnerProfile.xaml.cs">
+      <DependentUpon>CustomerOwnerProfile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer\MusterijaProfilKorisnika.xaml.cs">
-      <DependentUpon>MusterijaProfilKorisnika.xaml</DependentUpon>
+    <Compile Include="Customer\CustomerUserProfile.xaml.cs">
+      <DependentUpon>CustomerUserProfile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Owner\OrganizatorMainPage.xaml.cs">
-      <DependentUpon>OrganizatorMainPage.xaml</DependentUpon>
+    <Compile Include="Owner\OwnerMainPage.xaml.cs">
+      <DependentUpon>OwnerMainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Owner\OrganizatorPlacanje.xaml.cs">
-      <DependentUpon>OrganizatorPlacanje.xaml</DependentUpon>
+    <Compile Include="Owner\OwnerPayment.xaml.cs">
+      <DependentUpon>OwnerPayment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Owner\OrganizatorPregledEvenata.xaml.cs">
-      <DependentUpon>OrganizatorPregledEvenata.xaml</DependentUpon>
+    <Compile Include="Owner\OwnerEventList.xaml.cs">
+      <DependentUpon>OwnerEventList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Owner\OrganizatorTipNaloga.xaml.cs">
-      <DependentUpon>OrganizatorTipNaloga.xaml</DependentUpon>
+    <Compile Include="Owner\OwnerAccountType.xaml.cs">
+      <DependentUpon>OwnerAccountType.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Owner\OrganizatorUrediEvent.xaml.cs">
-      <DependentUpon>OrganizatorUrediEvent.xaml</DependentUpon>
+    <Compile Include="Owner\OwnerEditEvent.xaml.cs">
+      <DependentUpon>OwnerEditEvent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer\MusterijaUrediProfil.xaml.cs">
-      <DependentUpon>MusterijaUrediProfil.xaml</DependentUpon>
+    <Compile Include="Customer\CustomerEditProfile.xaml.cs">
+      <DependentUpon>CustomerEditProfile.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Owner\OrganizatorUrediProfil.xaml.cs">
-      <DependentUpon>OrganizatorUrediProfil.xaml</DependentUpon>
+    <Compile Include="Owner\OwnerEditProfile.xaml.cs">
+      <DependentUpon>OwnerEditProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration\KreiranjeEventa1.xaml.cs" />
@@ -258,43 +258,43 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Customer\MusterijaMainPage.xaml">
+    <Page Include="Customer\CustomerMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Customer\MusterijaProfilOrganizatora.xaml">
+    <Page Include="Customer\CustomerOwnerProfile.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Customer\MusterijaProfilKorisnika.xaml">
+    <Page Include="Customer\CustomerUserProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Owner\OrganizatorMainPage.xaml">
+    <Page Include="Owner\OwnerMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Owner\OrganizatorPlacanje.xaml">
+    <Page Include="Owner\OwnerPayment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Owner\OrganizatorPregledEvenata.xaml">
+    <Page Include="Owner\OwnerEventList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Owner\OrganizatorTipNaloga.xaml">
+    <Page Include="Owner\OwnerAccountType.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Owner\OrganizatorUrediEvent.xaml">
+    <Page Include="Owner\OwnerEditEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Customer\MusterijaUrediProfil.xaml">
+    <Page Include="Customer\CustomerEditProfile.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Owner\OrganizatorUrediProfil.xaml">
+    <Page Include="Owner\OwnerEditProfile.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
