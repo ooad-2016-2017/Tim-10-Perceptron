@@ -125,10 +125,6 @@
     <Compile Include="Admin\AdminUsersPage.xaml.cs">
       <DependentUpon>AdminUsersPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Event.cs" />
-    <Compile Include="Admin\Flag.cs" />
-    <Compile Include="Admin\Owner.cs" />
-    <Compile Include="Admin\User.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -144,6 +140,11 @@
     <Compile Include="Customer\CustomerUserProfile.xaml.cs">
       <DependentUpon>CustomerUserProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\Flag.cs" />
+    <Compile Include="Models\Owner.cs" />
+    <Compile Include="Models\Tax.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Owner\OwnerMainPage.xaml.cs">
       <DependentUpon>OwnerMainPage.xaml</DependentUpon>
     </Compile>
@@ -186,7 +187,6 @@
     <None Include="InteraktivnaMapaEvenata_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\Tax.cs" />
     <Content Include="Assets\Images\BackArrow.png" />
     <Content Include="Assets\Images\event.png" />
     <Content Include="Assets\Images\eventstock.jpg" />
