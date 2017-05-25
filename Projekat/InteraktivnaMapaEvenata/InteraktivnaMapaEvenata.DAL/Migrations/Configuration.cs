@@ -1,5 +1,7 @@
 namespace InteraktivnaMapaEvenata.DAL.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -12,20 +14,48 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(InteraktivnaMapaEvenata.DAL.ApplicationDbContext context)
-        {
-            //  This method will be called after migrating to the latest version.
+        const string _adminRole = "Administrator";
+        const string _customerRole = "Customer";
+        const string _ownerRole = "Owner";
+        const string _deviceRole = "Device";
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+        protected void SeedRoles(ApplicationDbContext context)
+        {
+            var roleStore = new RoleStore<IdentityRole>(context);
+            var roleManager = new RoleManager<IdentityRole>(roleStore);
+
+            if (!context.Roles.Any(r => r.Name == _adminRole))
+                roleManager.Create(new IdentityRole { Name = _adminRole });
+
+            if (!context.Roles.Any(r => r.Name == _customerRole))
+                roleManager.Create(new IdentityRole { Name = _customerRole });
+
+            if (!context.Roles.Any(r => r.Name == _ownerRole))
+                roleManager.Create(new IdentityRole { Name = _ownerRole });
+
+            if (!context.Roles.Any(r => r.Name == _deviceRole))
+                roleManager.Create(new IdentityRole { Name = _deviceRole });
+
+            context.SaveChanges();
+        }
+
+        public void SeedAdmin()
+        {
+
+        }
+
+        public void SeedActivities()
+        {
+
+        }
+
+        protected override void Seed(ApplicationDbContext context)
+        {
+            base.Seed(context);
+
+            SeedRoles(context);
+
+            context.SaveChanges();
         }
     }
 }
