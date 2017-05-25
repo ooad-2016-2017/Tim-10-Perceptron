@@ -11,7 +11,7 @@ namespace InteraktivnaMapaEvenata.DAL
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext() : base("LocalDb")
+        public ApplicationDbContext() : base("InteractiveEventMap")
         {
         }
 
@@ -41,6 +41,5 @@ namespace InteraktivnaMapaEvenata.DAL
     }
 
 }
-
 
 
