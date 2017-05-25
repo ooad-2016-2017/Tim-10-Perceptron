@@ -1,4 +1,4 @@
-﻿namespace InteraktivnaMapaEvenata.Admin
+﻿namespace InteraktivnaMapaEvenata.UWP.Models
 {
     public class Flag
     {

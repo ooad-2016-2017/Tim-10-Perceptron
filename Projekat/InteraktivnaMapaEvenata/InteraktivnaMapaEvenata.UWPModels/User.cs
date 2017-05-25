@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InteraktivnaMapaEvenata.Admin
+namespace InteraktivnaMapaEvenata.UWP.Models
 {
     public class User
     {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InteraktivnaMapaEvenata.UWP.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace InteraktivnaMapaEvenata.Admin
 
             for (int i = 0; i < 10; i++)
             {
-                Owners.Add(new Admin.Owner()
+                Owners.Add(new Owner()
                 {
                     Name = "John",
                     Surname = "Doe"

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InteraktivnaMapaEvenata.UWP.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -29,7 +30,7 @@ namespace InteraktivnaMapaEvenata.Admin
             this.InitializeComponent();
             Events = new List<Event>();
             for (int i = 0; i < 10; i++)
-                Events.Add(new Admin.Event()
+                Events.Add(new Event()
                 {
                     Name = "Event",
                     Subtitle = "Simply the best",
