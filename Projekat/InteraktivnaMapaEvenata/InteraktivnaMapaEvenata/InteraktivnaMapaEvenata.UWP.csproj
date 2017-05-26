@@ -142,9 +142,17 @@
     </Compile>
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Event.cs" />
+    <Compile Include="Models\EventFlag.cs" />
+    <Compile Include="Models\EventState.cs" />
     <Compile Include="Models\Flag.cs" />
+    <Compile Include="Models\FlagState.cs" />
+    <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Owner.cs" />
-    <Compile Include="Models\Tax.cs" />
+    <Compile Include="Models\OwnerFlag.cs" />
+    <Compile Include="Models\PaymentTier.cs" />
+    <Compile Include="Models\Promotion.cs" />
+    <Compile Include="Models\QRScanner.cs" />
+    <Compile Include="Models\Tag.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Owner\OwnerMainPage.xaml.cs">
       <DependentUpon>OwnerMainPage.xaml</DependentUpon>
@@ -347,6 +355,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Managers\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

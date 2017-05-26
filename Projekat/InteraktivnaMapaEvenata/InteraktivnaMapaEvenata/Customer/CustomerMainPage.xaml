@@ -45,7 +45,7 @@
             <Button x:Name="settingsButton" FontFamily="Segoe MDL2 Assets" Background="Transparent" BorderThickness="0" VerticalAlignment="Bottom" Content="&#xE713;" HorizontalAlignment="Right" Grid.Column="5" Grid.Row="10" Height="88" Width="53" Margin="0,0,0,-2" Click="settingsButton_Click"/>
             <Button x:Name="favOrgButton" FontFamily="Segoe MDL2 Assets" Background="Transparent" BorderThickness="0" VerticalAlignment="Bottom" Content="&#xE734;" HorizontalAlignment="Center" Height="88" Width="52" Grid.Column="6" Grid.Row="10" Margin="0,0,0,-2" Click="favOrgButton_Click"/>
             <Button x:Name="findUsersButton" FontFamily="Segoe MDL2 Assets" Background="Transparent" BorderThickness="0" VerticalAlignment="Bottom" Content="&#xE716;" HorizontalAlignment="Left" Height="88" Width="51" Grid.Column="7" Grid.Row="10" Margin="0,0,3,-2" Click="findUsersButton_Click" />
-            
+
             <Rectangle x:Name="findUsersRectangle" Grid.Row="0" Grid.RowSpan="15" Grid.Column="6" Grid.ColumnSpan="2" Fill="#CC007DD7" Visibility="Collapsed"/>
             <Button Content="B" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center" Visibility="{Binding Visibility,ElementName=findUsersRectangle}" Click="Button_Click" />
             <TextBlock Text="Nadji korisnike" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" Visibility="{Binding Visibility,ElementName=findUsersRectangle}"/>
@@ -87,7 +87,7 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Button x:Name="viewMoreButton" Width="{Binding ActualWidth, ElementName=OrganizationName}"/>
+                            <Button x:Name="viewMoreButton" Content="->" Width="{Binding ActualWidth, ElementName=OrganizationName}"/>
                             <StackPanel Grid.Row="0" Grid.Column="1" Name="OrganizationName" Margin="5,0,0,0">
                                 <TextBlock Text="{Binding organizationName}" Style="{StaticResource BodyTextBlockStyle}"/>
                                 <TextBlock Text="{Binding Surname}" Style="{StaticResource BodyTextBlockStyle}"/>

@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.UWP.Models
 {
-    public class Tax
+    public class OwnerFlag : Flag
     {
-        public String Category { get; set; }
-
-        public int Count { get; set; }
+        public Owner FlaggedOwner { get; set; }
     }
 }

@@ -23,7 +23,6 @@
                         <Image Width="{Binding ActualHeight, ElementName=eventName}" Grid.Row="0" Grid.Column="0" Source="/Assets/Images/event.png"/>
                         <StackPanel Grid.Row="0" Grid.Column="1" Name="eventName" Margin="5,0,0,0">
                             <TextBlock Text="{x:Bind Name}" Style="{StaticResource BodyTextBlockStyle}"/>
-                            <TextBlock Text="{x:Bind Subtitle}" Style="{StaticResource CaptionTextBlockStyle}"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

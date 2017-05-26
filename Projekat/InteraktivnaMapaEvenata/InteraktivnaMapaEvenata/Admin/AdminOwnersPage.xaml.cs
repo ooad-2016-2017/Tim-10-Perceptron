@@ -34,7 +34,7 @@ namespace InteraktivnaMapaEvenata.Admin
             {
                 Owners.Add(new Owner()
                 {
-                    username = "John",
+                    Name = "John",
                     Surname = "Doe"
                 });
             }

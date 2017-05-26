@@ -8,8 +8,21 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 {
     public class Owner : User
     {
-        public string organizationName { get; set; }
+        public int OwnerId { get; set; }
+        
+        public string OrganizationName { get; set; }
 
-        public string Surname { get; set; }
+        public ICollection<Event> Events { get; set; }
+
+        public ICollection<OwnerFlag> Flags { get; set; }
+        
+        public PaymentTier SelectedTier { get; set; }
+
+        public ICollection<Customer> Followers { get; set; }
+
+        public ICollection<Promotion> Promotions { get; set; }
+
+
+        public ICollection<QRScanner> QRScanners { get; set; }
     }
 }
