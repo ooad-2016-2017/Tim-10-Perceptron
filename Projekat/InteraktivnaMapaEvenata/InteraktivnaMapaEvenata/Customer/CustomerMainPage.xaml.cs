@@ -26,7 +26,7 @@ namespace InteraktivnaMapaEvenata.Customer
         bool favoriteOpened = false;
 
         List<UWP.Models.Customer> Customers { get; set; }
-        List<Owner> Owners { get; set; }
+        List<UWP.Models.Owner> Owners { get; set; }
         List<Notification> Notifications { get; set; }
         List<Event> Events { get; set; }
 
@@ -42,23 +42,23 @@ namespace InteraktivnaMapaEvenata.Customer
                 });
             }
 
-            Owners = new List<Owner>();
+            Owners = new List<UWP.Models.Owner>();
             
-            Owners.Add(new Owner()
+            Owners.Add(new UWP.Models.Owner()
             {
                OrganizationName = "Klix",
                Surname = "prezime",
                OwnerId = 1                  
             });
 
-            Owners.Add(new Owner()
+            Owners.Add(new UWP.Models.Owner()
             {
                 OrganizationName = "SarajevoX",
                 Surname = "prezime",
                 OwnerId = 2
             });
 
-            Owners.Add(new Owner()
+            Owners.Add(new UWP.Models.Owner()
             {
                 OrganizationName = "Portal",
                 Surname = "prezime",

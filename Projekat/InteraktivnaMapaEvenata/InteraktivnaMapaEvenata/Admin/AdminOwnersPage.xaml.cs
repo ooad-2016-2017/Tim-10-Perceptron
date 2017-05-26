@@ -23,16 +23,16 @@ namespace InteraktivnaMapaEvenata.Admin
     /// </summary>
     public sealed partial class AdminOwnersPage : Page
     {
-        List<Owner> Owners;
+        List<UWP.Models.Owner> Owners;
         public AdminOwnersPage()
         {
             this.InitializeComponent();
 
-            Owners = new List<Owner>();
+            Owners = new List<UWP.Models.Owner>();
 
             for (int i = 0; i < 10; i++)
             {
-                Owners.Add(new Owner()
+                Owners.Add(new UWP.Models.Owner()
                 {
                     Name = "John",
                     Surname = "Doe"

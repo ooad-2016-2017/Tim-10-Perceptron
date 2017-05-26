@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InteraktivnaMapaEvenata.UWP.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,23 @@ namespace InteraktivnaMapaEvenata
     /// </summary>
     public sealed partial class OwnerEventList : Page
     {
+
+        List<Event> Events { get; set; }
+
         public OwnerEventList()
         {
             this.InitializeComponent();
+
+            Events = new List<Event>();
+            for (int i = 0; i < 10; i++)
+            {
+                Events.Add(new Event()
+                {
+                    Name = "event",
+                    Description = "broj prijavljenih"
+                });
+            }
+
         }
 
         private void updateButton_Click(object sender, RoutedEventArgs e)

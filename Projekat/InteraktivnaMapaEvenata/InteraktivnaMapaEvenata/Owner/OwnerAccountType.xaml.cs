@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InteraktivnaMapaEvenata.UWP.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -15,16 +16,31 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace InteraktivnaMapaEvenata
+namespace InteraktivnaMapaEvenata.Owner
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class OwnerAccountType : Page
     {
+
+        List<PaymentTier> PaymentTiers { get; set; }
+
         public OwnerAccountType()
         {
             this.InitializeComponent();
+
+            PaymentTiers = new List<PaymentTier>();
+            for (int i = 0; i < 3; i++)
+            {
+                PaymentTiers.Add(new PaymentTier()
+                {
+                    Price = 50.5,
+                    Description = "description",
+                    Label = "Label"
+                });
+            }
+
         }
 
         private void nextButton_Click(object sender, RoutedEventArgs e)
