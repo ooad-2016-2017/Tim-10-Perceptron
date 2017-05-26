@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InteraktivnaMapaEvenata.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,16 +9,16 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 {
     public class User
     {
-        public int id { get; set; }
+        public string Name { get; set; }
+        
+        public string Surname { get; set; }
+        
+        public string Email { get; set; }
+        
+        public bool IsBanned { get; set; }
 
-        public string username { get; set; }
+        public byte[] ProfileImage { get; set; }
 
-        public string password { get; set; }
-
-        public string email { get; set; }
-
-        //bitmap
-
-        public bool isBanned { get; set; }        
+        public ICollection<Notification> Notifications { get; set; }       
     }
 }

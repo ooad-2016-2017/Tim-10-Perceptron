@@ -27,6 +27,7 @@ namespace InteraktivnaMapaEvenata.Customer
 
         List<Models.Customer> Customers { get; set; }
         List<Owner> Owners { get; set; }
+        List<>
 
         public CustomerMainPage()
         {
