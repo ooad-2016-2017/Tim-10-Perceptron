@@ -10,6 +10,8 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 {
     public class Notification
     {
+        public int NotificationId { get; set; }
+
         public Owner Source { get; set; }
         
         public User DestinationUser { get; set; }

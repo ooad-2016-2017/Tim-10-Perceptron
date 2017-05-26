@@ -43,8 +43,8 @@
             Grid.ColumnSpan="50" Grid.RowSpan="50" />
 
             <Button x:Name="settingsButton" FontFamily="Segoe MDL2 Assets" Background="Transparent" BorderThickness="0" VerticalAlignment="Bottom" Content="&#xE713;" HorizontalAlignment="Right" Grid.Column="5" Grid.Row="10" Height="88" Width="53" Margin="0,0,0,-2" Click="settingsButton_Click"/>
-            <Button x:Name="favOrgButton" FontFamily="Segoe MDL2 Assets" Background="Transparent" BorderThickness="0" VerticalAlignment="Bottom" Content="&#xE734;" HorizontalAlignment="Center" Height="88" Width="52" Grid.Column="6" Grid.Row="10" Margin="0,0,0,-2" Click="favOrgButton_Click"/>
-            <Button x:Name="findUsersButton" FontFamily="Segoe MDL2 Assets" Background="Transparent" BorderThickness="0" VerticalAlignment="Bottom" Content="&#xE716;" HorizontalAlignment="Left" Height="88" Width="51" Grid.Column="7" Grid.Row="10" Margin="0,0,3,-2" Click="findUsersButton_Click" />
+            <Button x:Name="favOrgButton" FontFamily="Segoe MDL2 Assets" Background="Transparent" BorderThickness="0" VerticalAlignment="Bottom" Content="&#xE734;" HorizontalAlignment="Right" Height="88" Width="52" Grid.Column="6" Grid.Row="10" Margin="0,0,0,-2" Click="favOrgButton_Click"/>
+            <Button x:Name="findUsersButton" FontFamily="Segoe MDL2 Assets" Background="Transparent" BorderThickness="0" VerticalAlignment="Bottom" Content="&#xE716;" HorizontalAlignment="Right" Height="88" Width="51" Grid.Column="7" Grid.Row="10" Margin="0,0,3,-2" Click="findUsersButton_Click" />
 
             <Rectangle x:Name="findUsersRectangle" Grid.Row="0" Grid.RowSpan="15" Grid.Column="6" Grid.ColumnSpan="2" Fill="#CC007DD7" Visibility="Collapsed"/>
             <Button Content="B" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center" Visibility="{Binding Visibility,ElementName=findUsersRectangle}" Click="Button_Click" />
@@ -64,7 +64,7 @@
                             </Grid.RowDefinitions>
                             <Image Width="{Binding ActualHeight, ElementName=userName}" Grid.Row="0" Grid.Column="0" Source="/Assets/Images/profile.png"/>
                             <StackPanel Grid.Row="0" Grid.Column="1" Name="userName" Margin="5,0,0,0">
-                                <TextBlock Text="{Binding username}" Style="{StaticResource BodyTextBlockStyle}"/>
+                                <TextBlock Text="{Binding Name}" Style="{StaticResource BodyTextBlockStyle}"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>
@@ -87,9 +87,9 @@
                             <Grid.RowDefinitions>
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            <Button x:Name="viewMoreButton" Content="->" Width="{Binding ActualWidth, ElementName=OrganizationName}"/>
+                            <Button x:Name="viewMoreButton" Content="->" Width="{Binding ActualHeight, ElementName=OrganizationName}"/>
                             <StackPanel Grid.Row="0" Grid.Column="1" Name="OrganizationName" Margin="5,0,0,0">
-                                <TextBlock Text="{Binding organizationName}" Style="{StaticResource BodyTextBlockStyle}"/>
+                                <TextBlock Text="{Binding OrganizationName}" Style="{StaticResource BodyTextBlockStyle}"/>
                                 <TextBlock Text="{Binding Surname}" Style="{StaticResource BodyTextBlockStyle}"/>
                             </StackPanel>
                         </Grid>
@@ -138,12 +138,53 @@
 
                     <Button x:Name="profileImage" BorderThickness="0" Background="Transparent" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Center" Grid.Column="1"  Grid.Row="0" Grid.ColumnSpan="3" Content="&#xE77B;" Height="85" Width="70" VerticalAlignment="Center"/>
 
-                    <TextBlock x:Name="notificationsTextBlock" Text="Notifikacije" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="0,-40,0,0"/>
+                    <TextBlock x:Name="notificationsTextBlock" Text="Notifikacije" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,-40,0,0"/>
+                    <ListView ItemsSource="{x:Bind Notifications}" IsItemClickEnabled="True" x:Name="NotificationsList" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                        <ListView.ItemTemplate>
+                            <!--<DataTemplate x:DataType="local:Owner">-->
+                            <DataTemplate>
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>                                    
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Name="NotificationName" Margin="5,0,0,0">
+                                        <TextBlock Text="{Binding Text}" Style="{StaticResource BodyTextBlockStyle}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <!--
                     <Button x:Name="notificationButton" Foreground="White" HorizontalAlignment="Center" Grid.Column="1"  Grid.Row="2" Grid.ColumnSpan="3" Content="Notification Example" Height="40" Width="100" VerticalAlignment="Bottom"/>
-
-                    <TextBlock x:Name="eventTextBlock" Text="Prijavljeni ste na event:" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Margin="0,-40,0,0"/>
+                      -->
+                    
+                    <TextBlock x:Name="eventTextBlock" Text="Prijavljeni ste na event:" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,-40,0,0"/>
+                    <ListView ItemsSource="{x:Bind Events}" IsItemClickEnabled="True" x:Name="EventList" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                        <ListView.ItemTemplate>
+                            <!--<DataTemplate x:DataType="local:Owner">-->
+                            <DataTemplate>
+                                <Grid HorizontalAlignment="Stretch">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <StackPanel Grid.Row="0" Grid.Column="1" Name="EventName" Margin="5,0,0,0">
+                                        <TextBlock Text="{Binding Name}" Style="{StaticResource BodyTextBlockStyle}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                    <!--
                     <Button x:Name="eventButton" Foreground="White" HorizontalAlignment="Center" Grid.Column="1"  Grid.Row="4" Grid.ColumnSpan="3" Content="Event Example" Height="40" Width="100" VerticalAlignment="Bottom"/>
-
+                    -->
                 </Grid>
             </SplitView.Pane>
 

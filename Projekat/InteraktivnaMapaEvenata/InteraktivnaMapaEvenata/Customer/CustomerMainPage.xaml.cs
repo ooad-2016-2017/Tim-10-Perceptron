@@ -27,6 +27,8 @@ namespace InteraktivnaMapaEvenata.Customer
 
         List<UWP.Models.Customer> Customers { get; set; }
         List<Owner> Owners { get; set; }
+        List<Notification> Notifications { get; set; }
+        List<Event> Events { get; set; }
 
         public CustomerMainPage()
         {
@@ -41,15 +43,47 @@ namespace InteraktivnaMapaEvenata.Customer
             }
 
             Owners = new List<Owner>();
+            
+            Owners.Add(new Owner()
+            {
+               OrganizationName = "Klix",
+               Surname = "prezime",
+               OwnerId = 1                  
+            });
+
+            Owners.Add(new Owner()
+            {
+                OrganizationName = "SarajevoX",
+                Surname = "prezime",
+                OwnerId = 2
+            });
+
+            Owners.Add(new Owner()
+            {
+                OrganizationName = "Portal",
+                Surname = "prezime",
+                OwnerId = 3
+            });
+
+
+            Notifications = new List<Notification>();
             for (int i = 0; i < 10; i++)
             {
-                Owners.Add(new Owner()
+                Notifications.Add(new Notification()
                 {
-                    OrganizationName = "imeOrg",
-                    Surname = "prezime"
-                    
+                    Text = "textnotif"
                 });
             }
+
+            Events = new List<Event>();
+            for (int i = 0; i < 10; i++)
+            {
+                Events.Add(new Event()
+                {
+                    Name = "eventname"
+                });
+            }
+
         }
 
         private void hamburgerButton_Click(object sender, RoutedEventArgs e)

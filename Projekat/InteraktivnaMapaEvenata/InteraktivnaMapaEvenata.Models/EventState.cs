@@ -15,6 +15,9 @@ namespace InteraktivnaMapaEvenata.Models
         [Required]
         public string Description { get; set; }
 
+        [Required]
+        public string Name { get; set; }
+
         public ICollection<Event> Events { get; set; }
     }
 }
