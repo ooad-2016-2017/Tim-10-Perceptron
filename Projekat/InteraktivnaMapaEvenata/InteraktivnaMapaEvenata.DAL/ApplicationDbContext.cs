@@ -26,11 +26,25 @@ namespace InteraktivnaMapaEvenata.DAL
 
         public DbSet<Event> Events { get; set; }
 
+        public DbSet<EventFlag> EventFlags { get; set; }
+
         public DbSet<EventState> EventStates { get; set; }
+
+        public DbSet<Flag> Flags { get; set; }
+
+        public DbSet<FlagState> FlagStates { get; set; }
 
         public DbSet<Notification> Notifications { get; set; }
 
         public DbSet<Owner> Owners { get; set; }
+
+        public DbSet<Owner> OwnerFlags { get; set; }
+
+        public DbSet<PaymentTier> PaymentTiers { get; set; }
+
+        public DbSet<QRScanner> QRScanners { get; set; }
+
+        public DbSet<Tag> Tags { get; set; }
 
         public DbSet<Promotion> Promotions { get; set; }
 
