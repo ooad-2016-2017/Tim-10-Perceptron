@@ -25,19 +25,18 @@ namespace InteraktivnaMapaEvenata.Customer
         bool findUsersOpened = false;
         bool favoriteOpened = false;
 
-        List<Models.Customer> Customers { get; set; }
+        List<UWP.Models.Customer> Customers { get; set; }
         List<Owner> Owners { get; set; }
-        List<>
 
         public CustomerMainPage()
         {
             this.InitializeComponent();
-            Customers = new List<Models.Customer>();
+            Customers = new List<UWP.Models.Customer>();
             for (int i = 0; i < 10; i++)
             {
-                Customers.Add(new Models.Customer()
+                Customers.Add(new UWP.Models.Customer()
                 {
-                    username = "Vedo"
+                    Name = "Vedo"
                 });
             }
 
@@ -46,7 +45,7 @@ namespace InteraktivnaMapaEvenata.Customer
             {
                 Owners.Add(new Owner()
                 {
-                    organizationName = "imeOrg",
+                    OrganizationName = "imeOrg",
                     Surname = "prezime"
                     
                 });

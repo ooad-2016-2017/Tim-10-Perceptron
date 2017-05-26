@@ -33,8 +33,7 @@ namespace InteraktivnaMapaEvenata.Admin
                 Events.Add(new Event()
                 {
                     Name = "Event",
-                    Subtitle = "Simply the best",
-                    DateTime = new DateTime(1, 1, 1, 2, 2, 2),
+                    StartDate = new DateTime(1, 1, 1, 2, 2, 2),
                     Description = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sodales molestie ornare. Quisque porttitor in sem quis suscipit. Praesent non ullamcorper nunc, et facilisis risus. Curabitur interdum convallis dolor, vitae accumsan urna pulvinar ac. Fusce tincidunt sapien vitae diam eleifend sagittis. Nunc maximus augue aliquam arcu varius, ut gravida diam malesuada. Donec sed posuere odio."
                     + "Vestibulum pretium sit amet neque eget tempus.Duis lobortis sem at neque tempus,"
                     + "sit amet fringilla nibh pellentesque.Maecenas tempus risus nulla,"

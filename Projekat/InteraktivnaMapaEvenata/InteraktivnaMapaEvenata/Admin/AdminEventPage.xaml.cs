@@ -23,7 +23,7 @@ namespace InteraktivnaMapaEvenata.Admin
     /// </summary>
     public sealed partial class AdminEventPage : Page
     {
-        List<Tax> series = new List<Tax>();
+        List<PaymentTier> series = new List<PaymentTier>();
         Event Event;
 
         public AdminEventPage()
