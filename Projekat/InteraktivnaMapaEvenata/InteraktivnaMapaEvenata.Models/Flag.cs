@@ -9,6 +9,9 @@ namespace InteraktivnaMapaEvenata.Models
 {
     public class Flag
     {
+        [Key]
+        public int FlagId { get; set; }
+
         [Required]
         public String Description { get; set; }
 

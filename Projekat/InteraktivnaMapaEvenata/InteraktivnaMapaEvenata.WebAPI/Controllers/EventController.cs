@@ -1,4 +1,7 @@
-﻿using InteraktivnaMapaEvenata.WebAPI.Models;
+﻿using InteraktivnaMapaEvenata.BLL.Interfaces;
+using InteraktivnaMapaEvenata.DAL;
+using InteraktivnaMapaEvenata.Models;
+using InteraktivnaMapaEvenata.WebAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,16 +13,23 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 {
     public class EventController : ApiController
     {
-        // GET: api/Event
-        public IEnumerable<string> Get()
+        IEventService _service;
+
+        public EventController(IEventService service)
         {
-            return new string[] { "value1", "value2" };
+            _service = service;
+        }
+
+        // GET: api/Event
+        public IHttpActionResult Get()
+        {
+            return Ok(_service.GetEvents());
         }
 
         // GET: api/Event/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            return Ok(_service.GetEventById(id));
         }
 
         // POST: api/Event

@@ -9,6 +9,9 @@ namespace InteraktivnaMapaEvenata.Models
 {
     public class Notification
     {
+        [Key]
+        public int NotificationId { get; set; }
+
         [Required]
         public Owner Source { get; set; }
 

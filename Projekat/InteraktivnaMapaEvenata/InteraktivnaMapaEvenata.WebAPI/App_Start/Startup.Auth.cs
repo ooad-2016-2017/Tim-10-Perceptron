@@ -10,6 +10,7 @@ using Microsoft.Owin.Security.OAuth;
 using Owin;
 using InteraktivnaMapaEvenata.WebAPI.Providers;
 using InteraktivnaMapaEvenata.WebAPI.Models;
+using InteraktivnaMapaEvenata.DAL;
 
 namespace InteraktivnaMapaEvenata.WebAPI
 {

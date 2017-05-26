@@ -16,6 +16,7 @@ using Microsoft.Owin.Security.OAuth;
 using InteraktivnaMapaEvenata.WebAPI.Models;
 using InteraktivnaMapaEvenata.WebAPI.Providers;
 using InteraktivnaMapaEvenata.WebAPI.Results;
+using InteraktivnaMapaEvenata.Models;
 
 namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 {

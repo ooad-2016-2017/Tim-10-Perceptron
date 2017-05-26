@@ -10,6 +10,7 @@ namespace InteraktivnaMapaEvenata.Models
 {
     public class Event
     {
+        [Key]
         public int EventId { get; set; }
 
         [Required]
@@ -27,7 +28,7 @@ namespace InteraktivnaMapaEvenata.Models
         [Required]
         public Promotion Promotion { get; set; }
 
-        public ICollection<Customer> Cutomers;
+        public ICollection<Customer> Customers;
 
         [Required]
         public Owner Owner { get; set; }

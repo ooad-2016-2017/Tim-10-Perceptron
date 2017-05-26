@@ -9,6 +9,7 @@ namespace InteraktivnaMapaEvenata.Models
 {
     public class EventState
     {
+        [Key]
         public int EventStateId { get; set; }
 
         [Required]

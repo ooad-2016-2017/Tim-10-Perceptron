@@ -4,6 +4,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using InteraktivnaMapaEvenata.WebAPI.Models;
+using InteraktivnaMapaEvenata.Models;
+using InteraktivnaMapaEvenata.DAL;
 
 namespace InteraktivnaMapaEvenata.WebAPI
 {

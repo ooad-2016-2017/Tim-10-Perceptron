@@ -9,6 +9,7 @@ namespace InteraktivnaMapaEvenata.Models
 {
     public class Customer : ApplicationUser
     {
+        [Key]
         public int CustomerId { get; set; }
 
         public enum Genders { Male, Female, Unspecified }

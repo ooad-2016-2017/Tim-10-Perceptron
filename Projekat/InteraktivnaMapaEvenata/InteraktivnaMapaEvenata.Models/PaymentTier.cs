@@ -9,6 +9,9 @@ namespace InteraktivnaMapaEvenata.Models
 {
     public class PaymentTier
     {
+        [Key]
+        public int PaymentTierId  { get; set; }
+
         public ICollection<Owner> Owners { get; set; }
 
         [Required]

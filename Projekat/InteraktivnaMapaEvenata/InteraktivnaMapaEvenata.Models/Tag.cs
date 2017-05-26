@@ -9,6 +9,9 @@ namespace InteraktivnaMapaEvenata.Models
 {
     public class Tag
     {
+        [Key]
+        public int TagId { get; set; }
+
         [Required]
         public String Name { get; set; }
 

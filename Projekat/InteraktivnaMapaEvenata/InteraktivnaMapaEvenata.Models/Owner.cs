@@ -9,6 +9,7 @@ namespace InteraktivnaMapaEvenata.Models
 {
     public class Owner : ApplicationUser
     {
+        [Key]
         public int OwnerId { get; set; }
 
         [Required]

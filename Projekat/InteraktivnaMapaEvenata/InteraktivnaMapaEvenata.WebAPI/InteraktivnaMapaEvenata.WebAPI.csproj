@@ -265,7 +265,6 @@
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -348,6 +347,14 @@
     <ProjectReference Include="..\InteraktivnaMapaEvenata.BLL\InteraktivnaMapaEvenata.BLL.csproj">
       <Project>{87096024-ba80-42b2-a7e3-c1dc96afba42}</Project>
       <Name>InteraktivnaMapaEvenata.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InteraktivnaMapaEvenata.DAL\InteraktivnaMapaEvenata.DAL.csproj">
+      <Project>{0ADEFD5E-0753-4129-8FA8-98F62FB33D1B}</Project>
+      <Name>InteraktivnaMapaEvenata.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InteraktivnaMapaEvenata.Models\InteraktivnaMapaEvenata.Models.csproj">
+      <Project>{420f97aa-f7db-43b3-bb32-c81f8aeb8d59}</Project>
+      <Name>InteraktivnaMapaEvenata.Models</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
