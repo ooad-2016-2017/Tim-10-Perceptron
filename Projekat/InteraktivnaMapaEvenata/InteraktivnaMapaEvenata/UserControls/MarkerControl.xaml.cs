@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Shapes;
 
 // The User Control item template is documented at http://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -22,29 +23,35 @@ namespace InteraktivnaMapaEvenata.UserControls
 {
     public sealed partial class MarkerControl : UserControl
     {
-        Event eventt;
-        MapControl mapControl;
-        Button button;
-        Border border;
+        private Event _event;
+        private MapControl _mapControl;
+        private Button _button;
+        private Border _border;
+        private TextBlock _textBlock;
+        private Rectangle _rectangle;
+        private ModalControl _modalControl;
 
-        public MarkerControl(Event eventt, MapControl mapControl)
+        public MarkerControl(Event _event, MapControl mapControl)
         {
             this.InitializeComponent();
-            this.eventt = eventt;
-            this.mapControl = mapControl;
-            DisplayEventMarker();        
-              
+            this._event = _event;
+            this._mapControl = mapControl;
+            DisplayEventMarker();
+            this._modalControl = new ModalControl(_event);
+            SetModal(_modalControl, 43.8699466, 18.4182643);
         }       
-
+        
         private void DisplayEventMarker()
         {
             // Specify a known location.
             //BasicGeoposition snPosition = new BasicGeoposition() { Latitude = eventt.latitude, Longitude = eventt.longitude };
-            BasicGeoposition snPosition = new BasicGeoposition() { Latitude = 43.8699466, Longitude = 18.4182643 };
-            Geopoint snPoint = new Geopoint(snPosition);
+            BasicGeoposition eventMarkerPosition = new BasicGeoposition() { Latitude = 43.8699466, Longitude = 18.4182643 };
+            BasicGeoposition eventMarkerLabelPosition = new BasicGeoposition() { Latitude = 43.8699466 + 0.000017, Longitude = 18.4182643 };
+            Geopoint eventMarkerPoint = new Geopoint(eventMarkerPosition);
+            Geopoint eventMarkerLabelPoint = new Geopoint(eventMarkerLabelPosition);
 
             // Create a XAML border.
-            border = new Border
+            _border = new Border
             {
                 Height = 20,
                 Width = 20,
@@ -53,32 +60,77 @@ namespace InteraktivnaMapaEvenata.UserControls
                 CornerRadius = new CornerRadius(4)
             };
 
-            button = new Button
+            _button = new Button
             {
                 Height = 20,
                 Width = 20,
                 BorderBrush = new SolidColorBrush(Windows.UI.Colors.Transparent)
             };
 
-            button.Click += new RoutedEventHandler(button_Click);
-
+            _textBlock = new TextBlock
+            {
+                Text = _event.Name
+            };
+            
             // Center the map over the POI.
-            mapControl.Center = snPoint;
-            mapControl.ZoomLevel = 14;
+            _mapControl.Center = eventMarkerPoint;
+            _mapControl.ZoomLevel = 14;
 
             // Add XAML to the map.
-            mapControl.Children.Add(button);
-            mapControl.Children.Add(border);
-            MapControl.SetLocation(button, snPoint);
-            MapControl.SetLocation(border, snPoint);
-            MapControl.SetNormalizedAnchorPoint(button, new Point(0.5, 0.5));
-            MapControl.SetNormalizedAnchorPoint(border, new Point(0.5, 0.5));            
+            _mapControl.Children.Add(_button);
+            _mapControl.Children.Add(_border);
+            _mapControl.Children.Add(_textBlock);
+
+            MapControl.SetLocation(_button, eventMarkerPoint);
+            MapControl.SetLocation(_border, eventMarkerPoint);
+            MapControl.SetLocation(_textBlock, eventMarkerLabelPoint);
+
+            MapControl.SetNormalizedAnchorPoint(_button, new Point(0.5, 0.5));
+            MapControl.SetNormalizedAnchorPoint(_border, new Point(0.5, 0.5));
+            MapControl.SetNormalizedAnchorPoint(_textBlock, new Point(0.5, 0.5));
+
+            _mapControl.ZoomLevelChanged += _mapControl_ZoomLevelChanged;
+            _button.Click += _button_Click;
+            _mapControl.CenterChanged += _mapControl_CenterChanged;
 
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void SetModal(ModalControl modalControl, double latitude, double longitude)
         {
-            button.Visibility = Visibility.Collapsed;
+            BasicGeoposition modalPosition = new BasicGeoposition() { Latitude = latitude, Longitude = longitude };
+            Geopoint modalPoint = new Geopoint(modalPosition);
+
+            _mapControl.Children.Add(modalControl);
+            MapControl.SetLocation(modalControl, modalPoint);
+            MapControl.SetNormalizedAnchorPoint(modalControl, new Point(0.5, 0.5));
+
         }
+
+        private void _mapControl_CenterChanged(MapControl sender, object args)
+        {
+           // throw new NotImplementedException();
+            _modalControl.Visibility = Visibility.Collapsed;
+            _button.Visibility = Visibility.Visible;
+        }
+
+        private void _button_Click(object sender, RoutedEventArgs e)
+        {
+           // throw new NotImplementedException();
+            _button.Visibility = Visibility.Collapsed;
+            _modalControl.Visibility = Visibility.Visible;
+        }
+
+        private void _mapControl_ZoomLevelChanged(MapControl sender, object args)
+        {            
+            //throw new NotImplementedException();
+
+            if (_mapControl.ZoomLevel > 19)
+            {
+                _textBlock.Visibility = Visibility.Visible;
+            }
+            else _textBlock.Visibility = Visibility.Collapsed;
+        }
+    
+        
     }
 }

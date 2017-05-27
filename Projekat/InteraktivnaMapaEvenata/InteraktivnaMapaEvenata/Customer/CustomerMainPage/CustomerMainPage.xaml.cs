@@ -88,16 +88,22 @@ namespace InteraktivnaMapaEvenata.Customer
             }
 
             Events = new List<Event>();
-            for (int i = 0; i < 10; i++)
+            Promotion promotion = new Promotion();
+            promotion.Name = "Ime promocije";
+            for (int i = 0; i < 1; i++)
             {
                 Events.Add(new Event()
                 {
-                    Name = "eventname"
+                    Name = "ACA LUKAS KOD VEDE",
+                    Description = "ovo je opis",
+                    StartDate = new DateTime(2017, 3, 17),
+                    Owner = Owners[0],
+                    Promotion = promotion
                 });
             }
 
             MarkerControl = new List<MarkerControl>();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < Events.Count; i++)
             {
                 MarkerControl.Add(new MarkerControl(Events[i], MapControl1));                
             }

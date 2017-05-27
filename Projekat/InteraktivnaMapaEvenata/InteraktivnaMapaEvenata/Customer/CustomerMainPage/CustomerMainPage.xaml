@@ -9,9 +9,7 @@
     mc:Ignorable="d">   
 
 
-    <Grid Background="Transparent">
-        
-        
+    <Grid Background="Transparent">      
 
         <Grid x:Name="grid" Background="Transparent">
 
@@ -196,9 +194,5 @@
             </SplitView.Content>
         </SplitView>
 
-
     </Grid>
-
-
-
 </Page>
