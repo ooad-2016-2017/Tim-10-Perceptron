@@ -21,7 +21,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 
-namespace InteraktivnaMapaEvenata.Customer
+namespace InteraktivnaMapaEvenata.Customer.CustomerMainPage
 {
     public sealed partial class CustomerMainPage : Page
     {

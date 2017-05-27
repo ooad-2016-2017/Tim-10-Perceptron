@@ -1,5 +1,6 @@
 ﻿using InteraktivnaMapaEvenata.Admin;
 using InteraktivnaMapaEvenata.Customer;
+using InteraktivnaMapaEvenata.Customer.CustomerMainPage;
 using System;
 using System.Collections.Generic;
 using System.IO;
