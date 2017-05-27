@@ -15,6 +15,8 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
     {
         IEventService _service;
 
+        public EventController() { }
+
         public EventController(IEventService service)
         {
             _service = service;

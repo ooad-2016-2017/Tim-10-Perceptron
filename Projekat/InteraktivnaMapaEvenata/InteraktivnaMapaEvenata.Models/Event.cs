@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity.Spatial;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InteraktivnaMapaEvenata.Models
 {
@@ -16,7 +17,10 @@ namespace InteraktivnaMapaEvenata.Models
         [Required]
         public string Name { get; set; }
 
+        
         [Required]
+        public int EventStateId { get; set; }
+        [ForeignKey("EventStateId")]
         public EventState EventState { get; set; }
 
         [Required]
@@ -25,16 +29,22 @@ namespace InteraktivnaMapaEvenata.Models
         [Required]
         public DateTime StartDate { get; set; }
 
-        [Required]
+        public int? PromotionId { get; set; }
+        [ForeignKey("PromotionId")]
         public Promotion Promotion { get; set; }
 
         public ICollection<Customer> Customers;
 
         [Required]
+        public int OwnerId { get; set; }
+        [ForeignKey("OwnerId")]
         public Owner Owner { get; set; }
 
         [Required]
-        public DbGeography Location { get; set; }
+        public double Latitude { get; set; }
+
+        [Required]
+        public double Longitude { get; set; }
 
         public ICollection<EventFlag> Flags { get; set; }
 

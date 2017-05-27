@@ -6,21 +6,36 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InteraktivnaMapaEvenata.DAL
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext() : base("LocalDb")
+        public ApplicationDbContext() : base("InteractiveEventMap")
         {
+            Database.SetInitializer<ApplicationDbContext>(null);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-        }
 
-        // public DbSet<ApplicationUser> Users { get; set; }
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+
+
+
+            //    modelBuilder.Entity<Notification>()
+            //                .HasRequired(c => c.DestinationUser)
+            //                .WithMany()
+            //                .WillCascadeOnDelete(false);
+            //    modelBuilder.Entity<Owner>()
+            //        .HasRequired(c => c.SelectedTier)
+            //        .WithMany(c => c.)
+
+        }
 
         public DbSet<Customer> Customers { get; set; }
 
@@ -38,7 +53,7 @@ namespace InteraktivnaMapaEvenata.DAL
 
         public DbSet<Owner> Owners { get; set; }
 
-        public DbSet<Owner> OwnerFlags { get; set; }
+        public DbSet<OwnerFlag> OwnerFlags { get; set; }
 
         public DbSet<PaymentTier> PaymentTiers { get; set; }
 

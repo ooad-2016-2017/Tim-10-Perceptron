@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Models
 {
-    public class Owner : ApplicationUser
+    public class Owner
     {
-        [Key]
         public int OwnerId { get; set; }
 
         [Required]
@@ -18,15 +18,22 @@ namespace InteraktivnaMapaEvenata.Models
         public ICollection<Event> Events { get; set; }
 
         public ICollection<OwnerFlag> Flags { get; set; }
-
-        [Required]
+        
+        public int? SelectedTierId { get; set; }
+        [ForeignKey("SelectedTierId")]
         public PaymentTier SelectedTier { get; set; }
 
         public ICollection<Customer> Followers { get; set; }
 
         public ICollection<Promotion> Promotions { get; set; }
 
-
         public ICollection<QRScanner> QRScanners { get; set; }
+
+        public ICollection<OwnerFlag> OwnerFlags { get; set; }
+
+        public ICollection<Notification> Notifications { get; set; }
+
+        [Required]
+        public ApplicationUser ApplicationUser { get; set; }
     }
 }
