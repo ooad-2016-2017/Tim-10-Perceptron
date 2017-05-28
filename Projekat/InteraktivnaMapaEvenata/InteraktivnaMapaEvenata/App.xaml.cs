@@ -1,6 +1,6 @@
 ﻿using InteraktivnaMapaEvenata.Admin;
-using InteraktivnaMapaEvenata.Customer;
-using InteraktivnaMapaEvenata.Customer.CustomerMainPage;
+using InteraktivnaMapaEvenata.CustomerViews;
+using InteraktivnaMapaEvenata.CustomerViews.CustomerMainPage;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -87,7 +87,7 @@ namespace InteraktivnaMapaEvenata
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(CustomerMainPage), e.Arguments);
+                    rootFrame.Navigate(typeof(CustomerOwnerProfile), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

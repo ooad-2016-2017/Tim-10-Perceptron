@@ -21,7 +21,7 @@ using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 
-namespace InteraktivnaMapaEvenata.Customer.CustomerMainPage
+namespace InteraktivnaMapaEvenata.CustomerViews
 {
     public sealed partial class CustomerMainPage : Page
     {
@@ -89,92 +89,48 @@ namespace InteraktivnaMapaEvenata.Customer.CustomerMainPage
 
             Events = new List<Event>();
             Promotion promotion = new Promotion();
-            promotion.Name = "Ime promocije";
-            for (int i = 0; i < 1; i++)
+            promotion.Name = "Ime promocije";            
+            Events.Add(new Event()
             {
-                Events.Add(new Event()
-                {
-                    Name = "ACA LUKAS KOD VEDE",
-                    Description = "ovo je opis",
-                    StartDate = new DateTime(2017, 3, 17),
-                    Owner = Owners[0],
-                    Promotion = promotion
-                });
-            }
+                Name = "PARTYYYYYYYYYY KOD VEDE",
+                Description = "ovo je opis",
+                StartDate = new DateTime(2017, 3, 17),
+                Owner = Owners[0],
+                Promotion = promotion
+            });
+            Events.Add(new Event()
+            {
+                Name = "GLASNA MUZIKA KOD ELVIRA",
+                Description = "neki dobar opis",
+                StartDate = new DateTime(2017, 4, 21),
+                Owner = Owners[0],
+                Promotion = promotion
+            });
+            Events.Add(new Event()
+            {
+                Name = "TIPKANJE KOD BURICA",
+                Description = "jos bolji opis",
+                StartDate = new DateTime(2017, 12, 12),
+                Owner = Owners[0],
+                Promotion = promotion
+            });
+
+
+            Owners[0].Events = Events;           
 
             MarkerControl = new List<MarkerControl>();
             for (int i = 0; i < Events.Count; i++)
             {
-                MarkerControl.Add(new MarkerControl(Events[i], MapControl1));                
+                MarkerControl.Add(new MarkerControl(Events[i], MapControl1, frame));                
             }
 
-        }        
-
-        private void DisplayEventMarker(double latitude, double longitude/*, Button button*/)
-        {
-            // Specify a known location.
-            BasicGeoposition snPosition = new BasicGeoposition() { Latitude = latitude, Longitude = longitude };
-            Geopoint snPoint = new Geopoint(snPosition);
-
-            // Create a XAML border.
-            Border border = new Border
-            {
-                Height = 20,
-                Width = 20,
-                BorderBrush = new SolidColorBrush(Windows.UI.Colors.Blue),
-                BorderThickness = new Thickness(2),
-                CornerRadius = new CornerRadius(4)
-            };
-
-            Button button = new Button
-            {
-                Height = 20,
-                Width = 20,
-                BorderBrush = new SolidColorBrush(Windows.UI.Colors.Transparent)
-            };
-
-            button.Click += new RoutedEventHandler(button_Click);
-
-            // Center the map over the POI.
-            MapControl1.Center = snPoint;
-            MapControl1.ZoomLevel = 14;
-
-            // Add XAML to the map.
-            MapControl1.Children.Add(button);
-            MapControl1.Children.Add(border);
-            MapControl.SetLocation(button, snPoint);
-            MapControl.SetLocation(border, snPoint);
-            MapControl.SetNormalizedAnchorPoint(button, new Point(0.5, 0.5));
-            MapControl.SetNormalizedAnchorPoint(border, new Point(0.5, 0.5));
-        }
+        }      
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
             Visibility = Visibility.Collapsed;
         }
-
-        /*
-        private void DisplayMarker()
-        {
-            // Specify a known location.
-            BasicGeoposition snPosition = new BasicGeoposition() { Latitude = 43.8699466, Longitude = 18.4182643 };
-            Geopoint snPoint = new Geopoint(snPosition);
-
-            // Create a MapIcon.
-            MapIcon mapIcon1 = new MapIcon();
-            mapIcon1.Location = snPoint;
-            mapIcon1.NormalizedAnchorPoint = new Point(0.5, 1.0);
-            mapIcon1.Title = "Vedo";
-            mapIcon1.ZIndex = 0;
-
-            // Add the MapIcon to the map.
-            MapControl1.MapElements.Add(mapIcon1);
-
-            // Center the map over the POI.
-            /*MapControl1.Center = snPoint;
-            MapControl1.ZoomLevel = 14;
-        }
-    */
+       
         private async void GetLocation()
         {
             var accessStatus = await Geolocator.RequestAccessAsync();

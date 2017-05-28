@@ -23,11 +23,14 @@ namespace InteraktivnaMapaEvenata.UserControls
     {
 
         private Event _event;
+        private Frame _frame;
+        private string orgName;
 
-        public ModalControl(Event _event)
+        public ModalControl(Event _event, Frame frame)
         {
             this.InitializeComponent();
             this._event = _event;
+            this._frame = frame;
             Initialize();
         }
         
@@ -35,10 +38,20 @@ namespace InteraktivnaMapaEvenata.UserControls
         {
             eventNameTextBlock.Text = "Naziv Eventa: " + _event.Name;
             eventTimeTextBlock.Text = "Vrijeme desavanja: " + _event.StartDate;
-            eventOrganizerTextBlock.Text = "Organizator: " + _event.Owner.OrganizationName;
+            eventOrganizerTextBlock.Text = "Organizator: ";
+            orgName = _event.Owner.OrganizationName;
             eventInfoTextBlock.Text = "Info: " + _event.Description;
             eventDiscountTextBlock.Text = "Pogodnosti: " + _event.Promotion.Name;
-        }       
+        }
 
+        private void eventOrganizerHyperlink_Click(object sender, RoutedEventArgs e)
+        {
+            _frame.Navigate(typeof(CustomerOwnerProfile), _event.Owner);
+        }
+
+        private void QRCodeHyperlink_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

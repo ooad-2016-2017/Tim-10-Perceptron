@@ -15,7 +15,7 @@ namespace InteraktivnaMapaEvenata.Models
         [Required]
         public string OrganizationName { get; set; }
 
-        public ICollection<Event> Events { get; set; }
+        public List<Event> Events { get; set; }
 
         public ICollection<OwnerFlag> Flags { get; set; }
         

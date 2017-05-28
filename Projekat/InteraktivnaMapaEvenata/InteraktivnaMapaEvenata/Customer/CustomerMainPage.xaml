@@ -1,8 +1,8 @@
 ﻿<Page
-    x:Class="InteraktivnaMapaEvenata.Customer.CustomerMainPage.CustomerMainPage"
+    x:Class="InteraktivnaMapaEvenata.CustomerViews.CustomerMainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:InteraktivnaMapaEvenata.Customer.CustomerMainPage"
+    xmlns:local="using:InteraktivnaMapaEvenata.CustomerViews.CustomerMainPage"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
@@ -151,7 +151,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Grid.RowDefinitions>
                                         <RowDefinition />
-                                    </Grid.RowDefinitions>                                    
+                                    </Grid.RowDefinitions>
                                     <StackPanel Grid.Row="0" Grid.Column="1" Name="NotificationName" Margin="5,0,0,0">
                                         <TextBlock Text="{Binding Text}" Style="{StaticResource BodyTextBlockStyle}"/>
                                     </StackPanel>
@@ -162,7 +162,7 @@
                     <!--
                     <Button x:Name="notificationButton" Foreground="White" HorizontalAlignment="Center" Grid.Column="1"  Grid.Row="2" Grid.ColumnSpan="3" Content="Notification Example" Height="40" Width="100" VerticalAlignment="Bottom"/>
                       -->
-                    
+
                     <TextBlock x:Name="eventTextBlock" Text="Prijavljeni ste na event:" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,-40,0,0"/>
                     <ListView ItemsSource="{x:Bind Events}" IsItemClickEnabled="True" x:Name="EventList" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
                         <ListView.ItemTemplate>
@@ -193,6 +193,7 @@
                 <TextBlock x:Name="txt"/>
             </SplitView.Content>
         </SplitView>
+        <Frame x:Name="frame" />
 
     </Grid>
 </Page>

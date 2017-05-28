@@ -128,11 +128,11 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer\CustomerMainPage\CustomerMainPageVM.cs" />
+    <Compile Include="ViewModels\CustomerMainPageVM.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer\CustomerMainPage\CustomerMainPage.xaml.cs">
+    <Compile Include="Customer\CustomerMainPage.xaml.cs">
       <DependentUpon>CustomerMainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Customer\CustomerOwnerProfile.xaml.cs">
@@ -189,6 +189,9 @@
     <Compile Include="Registration\RegistracijaOrganizatora4.xaml.cs" />
     <Compile Include="Registration\RegistracijaOrganizatora5.xaml.cs" />
     <Compile Include="Registration\RegistracijaOrgnizatora1.xaml.cs" />
+    <Compile Include="UserControls\EventBlockControl.xaml.cs">
+      <DependentUpon>EventBlockControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\MarkerControl.xaml.cs">
       <DependentUpon>MarkerControl.xaml</DependentUpon>
     </Compile>
@@ -274,7 +277,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Customer\CustomerMainPage\CustomerMainPage.xaml">
+    <Page Include="Customer\CustomerMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -361,6 +364,10 @@
     <Page Include="Registration\RegistracijaOrgnizatora1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\EventBlockControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\MarkerControl.xaml">
       <SubType>Designer</SubType>

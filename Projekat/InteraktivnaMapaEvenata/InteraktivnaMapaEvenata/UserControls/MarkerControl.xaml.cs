@@ -31,13 +31,13 @@ namespace InteraktivnaMapaEvenata.UserControls
         private Rectangle _rectangle;
         private ModalControl _modalControl;
 
-        public MarkerControl(Event _event, MapControl mapControl)
+        public MarkerControl(Event _event, MapControl mapControl, Frame frame)
         {
             this.InitializeComponent();
             this._event = _event;
             this._mapControl = mapControl;
             DisplayEventMarker();
-            this._modalControl = new ModalControl(_event);
+            this._modalControl = new ModalControl(_event, frame);
             AddModal(_modalControl, 43.8699466, 18.4182643);
         }       
         

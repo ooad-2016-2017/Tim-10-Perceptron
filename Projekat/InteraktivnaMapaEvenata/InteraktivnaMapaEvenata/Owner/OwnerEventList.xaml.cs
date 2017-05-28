@@ -25,26 +25,31 @@ namespace InteraktivnaMapaEvenata
     {
 
         List<Event> Events { get; set; }
+        string CreatedEvents { get; set; }
+        public Frame frame { get; set; }
 
         public OwnerEventList()
         {
             this.InitializeComponent();
-
+            frame = new Frame();
             Events = new List<Event>();
             for (int i = 0; i < 10; i++)
             {
                 Events.Add(new Event()
                 {
+                    EventId = i,
                     Name = "event",
-                    Description = "broj prijavljenih"
+                    Description = "opis",
+                    Owner = new UWP.Models.Owner()
+                    {
+                        Name = "owner"
+                    }
                 });
             }
 
+            CreatedEvents = "Imate " + Events.Count + " kreiranih evenata"; 
+            
         }
-
-        private void updateButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(OwnerEditEvent));
-        }
+        
     }
 }
