@@ -19,96 +19,47 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Extensions.DependencyInjection;
 
+using InteraktivnaMapaEvenata.Managers;
+using InteraktivnaMapaEvenata.Customer.ViewModel;
 
 namespace InteraktivnaMapaEvenata.Customer.CustomerMainPage
 {
     public sealed partial class CustomerMainPage : Page
     {
+        public CustomerMainPageVM CustomerMainPageVM { get; set; }
+
         bool splitViewOpened = true;
         bool findUsersOpened = false;
         bool favoriteOpened = false;
 
-        List<UWP.Models.Customer> Customers { get; set; }
-        List<UWP.Models.Owner> Owners { get; set; }
-        List<Notification> Notifications { get; set; }
-        List<Event> Events { get; set; }
+        List<MarkerControl> MarkerControls { get; set; }
 
-        List<MarkerControl> MarkerControl { get; set; }
+        MarkerControl MarkerControl { get; set; }
 
         public CustomerMainPage()
         {
             this.InitializeComponent();
+            
+            MarkerControls = new List<MarkerControl>();
+
+            CustomerMainPageVM = new CustomerMainPageVM(ServiceModule.Container.GetService<IEventService>());
+
             //MapControl1.Loaded += MapControl1_Loaded;        
             //DisplayEventMarker(43.8699466, 18.4182643);
             GetLocation();
             //DisplayMarker();
             //MapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/customicon.png"));
 
-            Customers = new List<UWP.Models.Customer>();
-            for (int i = 0; i < 10; i++)
-            {
-                Customers.Add(new UWP.Models.Customer()
-                {
-                    Name = "Vedo"
-                });
-            }
+            //List<Event> events = CustomerMainPageVM.LoadEvents();
 
-            Owners = new List<UWP.Models.Owner>();
-            
-            Owners.Add(new UWP.Models.Owner()
-            {
-               OrganizationName = "Klix",
-               Surname = "prezime",
-               OwnerId = 1                  
-            });
+            //for (int i = 0; i < Events.Count; i++)
+            //{
+                //MarkerControls.Add(new MarkerControl(Events[i], MapControl1));
+            //}
 
-            Owners.Add(new UWP.Models.Owner()
-            {
-                OrganizationName = "SarajevoX",
-                Surname = "prezime",
-                OwnerId = 2
-            });
-
-            Owners.Add(new UWP.Models.Owner()
-            {
-                OrganizationName = "Portal",
-                Surname = "prezime",
-                OwnerId = 3
-            });
-
-
-            Notifications = new List<Notification>();
-            for (int i = 0; i < 10; i++)
-            {
-                Notifications.Add(new Notification()
-                {
-                    Text = "textnotif"
-                });
-            }
-
-            Events = new List<Event>();
-            Promotion promotion = new Promotion();
-            promotion.Name = "Ime promocije";
-            for (int i = 0; i < 1; i++)
-            {
-                Events.Add(new Event()
-                {
-                    Name = "ACA LUKAS KOD VEDE",
-                    Description = "ovo je opis",
-                    StartDate = new DateTime(2017, 3, 17),
-                    Owner = Owners[0],
-                    Promotion = promotion
-                });
-            }
-
-            MarkerControl = new List<MarkerControl>();
-            for (int i = 0; i < Events.Count; i++)
-            {
-                MarkerControl.Add(new MarkerControl(Events[i], MapControl1));                
-            }
-
-        }        
+        }
 
         private void DisplayEventMarker(double latitude, double longitude/*, Button button*/)
         {

@@ -21,7 +21,6 @@ namespace InteraktivnaMapaEvenata.UserControls
 {
     public sealed partial class ModalControl : UserControl
     {
-
         private Event _event;
 
         public ModalControl(Event _event)
@@ -39,6 +38,5 @@ namespace InteraktivnaMapaEvenata.UserControls
             eventInfoTextBlock.Text = "Info: " + _event.Description;
             eventDiscountTextBlock.Text = "Pogodnosti: " + _event.Promotion.Name;
         }       
-
     }
 }

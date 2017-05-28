@@ -31,7 +31,7 @@ namespace InteraktivnaMapaEvenata.UserControls
         private Rectangle _rectangle;
         private ModalControl _modalControl;
 
-        public MarkerControl(Event _event, MapControl mapControl)
+        public MarkerControl(MapControl mapControl)
         {
             this.InitializeComponent();
             this._event = _event;

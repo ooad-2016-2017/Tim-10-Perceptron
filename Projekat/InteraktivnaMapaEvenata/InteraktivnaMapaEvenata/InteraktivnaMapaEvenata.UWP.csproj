@@ -128,11 +128,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer\CustomerMainPage\CustomerMainPageVM.cs" />
+    <Compile Include="ViewModels\BaseVM.cs" />
+    <Compile Include="ViewModels\CustomerMainPageVM.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer\CustomerMainPage\CustomerMainPage.xaml.cs">
+    <Compile Include="Customer\CustomerMainPage.xaml.cs">
       <DependentUpon>CustomerMainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Customer\CustomerOwnerProfile.xaml.cs">
@@ -141,6 +142,12 @@
     <Compile Include="Customer\CustomerUserProfile.xaml.cs">
       <DependentUpon>CustomerUserProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Managers\BaseService.cs" />
+    <Compile Include="Managers\EventManager.cs" />
+    <Compile Include="Managers\EventMockService.cs" />
+    <Compile Include="Managers\EventService.cs" />
+    <Compile Include="Managers\IEventService.cs" />
+    <Compile Include="Managers\RegisterServices.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\EventFlag.cs" />
@@ -195,6 +202,7 @@
     <Compile Include="UserControls\ModalControl.xaml.cs">
       <DependentUpon>ModalControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\ViewModelHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -274,7 +282,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Customer\CustomerMainPage\CustomerMainPage.xaml">
+    <Page Include="Customer\CustomerMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -371,9 +379,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Managers\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -51,7 +51,7 @@
             <Button Content="B" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center" Visibility="{Binding Visibility,ElementName=findUsersRectangle}" Click="Button_Click" />
             <TextBlock Text="Nadji korisnike" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" Visibility="{Binding Visibility,ElementName=findUsersRectangle}"/>
             <TextBox Text="{Binding FallbackValue=Pretraga}" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Visibility="{Binding Visibility,ElementName=findUsersRectangle}"/>
-            <ListView ItemsSource="{x:Bind Customers}" IsItemClickEnabled="True" x:Name="CustomersList" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="{Binding Visibility,ElementName=findUsersRectangle}">
+            <ListView ItemsSource="{x:Bind CustomerMainPageVM.Customers}" IsItemClickEnabled="True" x:Name="CustomersList" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="{Binding Visibility,ElementName=findUsersRectangle}">
                 <ListView.ItemTemplate>
                     <!--<DataTemplate x:DataType="local:Owner">-->
                     <DataTemplate>
@@ -76,7 +76,7 @@
             <Button Content="B" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center" Visibility="{Binding Visibility,ElementName=favOrgRectangle}" Click="Button_Click" />
             <TextBlock Text="Organizatori" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" Visibility="{Binding Visibility,ElementName=favOrgRectangle}"/>
             <TextBox Text="{Binding FallbackValue=Pretraga}" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Visibility="{Binding Visibility,ElementName=favOrgRectangle}"/>
-            <ListView ItemsSource="{x:Bind Owners}" IsItemClickEnabled="True" x:Name="OwnersList" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="{Binding Visibility,ElementName=favOrgRectangle}">
+            <ListView ItemsSource="{x:Bind CustomerMainPageVM.Owners}" IsItemClickEnabled="True" x:Name="OwnersList" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="{Binding Visibility,ElementName=favOrgRectangle}">
                 <ListView.ItemTemplate>
                     <!--<DataTemplate x:DataType="local:Owner">-->
                     <DataTemplate>
@@ -140,7 +140,7 @@
                     <Button x:Name="profileImage" BorderThickness="0" Background="Transparent" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Center" Grid.Column="1"  Grid.Row="0" Grid.ColumnSpan="3" Content="&#xE77B;" Height="85" Width="70" VerticalAlignment="Center"/>
 
                     <TextBlock x:Name="notificationsTextBlock" Text="Notifikacije" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,-40,0,0"/>
-                    <ListView ItemsSource="{x:Bind Notifications}" IsItemClickEnabled="True" x:Name="NotificationsList" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                    <ListView ItemsSource="{x:Bind CustomerMainPageVM.Notifications}" IsItemClickEnabled="True" x:Name="NotificationsList" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
                         <ListView.ItemTemplate>
                             <!--<DataTemplate x:DataType="local:Owner">-->
                             <DataTemplate>
@@ -164,7 +164,7 @@
                       -->
                     
                     <TextBlock x:Name="eventTextBlock" Text="Prijavljeni ste na event:" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,-40,0,0"/>
-                    <ListView ItemsSource="{x:Bind Events}" IsItemClickEnabled="True" x:Name="EventList" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                    <ListView ItemsSource="{x:Bind CustomerMainPageVM.Events}" IsItemClickEnabled="True" x:Name="EventList" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
                         <ListView.ItemTemplate>
                             <!--<DataTemplate x:DataType="local:Owner">-->
                             <DataTemplate>
