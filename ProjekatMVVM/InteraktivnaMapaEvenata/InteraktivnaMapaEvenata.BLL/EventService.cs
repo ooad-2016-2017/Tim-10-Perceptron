@@ -24,5 +24,7 @@ namespace InteraktivnaMapaEvenata.BLL
         {
             return _context.Events.Where(x => x.EventId == id).FirstOrDefault();
         }
+        
+
     }
 }

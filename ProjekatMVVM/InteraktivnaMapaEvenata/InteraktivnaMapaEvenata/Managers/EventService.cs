@@ -1,14 +1,16 @@
-﻿using System;
+﻿using InteraktivnaMapaEvenata.UWP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Description;
 using System.Text;
 using System.Threading.Tasks;
-using InteraktivnaMapaEvenata.UWP.Models;
 
 namespace InteraktivnaMapaEvenata.Managers
 {
     public class EventService : BaseService, IEventService
     {
+
         public EventService()
         {
             ServiceEndpoint = "api/event";
@@ -18,10 +20,11 @@ namespace InteraktivnaMapaEvenata.Managers
         {
             throw new NotImplementedException();
         }
-
+          
         public Task<List<Event>> GetEvents()
         {
             throw new NotImplementedException();
         }
+
     }
 }

@@ -12,5 +12,6 @@ namespace InteraktivnaMapaEvenata.BLL.Interfaces
         ICollection<Event> GetEvents();
 
         Event GetEventById(int id);
+        
     }
 }

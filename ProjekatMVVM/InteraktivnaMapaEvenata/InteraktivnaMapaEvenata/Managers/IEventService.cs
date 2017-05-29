@@ -9,8 +9,8 @@ namespace InteraktivnaMapaEvenata.Managers
 {
     public interface IEventService
     {
-        Task<List<Event>> GetEvents();
-
-        Task<Event> GetEventById(int id);
+         Task<List<Event>> GetEvents();
+ 
+         Task<Event> GetEventById(int id);
     }
 }
