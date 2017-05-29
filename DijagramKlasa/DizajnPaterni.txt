@@ -1,0 +1,64 @@
+Kreacijski patterni:
+
+1. Adapter pattern
+-Ovaj pattern se primjenjuje radi proširivanje ili izmjene funkcionalnosti nekih klasa bez izmjena samog koda klase(koje bi mogle imati posljedice na ostatak sistema). 
+Ovaj patern bi se mogao primjeniti na EventManager klasu, kako bi se ona wrappala ukoliko bi bilo potrebno izmjeniti neke od get metoda u toj klasi. Najbolji primjer za to bi
+bila metoda getEventsCloseTo koja, kao sto je navedeno u komentaru na dijagramu, koristi d^2 metriku. Ovo bi se moglo izmjeniti na naèin da se kreira interfejs koji, izmeðu ostalog, 
+sadrži i metodu sa istim imenom, istim brojem i tipovima argumenata, a zatim se kreira klasa
+koja isti interfejs implementuje, sadrži originalni EventManager kao atribut i raèuna udaljenost na drugi, kompleksniji naèin, uz pomoæ poziva originale metode iz EventManagera.
+Klase koje posjeduju rade sa EventManagerom isti mogu instancirat sa objektom originalne verzije managera(Adaptee) ili mogu koristiti novokreiranu verziju(Adapter).
+
+2. Facade pattern
+-Ovaj patern služi da kreira jednostavniji interfejs klijentu za rad nad nekoliko meðusobno povezanih klasa. U našem dijagramu klasa je ovaj patern primjenjen nad 
+nekim view model klasama koje vrše operacije nad istim klasama modela. Jedan primjer toga je 
+OwnerDashboardVM koji objedinjuje OwnerEventRegistrationVM, OwnerEventsVM i OwnerSettingsVM pod istu klasu i pruža jednostavniji interfejs za vršenje operacija nad Owner
+i Event modelima.
+
+3. Decorator pattern
+-Ovaj patern bi se mogao primjeniti na naš sistem ukoliko bi se krenulo u pravcu proširivanja broja tipova evenata, recimo ako bi se dodavale moguænosti 
+da eventovi mogu biti VIP i nonVip, eventovi na otvorenom i zatvorenom, sa promocijama i bez itd. Decorator pattern bi tu poslužio jer bi se tada 
+mogle kombinovati sve te kategorije pri kreaciji eventa. To bi se moglo implementovati na naèin da se kreira neki IEvent interfejs koji sadrži sve metode
+Event klase i onda se kreiraju dekorator klase koje implementiraju taj interfejs(klase tipa VipEventDecorator, PromotionEventDecorator...).
+Kako se pri kreiranju klasa koje koriste decorator patern pozivi konstruktora stackuju, time bi bilo moguæe napraviti kombinacije raznih tipova eventova 
+pozivima new VipEventDecorator(new PromotionEventDecorator(... new Event() ...)). 
+
+4. Bridge pattern
+Kako naš dijagram trenutno ne sadrži interfejse ovaj patern nije osobito koristan.
+
+5. Proxy pattern
+Kako je primarna svrha proxy paterna autentifikacija pristupa metodama odreðenih klasa, on može imati ulogu u view model klasama. Jedna dobra upotreba tog paterna 
+bi možda bila u UserEvent view modelima, gdje bi umjesto liste eventova, klasa sadržavala listu proxya na te eventove. Kako detalji eventova mogu biti neprimjerenog
+sadržaja za odreðene korisnike, prvo bi se slala autentifikacija proxyu, recimo šaljuæi datum roðenja korisnika kao parametar. Tek nakon validacije bi view model klase
+mogle pristupati svim metodama originalnog modela preko proxya.
+
+6. Composite pattern
+Ovaj patern je koristan kod objekata gdje ima smisla iste operacije primjenjivati kao jedan objekat kao i na listu tih istih objekata. U našoj aplikaciji, ovaj patern 
+bi se mogao iskoristiti za notifikacije, s obzirom da su neke operacije, tipa slanje notifikacija korisniku, primjenjive i na jedan objekat, tj. slanje jedne notifikacije,
+kao i na grupu notifikacija. Implementovao bi se na naèin da se doda INotification interfejs koji bi, izmeðu ostalog, imao metodu send(User). Ovaj interfejs bi 
+implementovala klasa Notification, koja predstavlja jednu notifikaciju, kao i neka nova klasa, CompositeNotification, koja bi sadržavala listu objekata tipa
+INotification. Implementacija send u Notification klasi bi vršila slanje notifikacije useru, dok bi send metoda u CompositeNotification klasi pozivala istoimenu metodu 
+nad svakim objektom u listi. 
+
+7. Flyweight pattern
+
+Kreacijski patterni:
+
+1. Singleton pattern
+-U klasnom modelu postoji nekoliko klasa koje ne bi trebalo biti moguæe instancirati više puta. To su primarno svi Manageri(Event, EventState, FlagState...), kako je 
+samo jedna instanca tih klasa dovoljna 
+
+2.Prototype pattern
+Kako se praktièki sve klase u našem dijagramu mogu svrstati ili u skupinu singletone/statièkih klasa, što znaèi da je samo jedna(odnosno niti jedna) instanca tih klasa 
+dovoljna, ili u skupinu klasa èiji su objekti unique jer imaju unique id, ovaj patern nije primjenjiv kako nikad neæe biti potrebe za shallow ili deep kopiranjem objekata 
+iz modela.
+
+3. Factory Method pattern
+-Trenutno nije primjenjivo na dijagram, ali, u sluèaju da se sistem proširi sa više tipova notifikacija, 
+pattern bi mogao biti primjenjiv na naèin da postoji factory klasa koja, na osnovu proslijeðenih podataka o eventu, 
+kreira odgovarajuæe notifikacije.
+
+4. Abstract Factory pattern
+-Nije primjenjivo
+
+5. Builder pattern
+-Kako u našem sistemu nema primjera klasa koje prolaze kroz kompleksan proces "izgradnje" ni ovaj pattern nije primjenjiv. 
