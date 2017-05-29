@@ -12,7 +12,44 @@ namespace InteraktivnaMapaEvenata.Managers
 
         public Task<Event> GetEventById(int id)
         {
-            throw new NotImplementedException();
+
+            List<UWP.Models.Owner> owners = new List<UWP.Models.Owner>();
+            owners.Add(new UWP.Models.Owner()
+            {
+                OrganizationName = "Klix",
+                Surname = "prezime",
+                OwnerId = 1
+            });
+
+            List<Event> events = new List<Event>();
+            events.Add(new UWP.Models.Event()
+            {
+                Name = "ACA LUKAS KOD VEDE",
+                Description = "ovo je opis",
+                StartDate = new DateTime(2017, 3, 17),
+                Owner = owners[0]
+            });
+            events.Add(new UWP.Models.Event()
+            {
+                Name = "GLASNO TIPKANJE KOD BURICA",
+                Description = "ovo je opis2",
+                StartDate = new DateTime(2017, 12, 12),
+                Owner = owners[0]
+            });
+            events.Add(new UWP.Models.Event()
+            {
+                Name = "SPAVANJE KOD ELVIRA",
+                Description = "debil",
+                StartDate = new DateTime(2017, 12, 12),
+                Owner = owners[0]
+            });
+
+            if(id > events.Count)
+            {
+                throw new NotImplementedException();
+            }           
+
+            return Task.FromResult(events[id]);
         }
 
         public Task<List<Event>> GetEvents()

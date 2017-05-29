@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InteraktivnaMapaEvenata.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,24 +14,24 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace InteraktivnaMapaEvenata
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
+    
     public sealed partial class OwnerEditEvent : Page
     {
+        public int EventId { get; set; }
+
         public OwnerEditEvent()
         {
             this.InitializeComponent();
+            DataContext = new OwnerEventListVM();
+            NavigationCacheMode = NavigationCacheMode.Required;
         }
-
+        /*
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+            EventId = (int)e.Parameter;
         }
-
+        */
     }
 }
