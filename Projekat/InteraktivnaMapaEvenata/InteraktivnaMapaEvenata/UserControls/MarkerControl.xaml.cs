@@ -23,7 +23,6 @@ namespace InteraktivnaMapaEvenata.UserControls
 {
     public sealed partial class MarkerControl : UserControl
     {
-        private Event _event;
         private MapControl _mapControl;
         private Button _button;
         private Border _border;
@@ -34,10 +33,9 @@ namespace InteraktivnaMapaEvenata.UserControls
         public MarkerControl(MapControl mapControl)
         {
             this.InitializeComponent();
-            this._event = _event;
             this._mapControl = mapControl;
             DisplayEventMarker();
-            this._modalControl = new ModalControl(_event);
+            this._modalControl = new ModalControl();
             AddModal(_modalControl, 43.8699466, 18.4182643);
         }       
         

@@ -14,7 +14,6 @@ namespace InteraktivnaMapaEvenata.UWP.Models
         public ICollection<Customer> Customers { get; set; }
 
         public int OwnerId { get; set; }
-        [ForeignKey("OwnerId")]
         public Owner Owner { get; set; }
 
         public ICollection<QRScanner> QRScanners { get; set; }

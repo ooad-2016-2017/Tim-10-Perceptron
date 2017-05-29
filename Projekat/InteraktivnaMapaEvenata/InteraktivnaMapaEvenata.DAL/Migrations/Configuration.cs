@@ -48,6 +48,7 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
         }
 
 
+
         protected override void Seed(ApplicationDbContext context)
         {
             try

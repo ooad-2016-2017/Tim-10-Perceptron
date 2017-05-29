@@ -10,11 +10,7 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 {
     public class QRScanner : User
     {
-        [Required]
         Promotion CurrentPromotion { get; set; }
-
-        [Required]
         Owner Owner { get; set; }
-
     }
 }

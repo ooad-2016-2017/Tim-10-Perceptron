@@ -21,12 +21,9 @@ namespace InteraktivnaMapaEvenata.UserControls
 {
     public sealed partial class ModalControl : UserControl
     {
-        private Event _event;
-
-        public ModalControl(Event _event)
+        public ModalControl()
         {
             this.InitializeComponent();
-            this._event = _event;
             Initialize();
         }
         
