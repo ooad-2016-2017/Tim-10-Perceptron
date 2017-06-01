@@ -1,4 +1,5 @@
 ﻿using Flurl.Http;
+using Flurl;
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using Newtonsoft.Json;
 using System;
@@ -11,6 +12,12 @@ namespace InteraktivnaMapaEvenata.Services
 {
     public class BaseService : ITokenBearer
     {
+        public BaseService() { }
+        public BaseService(string Token)
+        {
+            this.Token = Token;
+        }
+
         public string Token { get; set; }
 
         public string BaseUrl { get; set; } = Globals.LOCAL_API;
@@ -33,6 +40,7 @@ namespace InteraktivnaMapaEvenata.Services
             var result = await _httpClient.GetAsync(Wrap(request));
             return FromJson<T>(await result.Content.ReadAsStringAsync());
         }
-    }
 
+        public IFlurlClient SecureUri { get { return Endpoint.WithHeader("Authorization", $"Bearer {Token}"); } }
+    }
 }

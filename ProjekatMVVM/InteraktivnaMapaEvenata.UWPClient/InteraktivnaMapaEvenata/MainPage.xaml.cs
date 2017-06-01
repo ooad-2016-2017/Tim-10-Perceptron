@@ -1,4 +1,8 @@
-﻿using System;
+﻿using InteraktivnaMapaEvenata.Helpers;
+using InteraktivnaMapaEvenata.Services;
+using InteraktivnaMapaEvenata.Services.Interfaces;
+using InteraktivnaMapaEvenata.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,9 +27,17 @@ namespace InteraktivnaMapaEvenata
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        public LoginVM LoginVM { get; set; }
+
         public MainPage()
         {
             this.InitializeComponent();
+            LoginVM = new LoginVM(new AuthenticationVM(),
+                ServiceModule.GetService<IAuthenticationService>(),
+                ViewModelModule.GetService<INavigationService>(),
+                ServiceModule.GetService<IUserService>(),
+                ServiceModule.GetService<IOwnerService>(),
+                ServiceModule.GetService<ICustomerService>());
         }
     }
 }

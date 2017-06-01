@@ -22,7 +22,6 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 
         public ICollection<Promotion> Promotions { get; set; }
 
-
         public ICollection<QRScanner> QRScanners { get; set; }
     }
 }

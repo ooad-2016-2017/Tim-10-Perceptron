@@ -64,6 +64,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IEventService>().To<EventService>();
+            kernel.Bind<ICustomerService>().To<CustomerService>();
         }        
     }
 }

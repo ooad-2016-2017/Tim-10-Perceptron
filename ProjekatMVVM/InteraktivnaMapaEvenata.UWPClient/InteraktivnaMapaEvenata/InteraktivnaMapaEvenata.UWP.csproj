@@ -128,34 +128,45 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomerViews\CustomerEditProfile.xaml.cs">
+      <DependentUpon>CustomerEditProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerViews\CustomerMainPage.xaml.cs">
+      <DependentUpon>CustomerMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerViews\CustomerOwnerProfile.xaml.cs">
+      <DependentUpon>CustomerOwnerProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerViews\CustomerUserProfile.xaml.cs">
+      <DependentUpon>CustomerUserProfile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\AuthDTO.cs" />
+    <Compile Include="Helpers\BindableBase.cs" />
     <Compile Include="Helpers\INavigationService.cs" />
     <Compile Include="Helpers\NavigationService.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\BaseService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
     <Compile Include="Services\EventMockService.cs" />
     <Compile Include="Services\EventService.cs" />
     <Compile Include="Services\FlurlInterceptors.cs" />
     <Compile Include="Services\Globals.cs" />
     <Compile Include="Services\Interfaces\IAuthenticationService.cs" />
+    <Compile Include="Services\Interfaces\ICustomerService.cs" />
     <Compile Include="Services\Interfaces\IEventService.cs" />
+    <Compile Include="Services\Interfaces\IOwnerService.cs" />
     <Compile Include="Services\Interfaces\ITokenBearer.cs" />
+    <Compile Include="Services\Interfaces\IUserService.cs" />
+    <Compile Include="Services\OwnerService.cs" />
     <Compile Include="Services\ServiceAuthenticator.cs" />
     <Compile Include="Services\ServiceModule.cs" />
+    <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\AuthenticationVM.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\CustomerMainPageVM.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\CustomerMainPage.xaml.cs">
-      <DependentUpon>CustomerMainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\CustomerOwnerProfile.xaml.cs">
-      <DependentUpon>CustomerOwnerProfile.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Customer\CustomerUserProfile.xaml.cs">
-      <DependentUpon>CustomerUserProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Event.cs" />
@@ -186,9 +197,6 @@
     <Compile Include="Owner\OwnerEditEvent.xaml.cs">
       <DependentUpon>OwnerEditEvent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Customer\CustomerEditProfile.xaml.cs">
-      <DependentUpon>CustomerEditProfile.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Owner\OwnerEditProfile.xaml.cs">
       <DependentUpon>OwnerEditProfile.xaml</DependentUpon>
     </Compile>
@@ -216,6 +224,7 @@
     </Compile>
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\OwnerEventListVM.cs" />
+    <Compile Include="ViewModels\ViewModelModules.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -291,21 +300,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CustomerViews\CustomerEditProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerViews\CustomerMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerViews\CustomerOwnerProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomerViews\CustomerUserProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Customer\CustomerMainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Customer\CustomerOwnerProfile.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Customer\CustomerUserProfile.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Owner\OwnerMainPage.xaml">
       <SubType>Designer</SubType>
@@ -326,10 +339,6 @@
     <Page Include="Owner\OwnerEditEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Customer\CustomerEditProfile.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Owner\OwnerEditProfile.xaml">
       <SubType>Designer</SubType>

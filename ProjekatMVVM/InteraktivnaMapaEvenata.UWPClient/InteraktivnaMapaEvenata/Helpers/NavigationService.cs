@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Controls;
 
 namespace InteraktivnaMapaEvenata.Helpers
 {
-    class NavigationService
+    public class NavigationService : INavigationService
     {
         //obicna navigacija bez parametra
         public void Navigate(Type sourcePage)

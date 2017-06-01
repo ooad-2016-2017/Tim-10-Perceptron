@@ -1,4 +1,4 @@
-﻿using InteraktivnaMapaEvenata.DTO;
+﻿using InteraktivnaMapaEvenata.UWP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Services.Interfaces
 {
-    public interface IAuthenticationService
+    public interface IOwnerService : ITokenBearer
     {
-        Task<AuthDTO> LogIn(string username, string password);
+        Task<Owner> GetOwner(int ownerId);
+
+        Task<Owner> GetOwner(string id);
     }
 }

@@ -46,7 +46,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
                 return BadRequest("Validation errors:\n" + string.Join("\n", errors.ToArray()));
             Event ret = _service.AddEvent(eventObj);
             if (ret == null)
-                return BadRequest("Failed to add event");
+                return BadRequest("Failed to add event.");
             return Ok(ret);
         }
 

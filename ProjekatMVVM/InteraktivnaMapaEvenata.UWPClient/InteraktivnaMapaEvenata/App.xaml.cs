@@ -1,6 +1,7 @@
 ﻿using InteraktivnaMapaEvenata.Admin;
-using InteraktivnaMapaEvenata.Customer;
+using InteraktivnaMapaEvenata.CustomerViews;
 using InteraktivnaMapaEvenata.Services;
+using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -52,6 +53,7 @@ namespace InteraktivnaMapaEvenata
             Frame rootFrame = Window.Current.Content as Frame;
 
             ServiceModule.RegisterServices();
+            ViewModelModule.RegisterHelpers();
 
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active

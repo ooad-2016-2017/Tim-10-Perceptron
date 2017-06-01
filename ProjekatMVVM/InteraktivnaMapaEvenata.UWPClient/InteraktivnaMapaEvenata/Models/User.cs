@@ -13,10 +13,14 @@ namespace InteraktivnaMapaEvenata.UWP.Models
         public string Surname { get; set; }
         
         public string Email { get; set; }
+
+        public string Username { get; set; }
         
         public bool IsBanned { get; set; }
 
         public byte[] ProfileImage { get; set; }
+
+        public string Role { get; set; }
 
         public ICollection<Notification> Notifications { get; set; }       
     }

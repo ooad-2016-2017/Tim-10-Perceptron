@@ -20,8 +20,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
-
-namespace InteraktivnaMapaEvenata.Customer
+namespace InteraktivnaMapaEvenata.CustomerViews
 {
     public sealed partial class CustomerMainPage : Page
     {

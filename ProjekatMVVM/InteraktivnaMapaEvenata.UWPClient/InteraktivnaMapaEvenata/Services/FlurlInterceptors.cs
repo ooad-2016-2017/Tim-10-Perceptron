@@ -1,4 +1,5 @@
-﻿using Flurl.Http;
+﻿using Flurl;
+using Flurl.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Services
 {
-    public static class FlurlInterceptors
-    {
-        public static IFlurlClient Authenticate(this IFlurlClient client, string token)
-        {
-            if (string.IsNullOrWhiteSpace(token))
-                return client;
-            else
-                return client.WithOAuthBearerToken(token);
-        }
-    }
+    //public static class FlurlInterceptors
+    //{
+    //    public static IFlurlClient Authenticate(this Url client, string token)
+    //    {
+    //        if (string.IsNullOrWhiteSpace(token))
+    //            return client;
+    //        else
+    //            return client.WithOAuthBearerToken(token);
+    //    }
+    //}
 }

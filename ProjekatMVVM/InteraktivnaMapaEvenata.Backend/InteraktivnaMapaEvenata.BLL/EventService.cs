@@ -36,6 +36,9 @@ namespace InteraktivnaMapaEvenata.BLL
 
         public Event AddEvent(Event eventObj)
         {
+            Owner owner = _context.Owners.Where(x => x.OwnerId == eventObj.OwnerId).FirstOrDefault();
+            if (owner == null)
+                return null;
             _context.Events.Add(eventObj);
             _context.SaveChanges();
             return eventObj;

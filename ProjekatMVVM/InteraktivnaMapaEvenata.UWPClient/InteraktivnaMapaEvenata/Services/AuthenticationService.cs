@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Flurl.Http;
+using Flurl;
+using InteraktivnaMapaEvenata.DTO;
+using System.Net.Http;
 
 namespace InteraktivnaMapaEvenata.Services
 {
@@ -11,9 +15,21 @@ namespace InteraktivnaMapaEvenata.Services
     {
         public override string ServiceEndpoint { get { return "/token"; } }
 
-        public void LogIn(string username, string password)
+        public async Task<AuthDTO> LogIn(string username, string password)
         {
-            throw new NotImplementedException();
+            return await $"{Endpoint}"
+                //.AppendPathSegment("")
+                //.SetQueryParam("grant_type", "password")
+                //.SetQueryParam("username", username)
+                //.SetQueryParam("password", password)
+                .PostUrlEncodedAsync(new
+                {
+                    grant_type = "password",
+                    username = username,
+                    password = password
+                })
+                //.PostStringAsync("")
+                .ReceiveJson<AuthDTO>();
         }
     }
 }

@@ -21,6 +21,9 @@ namespace InteraktivnaMapaEvenata.WebAPI
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            config.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling
+                            = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
             config.Formatters.JsonFormatter.SupportedMediaTypes
                 .Add(new MediaTypeHeaderValue("text/html"));
 

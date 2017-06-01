@@ -11,6 +11,11 @@ namespace InteraktivnaMapaEvenata.ViewModels
     {
         private bool _IsAuthenticated;
 
+        public static readonly string ADMIN_ROLE = "ADMIN";
+        public static readonly string OWNER_ROLE = "OWNER";
+        public static readonly string CUSTOMER_ROLE = "CUSTOMER";
+        public static readonly string QR_ROLE = "QR";
+
         public string Token { get; set; }
 
         public bool IsAuthenticated
@@ -65,5 +70,4 @@ namespace InteraktivnaMapaEvenata.ViewModels
             IsAuthenticated = false;
         }
     }
-
 }

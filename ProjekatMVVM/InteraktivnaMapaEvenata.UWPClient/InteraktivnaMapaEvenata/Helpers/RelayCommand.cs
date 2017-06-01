@@ -79,7 +79,7 @@ namespace InteraktivnaMapaEvenata.Helpers
     }
 
 
-    class RelayCommand<T> : ICommand
+    public class RelayCommand<T> : ICommand
     {
         private readonly Func<T, bool> _canExecuteMethod;
         private readonly Action<T> _executeMethod;

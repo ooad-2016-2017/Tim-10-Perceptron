@@ -16,19 +16,19 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace InteraktivnaMapaEvenata.Owner
+namespace InteraktivnaMapaEvenata.OwnerViews
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class OwnerAccountType : Page
     {
-
         List<PaymentTier> PaymentTiers { get; set; }
 
         public OwnerAccountType()
         {
-            this.InitializeComponent();
+            // TODO: Fix!
+            //this.InitializeComponent();
 
             PaymentTiers = new List<PaymentTier>();
             for (int i = 0; i < 3; i++)

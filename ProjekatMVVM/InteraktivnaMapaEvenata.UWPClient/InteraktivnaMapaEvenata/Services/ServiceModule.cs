@@ -15,16 +15,26 @@ namespace InteraktivnaMapaEvenata.Services
             ServiceCollection services = new ServiceCollection();
 
             services.AddSingleton<IEventService, EventMockService>()
-                .AddSingleton<IAuthenticationService, AuthenticationService>();
+                .AddSingleton<IAuthenticationService, AuthenticationService>()
+                .AddSingleton<IUserService, UserService>()
+                .AddSingleton<ICustomerService, CustomerService>()
+                .AddSingleton<IOwnerService, OwnerService>();
 
             Container = services.BuildServiceProvider();
         }
 
-        public static T GetService<T>()
+        public static T GetService<T>() 
         {
             if (Container == null)
                 throw new Exception("RegisterServices must be called before using GetService");
             return Container.GetService<T>();
+        }
+
+        public static T GetService<T>(string Token) where T : BaseService
+        {
+            if (Container == null)
+                throw new Exception("RegisterServices must be called before using GetService");
+            return Container.GetService<T>().WithToken(Token);
         }
 
         public static IServiceProvider Container { get; set; }

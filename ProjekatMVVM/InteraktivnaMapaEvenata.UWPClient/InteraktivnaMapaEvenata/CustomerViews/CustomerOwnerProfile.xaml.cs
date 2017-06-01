@@ -1,4 +1,4 @@
-﻿using InteraktivnaMapaEvenata.Customer;
+﻿using InteraktivnaMapaEvenata.CustomerViews;
 using InteraktivnaMapaEvenata.UserControls;
 using System;
 using System.Collections.Generic;

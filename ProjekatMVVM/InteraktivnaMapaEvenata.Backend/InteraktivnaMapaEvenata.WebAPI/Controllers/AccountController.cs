@@ -17,6 +17,8 @@ using InteraktivnaMapaEvenata.WebAPI.Models;
 using InteraktivnaMapaEvenata.WebAPI.Providers;
 using InteraktivnaMapaEvenata.WebAPI.Results;
 using InteraktivnaMapaEvenata.Models;
+using System.Linq;
+using Newtonsoft.Json;
 
 namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 {
@@ -53,19 +55,41 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         public ISecureDataFormat<AuthenticationTicket> AccessTokenFormat { get; private set; }
 
         // GET api/Account/UserInfo
-        [HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
-        [Route("UserInfo")]
-        public UserInfoViewModel GetUserInfo()
-        {
-            ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
+        //[HostAuthentication(DefaultAuthenticationTypes.ExternalBearer)]
+        //[Route("UserInfo")]
+        //public UserInfoViewModel GetUserInfo()
+        //{
+        //    ExternalLoginData externalLogin = ExternalLoginData.FromIdentity(User.Identity as ClaimsIdentity);
 
-            return new UserInfoViewModel
-            {
-                Email = User.Identity.GetUserName(),
-                HasRegistered = externalLogin == null,
-                LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
-            };
+        //    return new UserInfoViewModel
+        //    {
+        //        Email = User.Identity.GetUserName(),
+        //        HasRegistered = externalLogin == null,
+        //        LoginProvider = externalLogin != null ? externalLogin.LoginProvider : null
+        //    };
+        //}
+
+        // GET api/Account/UserInfo
+        [Authorize(Roles="ADMIN,OWNER,CUSTOMER")]
+        [Route("UserInfo")]
+        public IHttpActionResult GetAccount()
+        {
+            string userId = User.Identity.GetUserId<string>();
+            ApplicationUser user = UserManager.Users.Where(x => x.Id == userId).FirstOrDefault();
+            return Ok(user);
         }
+
+        // GET api/Account/UserInfo/{userId}
+        [Authorize(Roles="ADMIN,OWNER,CUSTOMER")]
+        [Route("UserInfo")]
+        public IHttpActionResult GetAccount(string userId)
+        {
+            ApplicationUser user = UserManager.Users.Where(x => x.Id == userId).FirstOrDefault();
+            if (user == null)
+                return BadRequest($"User with id {userId} not found");
+            return Ok(user);
+        }
+
 
         // POST api/Account/Logout
         [Route("Logout")]
@@ -265,7 +289,9 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                List<Claim> roles = oAuthIdentity.Claims.Where(c => c.Type == ClaimTypes.Role).ToList();
+
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName, roles, user.Id);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else
