@@ -5,11 +5,12 @@
     xmlns:local="using:InteraktivnaMapaEvenata.UWP.Models"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
 
     <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBox Text="{Binding FallbackValue=Pretraga}"/>
-        <ListView ItemsSource="{x:Bind Events }" ItemClick="EventsList_ItemClick" IsItemClickEnabled="True" x:Name="EventsList">
+        <ListView ItemsSource="{Binding AdminVM.Events }" ItemClick="EventsList_ItemClick" IsItemClickEnabled="True" x:Name="EventsList">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local:Event">
                    <Grid HorizontalAlignment="Stretch">

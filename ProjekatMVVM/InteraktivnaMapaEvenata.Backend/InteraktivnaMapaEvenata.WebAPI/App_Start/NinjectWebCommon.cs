@@ -65,6 +65,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.App_Start
         {
             kernel.Bind<IEventService>().To<EventService>();
             kernel.Bind<ICustomerService>().To<CustomerService>();
+            kernel.Bind<IOwnersService>().To<OwnersService>();
         }        
     }
 }

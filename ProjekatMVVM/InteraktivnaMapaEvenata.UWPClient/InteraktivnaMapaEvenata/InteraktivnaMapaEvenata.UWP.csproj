@@ -144,6 +144,7 @@
     <Compile Include="Helpers\BindableBase.cs" />
     <Compile Include="Helpers\INavigationService.cs" />
     <Compile Include="Helpers\NavigationService.cs" />
+    <Compile Include="Helpers\ObservableRangeCollection.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\BaseService.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="Services\ServiceAuthenticator.cs" />
     <Compile Include="Services\ServiceModule.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="ViewModels\AdminVM.cs" />
     <Compile Include="ViewModels\AuthenticationVM.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
     <Compile Include="ViewModels\CustomerMainPageVM.cs" />
@@ -224,7 +226,6 @@
     </Compile>
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\OwnerEventListVM.cs" />
-    <Compile Include="ViewModels\ViewModelModules.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

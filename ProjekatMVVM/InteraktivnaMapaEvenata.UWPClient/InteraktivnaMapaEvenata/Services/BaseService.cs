@@ -13,10 +13,6 @@ namespace InteraktivnaMapaEvenata.Services
     public class BaseService : ITokenBearer
     {
         public BaseService() { }
-        public BaseService(string Token)
-        {
-            this.Token = Token;
-        }
 
         public string Token { get; set; }
 

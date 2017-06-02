@@ -12,5 +12,7 @@ namespace InteraktivnaMapaEvenata.Services.Interfaces
         Task<Owner> GetOwner(int ownerId);
 
         Task<Owner> GetOwner(string id);
+
+        Task<List<Owner>> GetOwners();
     }
 }

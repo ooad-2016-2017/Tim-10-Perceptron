@@ -14,21 +14,27 @@ namespace InteraktivnaMapaEvenata.Services
 {
     public class EventService : BaseService, IEventService
     {
-        public override string ServiceEndpoint { get; } = "api/event";
+        public override string ServiceEndpoint { get; } = "/api/event";
 
         public EventService() { }
 
         public async Task<Event> GetEventById(int id)
         {
-            return await ServiceEndpoint.AppendPathSegment(id)
+            return await Endpoint.AppendPathSegment(id)
                                         .WithOAuthBearerToken(Token)
                                         .GetJsonAsync<Event>();
         }
-          
+
+        /**
+         * It is also possible to use Get<List<Event>>(ServiceEndpoint)
+         * */
         public async Task<List<Event>> GetEvents()
         {
-            return await Get<List<Event>>($"{ServiceEndpoint}");
+            if (string.IsNullOrEmpty(Token))
+                return await Endpoint.GetJsonAsync<List<Event>>();
+            else
+                return await Endpoint.WithOAuthBearerToken(Token)
+                                            .GetJsonAsync<List<Event>>();
         }
-
     }
 }

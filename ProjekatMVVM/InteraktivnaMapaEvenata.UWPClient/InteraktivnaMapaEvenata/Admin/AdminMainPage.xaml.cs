@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using InteraktivnaMapaEvenata.ViewModels;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -23,9 +24,17 @@ namespace InteraktivnaMapaEvenata.Admin
     /// </summary>
     public sealed partial class AdminMainPage : Page
     {
+        public AdminVM AdminVM { get; set; }
+
         public AdminMainPage()
         {
             this.InitializeComponent();
+        }
+
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            this.AdminVM = e.Parameter as AdminVM;
+            await AdminVM.LoadData();
         }
     }
 }

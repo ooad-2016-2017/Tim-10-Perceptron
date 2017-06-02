@@ -1,4 +1,5 @@
-﻿using InteraktivnaMapaEvenata.Models;
+﻿using InteraktivnaMapaEvenata.Common.DTOs;
+using InteraktivnaMapaEvenata.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,10 @@ namespace InteraktivnaMapaEvenata.BLL.Interfaces
 {
     public interface IOwnersService
     {
-        Owner GetOwner(int id);
+        OwnerDTO GetOwner(int id);
 
-        Owner GetOwner(string id);
+        OwnerDTO GetOwner(string id);
+
+        List<OwnerDTO> GetOwners();
     }
 }

@@ -1,4 +1,6 @@
 ﻿using InteraktivnaMapaEvenata.BLL.Interfaces;
+using InteraktivnaMapaEvenata.Common.DTOs;
+using InteraktivnaMapaEvenata.Common.Mappers;
 using InteraktivnaMapaEvenata.DAL;
 using InteraktivnaMapaEvenata.Models;
 using System;
@@ -19,28 +21,48 @@ namespace InteraktivnaMapaEvenata.BLL
             this._context = context;
         }
 
-        public Customer GetCustomer(string id)
+        public CustomerDTO GetCustomer(string id)
         {
-            return _context.Customers.Include(x => x.ApplicationUser)
+            Customer query = _context.Customers.Include(x => x.ApplicationUser)
                 .Where(x => x.ApplicationUser.Id == id)
-                .Include(x => x.Gender)
                 .Include(x => x.FollowedEvents)
                 .Include(x => x.FollowedOwners)
                 .Include(x => x.FollowedPromotions)
                 .Include(x => x.Friends)
                 .FirstOrDefault();
+            if (query == null)
+                return null;
+            else
+                return query.ToCustomerDTO();
         }
 
-        public Customer GetCustomer(int id)
+        public CustomerDTO GetCustomer(int id)
         {
-            return _context.Customers.Where(x => x.CustomerId == id)
+            Customer query = _context.Customers.Where(x => x.CustomerId == id)
                 .Include(x => x.ApplicationUser)
-                .Include(x => x.Gender)
                 .Include(x => x.FollowedEvents)
                 .Include(x => x.FollowedOwners)
                 .Include(x => x.FollowedPromotions)
                 .Include(x => x.Friends)
                 .FirstOrDefault();
+
+            if (query == null)
+                return null;
+            else
+                return query.ToCustomerDTO();
+        }
+
+        public List<CustomerDTO> GetCustomers()
+        {
+            return _context.Customers
+                .Include(x => x.ApplicationUser)
+                .Include(x => x.FollowedEvents)
+                .Include(x => x.FollowedOwners)
+                .Include(x => x.FollowedPromotions)
+                .Include(x => x.Friends)
+                .ToList()
+                .Select(x => x.ToCustomerDTO())
+                .ToList();
         }
     }
 }

@@ -2,6 +2,7 @@
 using InteraktivnaMapaEvenata.CustomerViews;
 using InteraktivnaMapaEvenata.DTO;
 using InteraktivnaMapaEvenata.Helpers;
+using InteraktivnaMapaEvenata.Services;
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
 using System;
@@ -66,6 +67,8 @@ namespace InteraktivnaMapaEvenata.ViewModels
             LoginCommand = new RelayCommand(DoLogin);
         }
 
+        // TODO: Handle network errors
+
         private async void DoLogin()
         {
             AuthDTO authDTO = await _authService.LogIn(Username, Password);
@@ -78,8 +81,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
             if (authDTO.role == AuthenticationVM.ADMIN_ROLE)
             {
                 AuthenticationVM.CurrentUser = await _userService.GetUser(authDTO.userId);
-
-                _navigation.Navigate(typeof(AdminMainPage), AuthenticationVM);
+                _navigation.Navigate(typeof(AdminMainPage), ServiceModule.GetService<AdminVM>());
             }
             else if (authDTO.role == AuthenticationVM.CUSTOMER_ROLE)
             {

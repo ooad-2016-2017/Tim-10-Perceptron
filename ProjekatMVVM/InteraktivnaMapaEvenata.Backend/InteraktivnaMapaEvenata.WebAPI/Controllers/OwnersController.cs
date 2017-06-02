@@ -1,4 +1,5 @@
 ﻿using InteraktivnaMapaEvenata.BLL.Interfaces;
+using InteraktivnaMapaEvenata.Common.DTOs;
 using InteraktivnaMapaEvenata.Common.Mappers;
 using InteraktivnaMapaEvenata.Models;
 using System;
@@ -19,29 +20,29 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         {
             _service = service;
         }
-
-        // GET: api/Owners
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
         // GET: api/Owners/5
         public IHttpActionResult Get(int id)
         {
-            Owner owner = _service.GetOwner(id);
+            OwnerDTO owner = _service.GetOwner(id);
             if (owner == null)
                 return BadRequest($"Owner with id ${id} not found.");
-            return Ok(owner.ToOwnerDTO());
+            return Ok(owner);
         }
 
         [Route("ByUser")]
         public IHttpActionResult Get(string userId)
         {
-            Owner owner = _service.GetOwner(userId);
+            OwnerDTO owner = _service.GetOwner(userId);
             if (owner == null)
                 return BadRequest($"Owner with userId ${userId} not found.");
-            return Ok(owner.ToOwnerDTO());
+            return Ok(owner);
+        }
+
+        // GET: api/Owners
+        [Authorize(Roles="ADMIN")]
+        public IHttpActionResult Get()
+        {
+            return Ok(_service.GetOwners());
         }
 
         // POST: api/Owners

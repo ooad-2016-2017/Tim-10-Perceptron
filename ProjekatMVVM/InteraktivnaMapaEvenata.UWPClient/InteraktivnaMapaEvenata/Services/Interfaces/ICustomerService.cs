@@ -12,5 +12,7 @@ namespace InteraktivnaMapaEvenata.Services.Interfaces
         Task<Customer> GetCustomer(int customerId);
 
         Task<Customer> GetCustomer(string userId);
+
+        Task<List<Customer>> GetCustomers();
     }
 }

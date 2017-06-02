@@ -13,7 +13,7 @@
                 <local:AdminUsersPage />
             </PivotItem>
             <PivotItem Header="Eventi">
-                <local:AdminEventsPage />
+                <local:AdminEventsPage  AdminVM="{x:Bind AdminVM}"/>
             </PivotItem>
             <PivotItem Header="Tagovi">
                 <local:AdminTagsPage />

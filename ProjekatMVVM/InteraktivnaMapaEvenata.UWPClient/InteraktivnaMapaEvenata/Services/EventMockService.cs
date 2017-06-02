@@ -1,6 +1,7 @@
 ﻿using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -109,6 +110,5 @@ namespace InteraktivnaMapaEvenata.Services
             });
             return Task.FromResult(events);
         }
-
     }
 }

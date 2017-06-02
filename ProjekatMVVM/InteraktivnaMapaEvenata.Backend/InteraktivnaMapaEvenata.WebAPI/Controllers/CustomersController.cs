@@ -1,4 +1,5 @@
 ﻿using InteraktivnaMapaEvenata.BLL.Interfaces;
+using InteraktivnaMapaEvenata.Common.DTOs;
 using InteraktivnaMapaEvenata.Common.Mappers;
 using InteraktivnaMapaEvenata.Models;
 using System;
@@ -10,24 +11,33 @@ using System.Web.Http;
 
 namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 {
+    [Authorize]
     public class CustomersController : ApiController
     {
         ICustomerService _service;
+
+        public CustomersController() { }
         public CustomersController(ICustomerService service)
         {
             _service = service;
+        }
+
+        [Authorize(Roles ="ADMIN")]
+        public IHttpActionResult Get()
+        {
+            return Ok(_service.GetCustomers());
         }
 
         // GET: api/Customers
         [Authorize(Roles ="ADMIN,CUSTOMER,OWNER")]
         public IHttpActionResult Get(int id)
         {
-            Customer customer = _service.GetCustomer(id);
+            CustomerDTO customer = _service.GetCustomer(id);
 
             if (customer == null)
                 return BadRequest($"Customer with {id} not found");
 
-            return Ok(_service.GetCustomer(id).ToCustomerDTO());
+            return Ok(customer);
         }
 
         // GET: api/Customers
@@ -35,12 +45,12 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         [Route("ByUser")]
         public IHttpActionResult Get(string id)
         {
-            Customer customer = _service.GetCustomer(id);
+            CustomerDTO customer = _service.GetCustomer(id);
 
             if (customer == null)
                 return BadRequest($"Customer with {id} not found");
 
-            return Ok(_service.GetCustomer(id).ToCustomerDTO());
+            return Ok(customer);
         }
 
 

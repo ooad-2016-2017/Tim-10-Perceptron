@@ -32,12 +32,7 @@ namespace InteraktivnaMapaEvenata
         public MainPage()
         {
             this.InitializeComponent();
-            LoginVM = new LoginVM(new AuthenticationVM(),
-                ServiceModule.GetService<IAuthenticationService>(),
-                ViewModelModule.GetService<INavigationService>(),
-                ServiceModule.GetService<IUserService>(),
-                ServiceModule.GetService<IOwnerService>(),
-                ServiceModule.GetService<ICustomerService>());
+            LoginVM = ServiceModule.GetService<LoginVM>();
         }
     }
 }

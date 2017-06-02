@@ -12,11 +12,15 @@ namespace InteraktivnaMapaEvenata.Services
 {
     public class CustomerService : BaseService, ICustomerService
     {
-        public override string ServiceEndpoint { get { return "api/Customers"; } }
+        public override string ServiceEndpoint { get { return "/api/Customers"; } }
 
         public async Task<Customer> GetCustomer(string id) { return await Endpoint.AppendPathSegment("ByUser").AppendPathSegment(id).WithOAuthBearerToken(Token).GetJsonAsync<Customer>(); }
 
         public async Task<Customer> GetCustomer(int ownerId) { return await Endpoint.AppendPathSegment(ownerId).WithOAuthBearerToken(Token).GetJsonAsync<Customer>(); }
 
+        public async Task<List<Customer>> GetCustomers()
+        {
+            return await Endpoint.WithOAuthBearerToken(Token).GetJsonAsync<List<Customer>>();
+        }
     }
 }
