@@ -20,11 +20,11 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         public ObservableRangeCollection<Event> Events { get; set; } = new ObservableRangeCollection<Event>();
 
-        public List<Owner> Owners { get; set; }
+        public ObservableRangeCollection<Owner> Owners { get; set; } = new ObservableRangeCollection<Owner>();
 
-        public List<Flag> Flags { get; set; }
+        public ObservableRangeCollection<Customer> Customers { get; set; } = new ObservableRangeCollection<Customer>();
 
-        public List<Customer> Customers { get; set; }
+        public ObservableRangeCollection<Flag> Flags { get; set; } = new ObservableRangeCollection<Flag>();
 
         public IEventService _eventService { get; set; }
 
@@ -47,8 +47,8 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public async Task LoadData()
         {
             Events.AddRange(await _eventService.WithToken(AuthenticationVM.Token).GetEvents());
-            Owners = await _ownerService.WithToken(AuthenticationVM.Token).GetOwners();
-            Customers = await _customerService.WithToken(AuthenticationVM.Token).GetCustomers();
+            Owners.AddRange(await _ownerService.WithToken(AuthenticationVM.Token).GetOwners());
+            Customers.AddRange(await _customerService.WithToken(AuthenticationVM.Token).GetCustomers());
         }
     }
 }

@@ -42,7 +42,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 
         // GET: api/Customers
         [Authorize(Roles ="ADMIN,CUSTOMER,OWNER")]
-        [Route("ByUser")]
+        [Route("api/Customers/ByUser/{id}")]
         public IHttpActionResult Get(string id)
         {
             CustomerDTO customer = _service.GetCustomer(id);
