@@ -1,5 +1,7 @@
-﻿using InteraktivnaMapaEvenata.UserControls;
+﻿using InteraktivnaMapaEvenata.Services;
+using InteraktivnaMapaEvenata.UserControls;
 using InteraktivnaMapaEvenata.UWP.Models;
+using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,52 +26,43 @@ namespace InteraktivnaMapaEvenata.CustomerViews
 {
     public sealed partial class CustomerMainPage : Page
     {
-        bool splitViewOpened = true;
-        bool findUsersOpened = false;
-        bool favoriteOpened = false;
+        public CustomerVM CustomerVM { get; set; }
 
-        List<UWP.Models.Customer> Customers { get; set; }
-        List<UWP.Models.Owner> Owners { get; set; }
-        List<Notification> Notifications { get; set; }
-        List<Event> Events { get; set; }
+        public List<MarkerControl> MarkerControl { get; set; }
 
-        List<MarkerControl> MarkerControl { get; set; }
 
         public CustomerMainPage()
         {
             this.InitializeComponent();
-            //MapControl1.Loaded += MapControl1_Loaded;        
-            //DisplayEventMarker(43.8699466, 18.4182643);
             GetLocation();
-            //DisplayMarker();
-            //MapIcon1.Image = RandomAccessStreamReference.CreateFromUri(new Uri("ms-appx:///Assets/customicon.png"));
+            CustomerVM = ServiceModule.GetService<CustomerVM>();
 
-            Customers = new List<UWP.Models.Customer>();
+            CustomerVM.Customers = new List<Customer>();
             for (int i = 0; i < 10; i++)
             {
-                Customers.Add(new UWP.Models.Customer()
+                CustomerVM.Customers.Add(new UWP.Models.Customer()
                 {
                     Name = "Vedo"
                 });
             }
 
-            Owners = new List<UWP.Models.Owner>();
+            CustomerVM.Owners = new List<Owner>();
             
-            Owners.Add(new UWP.Models.Owner()
+            CustomerVM.Owners.Add(new UWP.Models.Owner()
             {
                OrganizationName = "Klix",
                Surname = "prezime",
                OwnerId = 1                  
             });
 
-            Owners.Add(new UWP.Models.Owner()
+            CustomerVM.Owners.Add(new Owner()
             {
                 OrganizationName = "SarajevoX",
                 Surname = "prezime",
                 OwnerId = 2
             });
 
-            Owners.Add(new UWP.Models.Owner()
+            CustomerVM.Owners.Add(new Owner()
             {
                 OrganizationName = "Portal",
                 Surname = "prezime",
@@ -77,50 +70,50 @@ namespace InteraktivnaMapaEvenata.CustomerViews
             });
 
 
-            Notifications = new List<Notification>();
+            CustomerVM.Notifications = new List<Notification>();
             for (int i = 0; i < 10; i++)
             {
-                Notifications.Add(new Notification()
+                CustomerVM.Notifications.Add(new Notification()
                 {
                     Text = "textnotif"
                 });
             }
 
-            Events = new List<Event>();
+            CustomerVM.Events = new List<Event>();
             Promotion promotion = new Promotion();
             promotion.Name = "Ime promocije";            
-            Events.Add(new Event()
+            CustomerVM.Events.Add(new Event()
             {
                 Name = "PARTYYYYYYYYYY KOD VEDE",
                 Description = "ovo je opis",
                 StartDate = new DateTime(2017, 3, 17),
-                Owner = Owners[0],
+                Owner = CustomerVM.Owners[0],
                 Promotion = promotion
             });
-            Events.Add(new Event()
+            CustomerVM.Events.Add(new Event()
             {
                 Name = "GLASNA MUZIKA KOD ELVIRA",
                 Description = "neki dobar opis",
                 StartDate = new DateTime(2017, 4, 21),
-                Owner = Owners[0],
+                Owner = CustomerVM.Owners[0],
                 Promotion = promotion
             });
-            Events.Add(new Event()
+            CustomerVM.Events.Add(new Event()
             {
                 Name = "TIPKANJE KOD BURICA",
                 Description = "jos bolji opis",
                 StartDate = new DateTime(2017, 12, 12),
-                Owner = Owners[0],
+                Owner = CustomerVM.Owners[0],
                 Promotion = promotion
             });
 
 
-            Owners[0].Events = Events;           
+            CustomerVM.Owners[0].Events = CustomerVM.Events;           
 
             MarkerControl = new List<MarkerControl>();
-            for (int i = 0; i < Events.Count; i++)
+            for (int i = 0; i < CustomerVM.Events.Count; i++)
             {
-                MarkerControl.Add(new MarkerControl(Events[i], MapControl1, frame));                
+                MarkerControl.Add(new MarkerControl(CustomerVM.Events[i], MapControl1, frame));                
             }
 
         }      
@@ -160,17 +153,15 @@ namespace InteraktivnaMapaEvenata.CustomerViews
 
         private void hamburgerButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!splitViewOpened)
+            if (MySplitView.Visibility == Visibility.Collapsed)
             {
-                splitViewOpened = true;
                 hamburgerButton.Margin = new Thickness(0, 0, 0, 0);
                 image.Margin = new Thickness(0, 0, 0, 0);
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/FrontArrow.png"));                
                 MySplitView.Visibility = Visibility.Collapsed;                
             }
-            else if (splitViewOpened)
+            else
             {
-                splitViewOpened = false;
                 hamburgerButton.Margin = new Thickness(200, 0, 0, 0);
                 image.Margin = new Thickness(200, 0, 0, 0);
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/BackArrow.png"));
@@ -181,16 +172,14 @@ namespace InteraktivnaMapaEvenata.CustomerViews
 
         private void findUsersButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!findUsersOpened)
+            if (findUsersRectangle.Visibility == Visibility.Collapsed)
             {
-                findUsersOpened = true;
                 findUsersRectangle.Visibility = Visibility.Visible;
                 settingsButton.Margin = new Thickness(-250, 0, 0, 0);
                 favOrgButton.Margin = new Thickness(-300, 0, 0, 0);
             }
-            else if(findUsersOpened)
+            else
             {
-                findUsersOpened = false;
                 findUsersRectangle.Visibility = Visibility.Collapsed;
                 settingsButton.Margin = new Thickness(0, 0, 0, 0);
                 favOrgButton.Margin = new Thickness(0, 0, 0, 0);
@@ -199,16 +188,14 @@ namespace InteraktivnaMapaEvenata.CustomerViews
 
         private void favOrgButton_Click(object sender, RoutedEventArgs e)
         {
-            if (!favoriteOpened)
+            if (favOrgRectangle.Visibility == Visibility.Collapsed)
             {
-                favoriteOpened = true;
                 favOrgRectangle.Visibility = Visibility.Visible;
                 settingsButton.Margin = new Thickness(-250, 0, 0, 0);
                 favOrgButton.Margin = new Thickness(-300, 0, 0, 0);              
             }
-            else if (favoriteOpened)
+            else
             {
-                favoriteOpened = true;
                 favOrgRectangle.Visibility = Visibility.Visible;
                 settingsButton.Margin = new Thickness(-250, 0, 0, 0);
                 favOrgButton.Margin = new Thickness(-300, 0, 0, 0);
@@ -219,8 +206,6 @@ namespace InteraktivnaMapaEvenata.CustomerViews
         {
             findUsersRectangle.Visibility = Visibility.Collapsed;
             favOrgRectangle.Visibility = Visibility.Collapsed;
-            findUsersOpened = false;
-            favoriteOpened = false;
         }
 
         private void settingsButton_Click(object sender, RoutedEventArgs e)

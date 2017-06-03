@@ -27,7 +27,8 @@ namespace InteraktivnaMapaEvenata.Services
 
             services.AddSingleton<AuthenticationVM>()
                 .AddSingleton<AdminVM>()
-                .AddSingleton<LoginVM>();
+                .AddSingleton<LoginVM>()
+                .AddSingleton<CustomerVM>();
 
             Container = services.BuildServiceProvider();
         }
