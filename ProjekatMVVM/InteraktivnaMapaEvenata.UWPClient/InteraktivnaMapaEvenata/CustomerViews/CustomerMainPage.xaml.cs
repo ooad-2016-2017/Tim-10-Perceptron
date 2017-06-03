@@ -1,26 +1,13 @@
-﻿using InteraktivnaMapaEvenata.Helpers;
-using InteraktivnaMapaEvenata.Services;
+﻿using InteraktivnaMapaEvenata.Services;
 using InteraktivnaMapaEvenata.UserControls;
 using InteraktivnaMapaEvenata.UWP.Models;
 using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Devices.Geolocation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Maps;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Documents;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
@@ -115,14 +102,14 @@ namespace InteraktivnaMapaEvenata.CustomerViews
                 hamburgerButton.Margin = new Thickness(0, 0, 0, 0);
                 image.Margin = new Thickness(0, 0, 0, 0);
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/FrontArrow.png"));                
-                MySplitView.Visibility = Visibility.Collapsed;                
+                MySplitView.Visibility = Visibility.Visible;
             }
             else
             {
                 hamburgerButton.Margin = new Thickness(200, 0, 0, 0);
                 image.Margin = new Thickness(200, 0, 0, 0);
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/BackArrow.png"));
-                MySplitView.Visibility = Visibility.Visible;
+                MySplitView.Visibility = Visibility.Collapsed;                
             }
 
         }

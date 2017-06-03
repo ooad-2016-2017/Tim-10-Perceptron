@@ -1,4 +1,5 @@
-﻿using InteraktivnaMapaEvenata.Admin;
+﻿using Flurl.Http;
+using InteraktivnaMapaEvenata.Admin;
 using InteraktivnaMapaEvenata.CustomerViews;
 using InteraktivnaMapaEvenata.DTO;
 using InteraktivnaMapaEvenata.Helpers;
@@ -11,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Popups;
 
 namespace InteraktivnaMapaEvenata.ViewModels
 {
@@ -49,7 +51,6 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public ICommand LoginCommand { get; set; }
         #endregion
 
-
         public LoginVM(AuthenticationVM authenticationVM,
                         IAuthenticationService authService,
                         INavigationService navigation,
@@ -71,29 +72,41 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         private async void DoLogin()
         {
-            AuthDTO authDTO = await _authService.LogIn(Username, Password);
-            AuthenticationVM.Token = authDTO.access_token;
-
-            _userService.Token = authDTO.access_token;
-            _customerService.Token = authDTO.access_token;
-            _ownerService.Token = authDTO.access_token;
-
-            if (authDTO.role == AuthenticationVM.ADMIN_ROLE)
+            try
             {
-                AuthenticationVM.CurrentUser = await _userService.GetUser(authDTO.userId);
-                _navigation.Navigate(typeof(AdminMainPage), ServiceModule.GetService<AdminVM>());
-            }
-            else if (authDTO.role == AuthenticationVM.CUSTOMER_ROLE)
-            {
-                AuthenticationVM.CurrentUser = await _customerService.GetCustomer(authDTO.userId);
-                _navigation.Navigate(typeof(CustomerMainPage), AuthenticationVM);
-            }
-            else if (authDTO.role == AuthenticationVM.OWNER_ROLE)
-            {
-                AuthenticationVM.CurrentUser = await _ownerService.GetOwner(authDTO.userId);
-                _navigation.Navigate(typeof(OwnerMainPage), AuthenticationVM);
-            }
+                AuthDTO authDTO = await _authService.LogIn(Username, Password);
+                AuthenticationVM.Token = authDTO.access_token;
 
+                _userService.Token = authDTO.access_token;
+                _customerService.Token = authDTO.access_token;
+                _ownerService.Token = authDTO.access_token;
+
+                if (authDTO.role == AuthenticationVM.ADMIN_ROLE)
+                {
+                    AuthenticationVM.CurrentUser = await _userService.GetUser(authDTO.userId);
+                    _navigation.Navigate(typeof(AdminMainPage), ServiceModule.GetService<AdminVM>());
+                }
+                else if (authDTO.role == AuthenticationVM.CUSTOMER_ROLE)
+                {
+                    AuthenticationVM.CurrentUser = await _customerService.GetCustomer(authDTO.userId);
+                    _navigation.Navigate(typeof(CustomerMainPage), AuthenticationVM);
+                }
+                else if (authDTO.role == AuthenticationVM.OWNER_ROLE)
+                {
+                    AuthenticationVM.CurrentUser = await _ownerService.GetOwner(authDTO.userId);
+                    _navigation.Navigate(typeof(OwnerMainPage), AuthenticationVM);
+                }
+            }
+            catch (FlurlHttpException e)
+            {
+                var messageDialog = new MessageDialog("Username ili password su pogresni!");
+                await messageDialog.ShowAsync();
+            }
+            catch (Exception e)
+            {
+                var messageDialog = new MessageDialog("Problem sa mrezom!");
+                await messageDialog.ShowAsync();
+            }
         }
     }
 }

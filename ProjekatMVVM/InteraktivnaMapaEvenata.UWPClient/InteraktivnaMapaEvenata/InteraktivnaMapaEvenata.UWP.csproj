@@ -229,6 +229,7 @@
     <Compile Include="ViewModels\CustomerVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\OwnerEventListVM.cs" />
+    <Compile Include="Workers\EventTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

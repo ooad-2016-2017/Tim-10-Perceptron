@@ -46,7 +46,7 @@ namespace InteraktivnaMapaEvenata.UserControls
         private void DisplayEventMarker()
         {
             // Specify a known location.
-            //BasicGeoposition snPosition = new BasicGeoposition() { Latitude = eventt.latitude, Longitude = eventt.longitude };
+            // BasicGeoposition snPosition = new BasicGeoposition() { Latitude = eventt.latitude, Longitude = eventt.longitude };
             BasicGeoposition eventMarkerPosition = new BasicGeoposition() { Latitude = _event.Latitude, Longitude = _event.Longitude };
             BasicGeoposition eventMarkerLabelPosition = new BasicGeoposition() { Latitude = _event.Latitude + 0.000017, Longitude = _event.Longitude };
             Geopoint eventMarkerPoint = new Geopoint(eventMarkerPosition);
@@ -100,16 +100,13 @@ namespace InteraktivnaMapaEvenata.UserControls
 
         private void _mapControl_MapTapped(MapControl sender, MapInputEventArgs args)
         {
-            //  throw new NotImplementedException();
             _modalControl.Visibility = Visibility.Collapsed;
             _border.Visibility = Visibility.Visible;
             _button.Visibility = Visibility.Visible;
         }
 
-
         private void _mapControl_CenterChanged(MapControl sender, object args)
         {
-            // throw new NotImplementedException();
             _modalControl.Visibility = Visibility.Collapsed;
             _border.Visibility = Visibility.Visible;
             _button.Visibility = Visibility.Visible;
@@ -117,7 +114,6 @@ namespace InteraktivnaMapaEvenata.UserControls
 
         private void _button_Click(object sender, RoutedEventArgs e)
         {
-            // throw new NotImplementedException();
             _button.Visibility = Visibility.Collapsed;
             _border.Visibility = Visibility.Collapsed;
             _modalControl.Visibility = Visibility.Visible;
@@ -125,13 +121,7 @@ namespace InteraktivnaMapaEvenata.UserControls
 
         private void _mapControl_ZoomLevelChanged(MapControl sender, object args)
         {
-            //throw new NotImplementedException();
-
-            if (_mapControl.ZoomLevel > 19)
-            {
-                _textBlock.Visibility = Visibility.Visible;
-            }
-            else _textBlock.Visibility = Visibility.Collapsed;
+            _textBlock.Visibility = (_mapControl.ZoomLevel > 19) ? Visibility.Visible : Visibility.Collapsed;
         }
 
         private void AddModal(ModalControl modalControl, double latitude, double longitude)
@@ -142,7 +132,6 @@ namespace InteraktivnaMapaEvenata.UserControls
             _mapControl.Children.Add(modalControl);
             MapControl.SetLocation(modalControl, modalPoint);
             MapControl.SetNormalizedAnchorPoint(modalControl, new Point(0.5, 0.5));
-
         }
     }
 }
