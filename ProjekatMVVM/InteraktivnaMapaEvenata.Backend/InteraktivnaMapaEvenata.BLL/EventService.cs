@@ -26,7 +26,10 @@ namespace InteraktivnaMapaEvenata.BLL
 
         public ICollection<Event> GetEvents()
         {
-            return _context.Events.ToList();
+            return _context.Events.Include(x => x.Owner)
+                .Include(x => x.Flags)
+                .Include(x => x.Tags)
+                .ToList();
         }
 
         public Event GetEventById(int id)

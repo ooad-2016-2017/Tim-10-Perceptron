@@ -31,6 +31,8 @@ namespace InteraktivnaMapaEvenata.UserControls
         private Rectangle _rectangle;
         private ModalControl _modalControl;
 
+        public Event Event { get { return _event; } }
+
         public MarkerControl(Event _event, MapControl mapControl, Frame frame)
         {
             this.InitializeComponent();
@@ -38,15 +40,15 @@ namespace InteraktivnaMapaEvenata.UserControls
             this._mapControl = mapControl;
             DisplayEventMarker();
             this._modalControl = new ModalControl(_event, frame);
-            AddModal(_modalControl, 43.8699466, 18.4182643);
+            AddModal(_modalControl, _event.Latitude, _event.Longitude);
         }
 
         private void DisplayEventMarker()
         {
             // Specify a known location.
             //BasicGeoposition snPosition = new BasicGeoposition() { Latitude = eventt.latitude, Longitude = eventt.longitude };
-            BasicGeoposition eventMarkerPosition = new BasicGeoposition() { Latitude = 43.8699466, Longitude = 18.4182643 };
-            BasicGeoposition eventMarkerLabelPosition = new BasicGeoposition() { Latitude = 43.8699466 + 0.000017, Longitude = 18.4182643 };
+            BasicGeoposition eventMarkerPosition = new BasicGeoposition() { Latitude = _event.Latitude, Longitude = _event.Longitude };
+            BasicGeoposition eventMarkerLabelPosition = new BasicGeoposition() { Latitude = _event.Latitude + 0.000017, Longitude = _event.Longitude };
             Geopoint eventMarkerPoint = new Geopoint(eventMarkerPosition);
             Geopoint eventMarkerLabelPoint = new Geopoint(eventMarkerLabelPosition);
 
@@ -142,6 +144,5 @@ namespace InteraktivnaMapaEvenata.UserControls
             MapControl.SetNormalizedAnchorPoint(modalControl, new Point(0.5, 0.5));
 
         }
-
     }
 }
