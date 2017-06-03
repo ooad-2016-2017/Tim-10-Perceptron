@@ -1,6 +1,4 @@
-﻿using InteraktivnaMapaEvenata.UWP.Models;
-using InteraktivnaMapaEvenata.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,23 +20,11 @@ namespace InteraktivnaMapaEvenata.Admin
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class AdminEventsPage : Page
+    public sealed partial class AdminTilesPage : Page
     {
-        public AdminVM AdminVM { get; set; }
-
-        public AdminEventsPage()
+        public AdminTilesPage()
         {
             this.InitializeComponent();
-        }
-
-        private void EventsList_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(AdminEventPage), (Event)e.ClickedItem);
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
         }
     }
 }

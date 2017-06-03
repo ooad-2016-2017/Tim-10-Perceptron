@@ -10,6 +10,7 @@ using System.Collections.Specialized;
 using System.Collections.ObjectModel;
 using System.Collections;
 using InteraktivnaMapaEvenata.Helpers;
+using System.Windows.Input;
 
 namespace InteraktivnaMapaEvenata.ViewModels
 {
@@ -21,6 +22,8 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         public List<Owner> Owners { get; set; }
 
+        public List<Flag> Flags { get; set; }
+
         public List<Customer> Customers { get; set; }
 
         public IEventService _eventService { get; set; }
@@ -29,15 +32,16 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         public ICustomerService _customerService { get; set; }
 
+
         public AdminVM(IEventService eventService,
             IOwnerService ownerService,
             ICustomerService customerService,
             AuthenticationVM authenticationVM)
         {
-            this._eventService = eventService;
-            this._ownerService = ownerService;
-            this._customerService = customerService;
-            this.AuthenticationVM = authenticationVM;
+            _eventService = eventService;
+            _ownerService = ownerService;
+            _customerService = customerService;
+            AuthenticationVM = authenticationVM;
         }
 
         public async Task LoadData()

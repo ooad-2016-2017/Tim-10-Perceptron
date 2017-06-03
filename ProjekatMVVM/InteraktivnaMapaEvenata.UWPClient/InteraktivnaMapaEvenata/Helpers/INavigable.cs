@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Helpers
 {
-    public interface INavigationService
+    public interface INavigable
     {
-        void Navigate(Type sourcePage);
-
-        void Navigate(Type sourcePage, object parameter);
-
-        void GoBack();
+        void Activate(object parameter);
+        void Deactivate(object parameter);
     }
 }

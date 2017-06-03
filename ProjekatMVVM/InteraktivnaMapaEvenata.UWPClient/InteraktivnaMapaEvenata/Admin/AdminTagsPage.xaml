@@ -9,8 +9,8 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <StackPanel>
-        <TextBox />
-        <Button Margin="5,5,0,0" Content="Dodaj tag"/>
+            <TextBox />
+            <Button Margin="5,5,0,0" Content="Dodaj tag"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock HorizontalAlignment="Stretch" Text="Tag1"/>
                 <TextBlock Margin="5,0,0,0" HorizontalAlignment="Stretch" Text="Tag1"/>
