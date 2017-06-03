@@ -41,7 +41,7 @@ namespace InteraktivnaMapaEvenata.UserControls
             eventOrganizerTextBlock.Text = "Organizator: ";
             orgName = _event.Owner.OrganizationName;
             eventInfoTextBlock.Text = "Info: " + _event.Description;
-            eventDiscountTextBlock.Text = "Pogodnosti: " + _event.Promotion.Name;
+            eventDiscountTextBlock.Text = _event.Promotion != null ? "Pogodnosti: " + _event.Promotion.Name : "";
         }
 
         private void eventOrganizerHyperlink_Click(object sender, RoutedEventArgs e)

@@ -1,9 +1,11 @@
-﻿using InteraktivnaMapaEvenata.Services;
+﻿using InteraktivnaMapaEvenata.Helpers;
+using InteraktivnaMapaEvenata.Services;
 using InteraktivnaMapaEvenata.UserControls;
 using InteraktivnaMapaEvenata.UWP.Models;
 using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -26,97 +28,52 @@ namespace InteraktivnaMapaEvenata.CustomerViews
 {
     public sealed partial class CustomerMainPage : Page
     {
-        public CustomerVM CustomerVM { get; set; }
+        public CustomerVM CustomerVM { get { return base.DataContext as CustomerVM; } set { base.DataContext = value; } }
 
-        public List<MarkerControl> MarkerControl { get; set; }
+        public List<MarkerControl> MarkerControl { get; set; } = new List<MarkerControl>();
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            CustomerVM?.Activate(e.Parameter);
+            MarkerControl.Clear();
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            CustomerVM?.Deactivate(e.Parameter);
+        }
 
 
         public CustomerMainPage()
         {
             this.InitializeComponent();
             GetLocation();
-            CustomerVM = ServiceModule.GetService<CustomerVM>();
+            DataContext = ServiceModule.GetService<CustomerVM>();
 
-            CustomerVM.Customers = new List<Customer>();
-            for (int i = 0; i < 10; i++)
+            CustomerVM.Events.CollectionChanged += EventChanged;
+        }
+
+        // https://stackoverflow.com/questions/1427471/observablecollection-not-noticing-when-item-in-it-changes-even-with-inotifyprop
+        public void EventChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Remove)
             {
-                CustomerVM.Customers.Add(new UWP.Models.Customer()
+                foreach (Event item in e.OldItems)
                 {
-                    Name = "Vedo"
-                });
+                    MarkerControl.RemoveAll(x => x.Event.EventId == item.EventId);
+                }
             }
-
-            CustomerVM.Owners = new List<Owner>();
-            
-            CustomerVM.Owners.Add(new UWP.Models.Owner()
+            else if (e.Action == NotifyCollectionChangedAction.Add)
             {
-               OrganizationName = "Klix",
-               Surname = "prezime",
-               OwnerId = 1                  
-            });
-
-            CustomerVM.Owners.Add(new Owner()
-            {
-                OrganizationName = "SarajevoX",
-                Surname = "prezime",
-                OwnerId = 2
-            });
-
-            CustomerVM.Owners.Add(new Owner()
-            {
-                OrganizationName = "Portal",
-                Surname = "prezime",
-                OwnerId = 3
-            });
-
-
-            CustomerVM.Notifications = new List<Notification>();
-            for (int i = 0; i < 10; i++)
-            {
-                CustomerVM.Notifications.Add(new Notification()
+                foreach (Event item in e.NewItems)
                 {
-                    Text = "textnotif"
-                });
+                    MarkerControl.Add(new MarkerControl(item, MapControl1, frame));
+                }
             }
+        }
 
-            CustomerVM.Events = new List<Event>();
-            Promotion promotion = new Promotion();
-            promotion.Name = "Ime promocije";            
-            CustomerVM.Events.Add(new Event()
-            {
-                Name = "PARTYYYYYYYYYY KOD VEDE",
-                Description = "ovo je opis",
-                StartDate = new DateTime(2017, 3, 17),
-                Owner = CustomerVM.Owners[0],
-                Promotion = promotion
-            });
-            CustomerVM.Events.Add(new Event()
-            {
-                Name = "GLASNA MUZIKA KOD ELVIRA",
-                Description = "neki dobar opis",
-                StartDate = new DateTime(2017, 4, 21),
-                Owner = CustomerVM.Owners[0],
-                Promotion = promotion
-            });
-            CustomerVM.Events.Add(new Event()
-            {
-                Name = "TIPKANJE KOD BURICA",
-                Description = "jos bolji opis",
-                StartDate = new DateTime(2017, 12, 12),
-                Owner = CustomerVM.Owners[0],
-                Promotion = promotion
-            });
-
-
-            CustomerVM.Owners[0].Events = CustomerVM.Events;           
-
-            MarkerControl = new List<MarkerControl>();
-            for (int i = 0; i < CustomerVM.Events.Count; i++)
-            {
-                MarkerControl.Add(new MarkerControl(CustomerVM.Events[i], MapControl1, frame));                
-            }
-
-        }      
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -207,20 +164,8 @@ namespace InteraktivnaMapaEvenata.CustomerViews
             findUsersRectangle.Visibility = Visibility.Collapsed;
             favOrgRectangle.Visibility = Visibility.Collapsed;
         }
-
-        private void settingsButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(CustomerEditProfile));
-        }
-
-        private void u1_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(CustomerUserProfile));
-        }
-
-        private void o1_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(CustomerOwnerProfile));
-        }
     }
+
+
+
 }
