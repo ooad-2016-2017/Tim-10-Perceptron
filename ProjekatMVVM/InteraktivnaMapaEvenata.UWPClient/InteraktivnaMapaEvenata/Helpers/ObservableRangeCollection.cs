@@ -35,7 +35,7 @@ namespace InteraktivnaMapaEvenata.Helpers
         /// <summary> 
         /// Adds the elements of the specified collection to the end of the ObservableCollection(Of T). 
         /// </summary> 
-        public void AddRange(IEnumerable<T> collection, NotifyCollectionChangedAction notificationMode = NotifyCollectionChangedAction.Add)
+        public ObservableRangeCollection<T> AddRange(IEnumerable<T> collection, NotifyCollectionChangedAction notificationMode = NotifyCollectionChangedAction.Add)
         {
             if (collection == null)
                 throw new ArgumentNullException("collection");
@@ -53,7 +53,7 @@ namespace InteraktivnaMapaEvenata.Helpers
                 OnPropertyChanged(new PropertyChangedEventArgs("Item[]"));
                 OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
 
-                return;
+                return this;
             }
 
             int startIndex = Count;
@@ -64,6 +64,8 @@ namespace InteraktivnaMapaEvenata.Helpers
             OnPropertyChanged(new PropertyChangedEventArgs("Count"));
             OnPropertyChanged(new PropertyChangedEventArgs("Item[]"));
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, changedItems, startIndex));
+
+            return this;
         }
 
         /// <summary> 

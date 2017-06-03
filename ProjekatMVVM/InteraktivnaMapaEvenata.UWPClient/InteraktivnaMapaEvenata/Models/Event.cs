@@ -20,7 +20,12 @@ namespace InteraktivnaMapaEvenata.UWP.Models
         
         public Promotion Promotion { get; set; }
 
+
         public ICollection<Customer> Customers;
+
+        public double Latitude { get; set; }
+
+        public double Longitude { get; set; }
         
         public Owner Owner { get; set; }
         

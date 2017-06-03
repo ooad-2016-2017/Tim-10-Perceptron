@@ -12,7 +12,7 @@ using System.Web.Http;
 
 namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class EventController : ApiController
     {
         IEventService _service;
@@ -25,7 +25,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         }
 
         // GET: api/Event
-        [Authorize(Roles = "ADMIN")]
+        //[Authorize(Roles = "ADMIN,CUSTOMER,OWNER")]
         public IHttpActionResult Get()
         {
             return Ok(_service.GetEvents());
@@ -38,7 +38,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         }
 
         // POST: api/Event
-        [Authorize(Roles = "OWNER,ADMIN")]
+        //[Authorize(Roles = "OWNER,ADMIN")]
         public IHttpActionResult Post([FromBody]Event eventObj)
         {
             List<string> errors;
@@ -51,7 +51,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         }
 
         // PUT: api/Event
-        [Authorize(Roles = "OWNER,ADMIN")]
+        //[Authorize(Roles = "OWNER,ADMIN")]
         public IHttpActionResult Put([FromBody]Event eventObj)
         {
             List<string> errors;

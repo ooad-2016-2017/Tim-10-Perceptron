@@ -17,14 +17,9 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Extensions.DependencyInjection;
 using InteraktivnaMapaEvenata.Services;
-using InteraktivnaMapaEvenata.Services.Interfaces;
-
-
-// The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace InteraktivnaMapaEvenata
 {
-    
     public sealed partial class OwnerEventList : Page
     {
         public AuthenticationVM AuthenticationVM { get; set; }
@@ -32,23 +27,8 @@ namespace InteraktivnaMapaEvenata
         public OwnerEventList()
         {
             this.InitializeComponent();
-            DataContext = new OwnerEventListVM(ServiceModule.GetService<IEventService>().WithToken(AuthenticationVM.Token));            
-            /*
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().BackRequested += (s, a) =>
-            {
-                if (Frame.CanGoBack)
-                {
-                    Frame.GoBack();
-                    a.Handled = true;
-                }
-            };*/
+            DataContext = ServiceModule.Container.GetService<OwnerEventListVM>();
             NavigationCacheMode = NavigationCacheMode.Required;            
         }
-
-          //  CreatedEvents = "Imate " + Events.Count + " kreiranih evenata"; 
-            
-        
-        
     }
 }

@@ -39,7 +39,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         }
 
         // GET: api/Owners
-        [Authorize(Roles="ADMIN")]
+        [Authorize(Roles="ADMIN,CUSTOMER,OWNER")]
         public IHttpActionResult Get()
         {
             return Ok(_service.GetOwners());
