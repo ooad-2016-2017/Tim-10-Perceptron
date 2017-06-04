@@ -143,6 +143,8 @@
     <Compile Include="DTO\AuthDTO.cs" />
     <Compile Include="Helpers\BindableBase.cs" />
     <Compile Include="Helpers\BindablePage.cs" />
+    <Compile Include="Helpers\CustomerVMFactory.cs" />
+    <Compile Include="Helpers\IEventVMFactory.cs" />
     <Compile Include="Helpers\INavigable.cs" />
     <Compile Include="Helpers\INavigationService.cs" />
     <Compile Include="Helpers\NavigationService.cs" />
@@ -159,10 +161,8 @@
     <Compile Include="Services\Interfaces\ICustomerService.cs" />
     <Compile Include="Services\Interfaces\IEventService.cs" />
     <Compile Include="Services\Interfaces\IOwnerService.cs" />
-    <Compile Include="Services\Interfaces\ITokenBearer.cs" />
     <Compile Include="Services\Interfaces\IUserService.cs" />
     <Compile Include="Services\OwnerService.cs" />
-    <Compile Include="Services\ServiceAuthenticator.cs" />
     <Compile Include="Services\ServiceModule.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="ViewModels\AdminVM.cs" />
@@ -227,6 +227,7 @@
       <DependentUpon>ModalControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\CustomerVM.cs" />
+    <Compile Include="ViewModels\EventVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\OwnerEventListVM.cs" />
     <Compile Include="Workers\EventTask.cs" />

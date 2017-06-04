@@ -25,7 +25,7 @@ namespace InteraktivnaMapaEvenata.BLL
         {
             Customer query = _context.Customers.Include(x => x.ApplicationUser)
                 .Where(x => x.ApplicationUser.Id == id)
-                .Include(x => x.FollowedEvents)
+                .Include(x => x.Events)
                 .Include(x => x.FollowedOwners)
                 .Include(x => x.FollowedPromotions)
                 .Include(x => x.Friends)
@@ -40,7 +40,7 @@ namespace InteraktivnaMapaEvenata.BLL
         {
             Customer query = _context.Customers.Where(x => x.CustomerId == id)
                 .Include(x => x.ApplicationUser)
-                .Include(x => x.FollowedEvents)
+                .Include(x => x.Events)
                 .Include(x => x.FollowedOwners)
                 .Include(x => x.FollowedPromotions)
                 .Include(x => x.Friends)
@@ -56,7 +56,7 @@ namespace InteraktivnaMapaEvenata.BLL
         {
             return _context.Customers
                 .Include(x => x.ApplicationUser)
-                .Include(x => x.FollowedEvents)
+                .Include(x => x.Events)
                 .Include(x => x.FollowedOwners)
                 .Include(x => x.FollowedPromotions)
                 .Include(x => x.Friends)

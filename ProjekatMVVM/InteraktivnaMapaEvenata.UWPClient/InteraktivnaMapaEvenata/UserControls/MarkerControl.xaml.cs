@@ -1,4 +1,5 @@
 ﻿using InteraktivnaMapaEvenata.UWP.Models;
+using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,32 +24,32 @@ namespace InteraktivnaMapaEvenata.UserControls
 {
     public sealed partial class MarkerControl : UserControl
     {
-        private Event _event;
+        public EventVM EventVM { get; set; }
+
         private MapControl _mapControl;
         private Button _button;
         private Border _border;
         private TextBlock _textBlock;
-        private Rectangle _rectangle;
         private ModalControl _modalControl;
 
-        public Event Event { get { return _event; } }
+        public Event Event { get { return EventVM.Event; } }
 
-        public MarkerControl(Event _event, MapControl mapControl, Frame frame)
+        public MarkerControl(EventVM EventVM, MapControl mapControl)
         {
             this.InitializeComponent();
-            this._event = _event;
+            this.EventVM = EventVM;
             this._mapControl = mapControl;
             DisplayEventMarker();
-            this._modalControl = new ModalControl(_event, frame);
-            AddModal(_modalControl, _event.Latitude, _event.Longitude);
+            this._modalControl = new ModalControl(EventVM);
+            AddModal(_modalControl, EventVM.Event.Latitude, EventVM.Event.Longitude);
         }
 
         private void DisplayEventMarker()
         {
             // Specify a known location.
             // BasicGeoposition snPosition = new BasicGeoposition() { Latitude = eventt.latitude, Longitude = eventt.longitude };
-            BasicGeoposition eventMarkerPosition = new BasicGeoposition() { Latitude = _event.Latitude, Longitude = _event.Longitude };
-            BasicGeoposition eventMarkerLabelPosition = new BasicGeoposition() { Latitude = _event.Latitude + 0.000017, Longitude = _event.Longitude };
+            BasicGeoposition eventMarkerPosition = new BasicGeoposition() { Latitude = EventVM.Event.Latitude, Longitude = EventVM.Event.Longitude };
+            BasicGeoposition eventMarkerLabelPosition = new BasicGeoposition() { Latitude = EventVM.Event.Latitude + 0.000017, Longitude = EventVM.Event.Longitude };
             Geopoint eventMarkerPoint = new Geopoint(eventMarkerPosition);
             Geopoint eventMarkerLabelPoint = new Geopoint(eventMarkerLabelPosition);
 
@@ -71,7 +72,7 @@ namespace InteraktivnaMapaEvenata.UserControls
 
             _textBlock = new TextBlock
             {
-                Text = _event.Name
+                Text = EventVM.Event.Name
             };
 
             // Center the map over the POI.

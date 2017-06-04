@@ -11,24 +11,24 @@ using System.Windows.Input;
 
 namespace InteraktivnaMapaEvenata.ViewModels
 {
-    class OwnerEventListVM : BaseVM
+    public class OwnerEventListVM : BaseVM
     {
         public List<Event> Events { get; set; }
 
-        public int EventCount { get; set; }
+        public int EventCount { get { return Events.Count; } }
 
-        public NavigationService NavigationService { get; set; }
+        public INavigationService NavigationService { get; set; }
 
         public IEventService EventService { get; set; }
 
         public ICommand FIllWithUserData { get; set; }        
 
-        public OwnerEventListVM(IEventService EventService)
+        public OwnerEventListVM(IEventService EventService,
+            INavigationService NavigationService)
         {
             this.EventService = EventService;
+            this.NavigationService = NavigationService;
             SetEvents();
-            EventCount = Events.Count;
-            NavigationService = new NavigationService();
             FIllWithUserData = new RelayCommand<object>(ComponentAdd, showUserData);
         }
 

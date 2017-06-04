@@ -16,7 +16,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
 {
     public class AdminVM : BindableBase
     {
-        AuthenticationVM AuthenticationVM { get; set; }
+        public AuthenticationVM AuthenticationVM { get; set; }
 
         public ObservableRangeCollection<Event> Events { get; set; } = new ObservableRangeCollection<Event>();
 
@@ -35,20 +35,18 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         public AdminVM(IEventService eventService,
             IOwnerService ownerService,
-            ICustomerService customerService,
-            AuthenticationVM authenticationVM)
+            ICustomerService customerService)
         {
             _eventService = eventService;
             _ownerService = ownerService;
             _customerService = customerService;
-            AuthenticationVM = authenticationVM;
         }
 
         public async Task LoadData()
         {
-            Events.AddRange(await _eventService.WithToken(AuthenticationVM.Token).GetEvents());
-            Owners.AddRange(await _ownerService.WithToken(AuthenticationVM.Token).GetOwners());
-            Customers.AddRange(await _customerService.WithToken(AuthenticationVM.Token).GetCustomers());
+            Events.AddRange(await _eventService.GetEvents());
+            Owners.AddRange(await _ownerService.GetOwners());
+            Customers.AddRange(await _customerService.GetCustomers());
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using InteraktivnaMapaEvenata.Services;
 using InteraktivnaMapaEvenata.UserControls;
-using InteraktivnaMapaEvenata.UWP.Models;
 using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -32,35 +31,26 @@ namespace InteraktivnaMapaEvenata.CustomerViews
             CustomerVM?.Deactivate(e.Parameter);
         }
 
-
         public CustomerMainPage()
         {
             this.InitializeComponent();
             GetLocation();
             DataContext = ServiceModule.GetService<CustomerVM>();
-
-            CustomerVM.Events.CollectionChanged += EventChanged;
+            CustomerVM.EventsVMs.CollectionChanged += EventChanged;
         }
 
         // https://stackoverflow.com/questions/1427471/observablecollection-not-noticing-when-item-in-it-changes-even-with-inotifyprop
+        // TODO: Handle removes
         public void EventChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
-            if (e.Action == NotifyCollectionChangedAction.Remove)
+            if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                foreach (Event item in e.OldItems)
+                foreach (EventVM item in e.NewItems)
                 {
-                    MarkerControl.RemoveAll(x => x.Event.EventId == item.EventId);
-                }
-            }
-            else if (e.Action == NotifyCollectionChangedAction.Add)
-            {
-                foreach (Event item in e.NewItems)
-                {
-                    MarkerControl.Add(new MarkerControl(item, MapControl1, frame));
+                    MarkerControl.Add(new MarkerControl(item, MainCustomerMap));
                 }
             }
         }
-
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -80,9 +70,9 @@ namespace InteraktivnaMapaEvenata.CustomerViews
                     Geopoint myLocation = pos.Coordinate.Point;
 
                     // Set the map location.
-                    MapControl1.Center = myLocation;
-                    MapControl1.ZoomLevel = 13;
-                    MapControl1.LandmarksVisible = true;
+                    MainCustomerMap.Center = myLocation;
+                    MainCustomerMap.ZoomLevel = 13;
+                    MainCustomerMap.LandmarksVisible = true;
                     break;
 
                 case GeolocationAccessStatus.Denied:
@@ -152,7 +142,4 @@ namespace InteraktivnaMapaEvenata.CustomerViews
             favOrgRectangle.Visibility = Visibility.Collapsed;
         }
     }
-
-
-
 }

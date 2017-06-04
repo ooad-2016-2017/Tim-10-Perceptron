@@ -24,6 +24,16 @@ namespace InteraktivnaMapaEvenata.DAL
             modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
+            //modelBuilder.Entity<Event>()
+            //    .HasMany<Customer>(x => x.Customers)
+            //    .WithMany()
+            //    .Map(cs =>
+            //    {
+            //        cs.MapLeftKey("EventId");
+            //        cs.MapRightKey("CustomerId");
+            //        cs.ToTable("EventCustomer");
+            //    });
+
 
 
             //    modelBuilder.Entity<Notification>()

@@ -23,7 +23,7 @@ namespace InteraktivnaMapaEvenata.Models
 
         public ICollection<Promotion> FollowedPromotions { get; set; }
 
-        public ICollection<Event> FollowedEvents { get; set; }
+        public ICollection<Event> Events { get; set; }
 
         public ICollection<Customer> Friends { get; set; }
 

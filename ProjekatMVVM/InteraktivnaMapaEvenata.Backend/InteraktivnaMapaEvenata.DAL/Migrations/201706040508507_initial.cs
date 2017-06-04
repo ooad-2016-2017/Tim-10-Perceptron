@@ -3,7 +3,7 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class test : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -314,9 +314,9 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
         {
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.Customers", "Customer_CustomerId", "dbo.Customers");
-            DropForeignKey("dbo.Events", "Customer_CustomerId", "dbo.Customers");
             DropForeignKey("dbo.Flags", "FlaggedStateId", "dbo.FlagStates");
             DropForeignKey("dbo.Flags", "CustomerId", "dbo.Customers");
+            DropForeignKey("dbo.Events", "Customer_CustomerId", "dbo.Customers");
             DropForeignKey("dbo.Customers", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Owners", "SelectedTierId", "dbo.PaymentTiers");

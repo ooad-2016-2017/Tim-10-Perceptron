@@ -16,8 +16,6 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public static readonly string CUSTOMER_ROLE = "CUSTOMER";
         public static readonly string QR_ROLE = "QR";
 
-        public string Token { get; set; }
-
         public bool IsAuthenticated
         {
             get { return _IsAuthenticated; }
@@ -30,6 +28,11 @@ namespace InteraktivnaMapaEvenata.ViewModels
                     RaisePropertyChanged("IsNotAuthenticated");
                 }
             }
+        }
+
+        public bool IsCustomer()
+        {
+            return CurrentUser as Customer != null;
         }
 
         public bool IsNotAuthenticated

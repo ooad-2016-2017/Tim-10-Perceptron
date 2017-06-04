@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Services
 {
-    public class BaseService : ITokenBearer
+    public class BaseService
     {
         public BaseService() { }
 
-        public string Token { get; set; }
+        public static string Token { get; set; }
 
         public string BaseUrl { get; set; } = Globals.LOCAL_API;
 
@@ -37,6 +37,31 @@ namespace InteraktivnaMapaEvenata.Services
             return FromJson<T>(await result.Content.ReadAsStringAsync());
         }
 
-        public IFlurlClient SecureUri { get { return Endpoint.WithHeader("Authorization", $"Bearer {Token}"); } }
+        public IFlurlClient SecureUri
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Token))
+                    return new FlurlClient(Endpoint);
+                else
+                    return Endpoint.WithHeader("Authorization", $"Bearer {Token}");
+            }
+        }
+
+        public IFlurlClient WrapSecure(IFlurlClient client)
+        {
+            if (string.IsNullOrEmpty(Token))
+                return client;
+            else
+                return client.WithOAuthBearerToken(Token);
+        }
+
+        public IFlurlClient WrapSecure(string uri)
+        {
+            if (string.IsNullOrEmpty(Token))
+                return new FlurlClient(uri);
+            else
+                return uri.WithOAuthBearerToken(Token);
+        }
     }
 }

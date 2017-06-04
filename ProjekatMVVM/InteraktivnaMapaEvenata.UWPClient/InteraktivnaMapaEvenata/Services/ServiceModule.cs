@@ -1,5 +1,6 @@
 ﻿using InteraktivnaMapaEvenata.Helpers;
 using InteraktivnaMapaEvenata.Services.Interfaces;
+using InteraktivnaMapaEvenata.UWP.Models;
 using InteraktivnaMapaEvenata.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -13,11 +14,11 @@ namespace InteraktivnaMapaEvenata.Services
 {
     public static class ServiceModule
     {
-
         public static void RegisterServices()
         {
             ServiceCollection services = new ServiceCollection();
 
+            // Register services
             services.AddSingleton<IEventService, EventService>()
                 .AddSingleton<IAuthenticationService, AuthenticationService>()
                 .AddSingleton<IUserService, UserService>()
@@ -25,27 +26,23 @@ namespace InteraktivnaMapaEvenata.Services
                 .AddSingleton<IOwnerService, OwnerService>()
                 .AddSingleton<INavigationService, NavigationService>();
 
+            // Register factories
+            services.AddSingleton<IEventVMFactory, EventVMFactory>();
+
+            // Register viewmodels
             services.AddSingleton<AuthenticationVM>()
                 .AddSingleton<AdminVM>()
                 .AddSingleton<LoginVM>()
                 .AddSingleton<CustomerVM>()
-                .AddSingleton<OwnerEventListVM>();
+                .AddSingleton<OwnerEventListVM>()
+                .AddSingleton<EventVM>();
 
             Container = services.BuildServiceProvider();
         }
 
         public static T GetService<T>() 
         {
-            if (Container == null)
-                throw new Exception("RegisterServices must be called before using GetService");
             return Container.GetService<T>();
-        }
-
-        public static T GetService<T>(string Token) where T : BaseService
-        {
-            if (Container == null)
-                throw new Exception("RegisterServices must be called before using GetService");
-            return Container.GetService<T>().WithToken(Token);
         }
 
         public static IServiceProvider Container { get; set; }

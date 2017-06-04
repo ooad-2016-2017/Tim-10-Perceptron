@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using InteraktivnaMapaEvenata.Common.DTOs;
 
 namespace InteraktivnaMapaEvenata.BLL.Interfaces
 {
@@ -16,5 +17,9 @@ namespace InteraktivnaMapaEvenata.BLL.Interfaces
         Event AddEvent(Event eventObj);
 
         Event Update(Event eventObj);
+
+        Event SignUpCustomer(int id, CustomerDTO customer);
+
+        Event SignOffCustomer(int id, CustomerDTO customer);
     }
 }

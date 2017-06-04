@@ -1,8 +1,10 @@
 ﻿using InteraktivnaMapaEvenata.Helpers;
+
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,8 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public ObservableRangeCollection<Owner> Owners { get; set; }
         public ObservableRangeCollection<Notification> Notifications { get; set; }
         public ObservableRangeCollection<Event> Events { get; set; }
+        public ObservableRangeCollection<EventVM> EventsVMs { get; set; }
+
         #endregion
 
         #region Services
@@ -28,6 +32,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
         private IOwnerService _ownerService;
         private ICustomerService _customerService;
         private INavigationService _navigationService;
+        private IEventVMFactory _eventVMFactory;
         #endregion
 
         #region Commands
@@ -40,7 +45,6 @@ namespace InteraktivnaMapaEvenata.ViewModels
         #endregion
 
         #region Initialization
-
         void InitNavigation()
         {
             NavigateToSettings = new RelayCommand(() => { _navigationService.Navigate(typeof(CustomerEditProfile)); });
@@ -54,25 +58,48 @@ namespace InteraktivnaMapaEvenata.ViewModels
             Owners = new ObservableRangeCollection<Owner>();
             Notifications = new ObservableRangeCollection<Notification>();
             Events = new ObservableRangeCollection<Event>();
+            EventsVMs = new ObservableRangeCollection<EventVM>();
         }
 
+        public EventVM CreateEventVM(Event item)
+        {
+            return _eventVMFactory.Create(item, AuthenticationVM, _eventService, _navigationService);
+        }
         #endregion
 
+        // TODO: Consider making this into a facade.
         public CustomerVM(ICustomerService customerService,
             IOwnerService ownerService,
             IEventService eventService,
             INavigationService navigationService,
+            IEventVMFactory eventVMFactory,
             AuthenticationVM AuthenticationVM)
         {
             _eventService = eventService;
             _ownerService = ownerService;
             _customerService = customerService;
             _navigationService = navigationService;
+            _eventVMFactory = eventVMFactory;
             this.AuthenticationVM = AuthenticationVM;
 
             InitNavigation();
             InitCollections();
+
+            Events.CollectionChanged += handleEventAdd;
         }
+
+        // TODO: Handle removes
+        private void handleEventAdd(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.Action == NotifyCollectionChangedAction.Add)
+            {
+                foreach (Event item in e.NewItems)
+                {
+                    EventsVMs.Add(CreateEventVM(item));
+                }
+            }
+        }
+
         public async void Activate(object parameter)
         {
             Events.AddRange(await _eventService.GetEvents());

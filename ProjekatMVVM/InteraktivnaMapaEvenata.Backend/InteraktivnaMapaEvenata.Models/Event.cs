@@ -33,7 +33,7 @@ namespace InteraktivnaMapaEvenata.Models
         [ForeignKey("PromotionId")]
         public Promotion Promotion { get; set; }
 
-        public ICollection<Customer> Customers;
+        public ICollection<Customer> Customers { get; set; }
 
         [Required]
         public int OwnerId { get; set; }

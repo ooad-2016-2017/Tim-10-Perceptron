@@ -12,6 +12,7 @@ using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Linq;
+using InteraktivnaMapaEvenata.Common.DTOs;
 
 namespace InteraktivnaMapaEvenata.BLL
 {
@@ -69,6 +70,48 @@ namespace InteraktivnaMapaEvenata.BLL
             //evnt.Tags = evnt.Tags;
 
             _context.SaveChanges();
+
+            return evnt;
+        }
+
+        public Event SignUpCustomer(int id, CustomerDTO customer)
+        {
+            // Checks if a customer has signed up for an event
+            Event evnt = _context.Events.Where(x => x.EventId == id)
+                                        .Include(x => x.Customers)
+                                        .FirstOrDefault();
+
+            Customer query = evnt.Customers
+                                 .Where(x => x.CustomerId == customer.CustomerId)
+                                 .FirstOrDefault();
+
+            if (query == null)
+            {
+                Customer cst = _context.Customers.Where(x => x.CustomerId == customer.CustomerId).FirstOrDefault();
+                evnt.Customers.Add(cst);
+                _context.SaveChanges();
+            }
+
+            return evnt;
+        }
+
+        public Event SignOffCustomer(int id, CustomerDTO customer)
+        {
+             // Checks if a customer has signed up for an event
+            Event evnt = _context.Events.Where(x => x.EventId == id)
+                                        .Include(x => x.Customers)
+                                        .FirstOrDefault();
+
+            Customer query = evnt.Customers
+                                 .Where(x => x.CustomerId == customer.CustomerId)
+                                 .FirstOrDefault();
+
+            if (query != null)
+            {
+                query.Events.Remove(evnt);
+                evnt.Customers.Remove(query);
+                _context.SaveChanges();
+            }
 
             return evnt;
         }

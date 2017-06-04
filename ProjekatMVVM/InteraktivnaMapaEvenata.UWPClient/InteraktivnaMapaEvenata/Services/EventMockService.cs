@@ -110,5 +110,30 @@ namespace InteraktivnaMapaEvenata.Services
             });
             return Task.FromResult(events);
         }
+
+        public Task SignOffUser(Customer customer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SignOffUser(int id, Customer customer)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SignUpUser(Customer user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SignUpUser(User user)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task SignUpUser(int id, Customer user)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

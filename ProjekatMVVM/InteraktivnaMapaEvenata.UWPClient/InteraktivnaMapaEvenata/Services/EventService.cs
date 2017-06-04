@@ -20,7 +20,7 @@ namespace InteraktivnaMapaEvenata.Services
 
         public async Task<Event> GetEventById(int id)
         {
-            return await Endpoint.AppendPathSegment(id)
+            return await WrapSecure(Endpoint.AppendPathSegment(id))
                                         .WithOAuthBearerToken(Token)
                                         .GetJsonAsync<Event>();
         }
@@ -30,11 +30,17 @@ namespace InteraktivnaMapaEvenata.Services
          * */
         public async Task<List<Event>> GetEvents()
         {
-            if (string.IsNullOrEmpty(Token))
-                return await Endpoint.GetJsonAsync<List<Event>>();
-            else
-                return await Endpoint.WithOAuthBearerToken(Token)
-                                            .GetJsonAsync<List<Event>>();
+            return await SecureUri.GetJsonAsync<List<Event>>();
+        }
+
+        public async Task SignUpUser(int eventId, Customer customer)
+        {
+            await WrapSecure(Endpoint.AppendPathSegment($"/signupcustomer/{eventId}")).PutJsonAsync(customer);
+        }
+
+        public async Task SignOffUser(int eventId, Customer customer)
+        {
+            await WrapSecure(Endpoint.AppendPathSegment($"/signupcustomer/{eventId}")).PutJsonAsync(customer);
         }
     }
 }

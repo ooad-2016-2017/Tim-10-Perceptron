@@ -37,7 +37,7 @@
             </Grid.RowDefinitions>
 
             <Maps:MapControl
-           x:Name="MapControl1"            
+           x:Name="MainCustomerMap"            
            ZoomInteractionMode="GestureAndControl"
            TiltInteractionMode="GestureAndControl"   
            MapServiceToken="EYWVf18BD40zQrcZWgD8~n0vB5Saq4m21VR02_tj98A~AimecBVie9he4w6ReIkroObpniXA9jwFlopLaVYcdWyaqXbYy8SHXi9uuDLwridt"

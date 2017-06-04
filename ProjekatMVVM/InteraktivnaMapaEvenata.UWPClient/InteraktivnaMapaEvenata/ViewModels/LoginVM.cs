@@ -75,16 +75,12 @@ namespace InteraktivnaMapaEvenata.ViewModels
             try
             {
                 AuthDTO authDTO = await _authService.LogIn(Username, Password);
-                AuthenticationVM.Token = authDTO.access_token;
-
-                _userService.Token = authDTO.access_token;
-                _customerService.Token = authDTO.access_token;
-                _ownerService.Token = authDTO.access_token;
+                BaseService.Token = authDTO.access_token;
 
                 if (authDTO.role == AuthenticationVM.ADMIN_ROLE)
                 {
                     AuthenticationVM.CurrentUser = await _userService.GetUser(authDTO.userId);
-                    _navigation.Navigate(typeof(AdminMainPage), ServiceModule.GetService<AdminVM>());
+                    _navigation.Navigate(typeof(AdminMainPage), AuthenticationVM);
                 }
                 else if (authDTO.role == AuthenticationVM.CUSTOMER_ROLE)
                 {

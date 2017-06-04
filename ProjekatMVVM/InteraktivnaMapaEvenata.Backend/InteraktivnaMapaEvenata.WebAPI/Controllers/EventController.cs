@@ -1,4 +1,5 @@
 ﻿using InteraktivnaMapaEvenata.BLL.Interfaces;
+using InteraktivnaMapaEvenata.Common.DTOs;
 using InteraktivnaMapaEvenata.Common.Validators;
 using InteraktivnaMapaEvenata.DAL;
 using InteraktivnaMapaEvenata.Models;
@@ -61,6 +62,13 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
             if (ret == null)
                 return BadRequest("Failed to add event");
             return Ok(ret);
+        }
+
+        [Authorize(Roles="CUSTOMER")]
+        [Route("api/event/signupcustomer/{id}")]
+        public IHttpActionResult Put(int id, [FromBody]CustomerDTO customer)
+        {
+            return Ok(_service.SignUpCustomer(id, customer));
         }
 
         // DELETE: api/Event/5

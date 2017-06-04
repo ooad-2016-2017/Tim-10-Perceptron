@@ -14,21 +14,23 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using InteraktivnaMapaEvenata.ViewModels;
+using InteraktivnaMapaEvenata.Services;
 
 namespace InteraktivnaMapaEvenata.Admin
 {
     public sealed partial class AdminMainPage : Page
     {
-        public AdminVM AdminVM { get; set; }
+        public AdminVM AdminVM { get { return DataContext as AdminVM; } }
 
         public AdminMainPage()
         {
             this.InitializeComponent();
+            DataContext = ServiceModule.GetService<AdminVM>();
         }
 
         protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
-            this.AdminVM = e.Parameter as AdminVM;
+            this.AdminVM.AuthenticationVM = e.Parameter as AuthenticationVM;
             await AdminVM.LoadData();
         }
 

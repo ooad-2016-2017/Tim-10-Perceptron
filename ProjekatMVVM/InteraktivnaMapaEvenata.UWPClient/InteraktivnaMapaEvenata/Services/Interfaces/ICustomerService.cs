@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Services.Interfaces
 {
-    public interface ICustomerService : ITokenBearer
+    public interface ICustomerService
     {
         Task<Customer> GetCustomer(int customerId);
 

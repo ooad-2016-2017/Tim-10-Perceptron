@@ -67,9 +67,13 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="DatabaseInitializer.cs" />
-    <Compile Include="Migrations\201705311435368_test.cs" />
-    <Compile Include="Migrations\201705311435368_test.Designer.cs">
-      <DependentUpon>201705311435368_test.cs</DependentUpon>
+    <Compile Include="Migrations\201706040508507_initial.cs" />
+    <Compile Include="Migrations\201706040508507_initial.Designer.cs">
+      <DependentUpon>201706040508507_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201706040511252_customerevents.cs" />
+    <Compile Include="Migrations\201706040511252_customerevents.Designer.cs">
+      <DependentUpon>201706040511252_customerevents.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -85,8 +89,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201705311435368_test.resx">
-      <DependentUpon>201705311435368_test.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201706040508507_initial.resx">
+      <DependentUpon>201706040508507_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201706040511252_customerevents.resx">
+      <DependentUpon>201706040511252_customerevents.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

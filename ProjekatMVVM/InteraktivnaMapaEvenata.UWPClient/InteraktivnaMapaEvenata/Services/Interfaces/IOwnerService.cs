@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Services.Interfaces
 {
-    public interface IOwnerService : ITokenBearer
+    public interface IOwnerService
     {
         Task<Owner> GetOwner(int ownerId);
 
