@@ -1,4 +1,5 @@
-﻿using InteraktivnaMapaEvenata.Helpers;
+﻿using InteraktivnaMapaEvenata.Admin;
+using InteraktivnaMapaEvenata.Helpers;
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
 using System;
@@ -30,6 +31,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public ICommand SignUp { get; set; }
         public ICommand SignOff { get; set; }
         public ICommand NavigateToOwner { get; set; }
+        public ICommand NavigateToDetails { get; set; }
         #endregion
 
         #region Initialization
@@ -38,18 +40,29 @@ namespace InteraktivnaMapaEvenata.ViewModels
             SignUp = new RelayCommand(async () =>
             {
                 if (AuthenticationVM.IsCustomer())
+                {
+                    AuthenticationVM.Customer.Events.Add(Event);
                     await _eventService.SignUpUser(Event.EventId, AuthenticationVM.CurrentUser as Customer);
+                }
             });
 
             SignOff = new RelayCommand(async () =>
             {
                 if (AuthenticationVM.IsCustomer())
+                {
                     await _eventService.SignOffUser(Event.EventId, AuthenticationVM.CurrentUser as Customer);
+                    AuthenticationVM.Customer.Events.ToList().RemoveAll(x => x.EventId == Event.EventId);
+                }
             });
 
             NavigateToOwner = new RelayCommand(() =>
             {
                 _navigation.Navigate(typeof(CustomerOwnerProfile), Event.Owner);
+            });
+
+            NavigateToDetails = new RelayCommand(() =>
+            {
+                _navigation.Navigate(typeof(AdminEventPage), this);
             });
         }
         #endregion

@@ -63,6 +63,8 @@ namespace InteraktivnaMapaEvenata.ViewModels
             }
         }
 
+        public Customer Customer { get { return _CurrentUser as Customer; } set { _CurrentUser = value; } }
+
         public void Authenticate()
         {
             IsAuthenticated = true;

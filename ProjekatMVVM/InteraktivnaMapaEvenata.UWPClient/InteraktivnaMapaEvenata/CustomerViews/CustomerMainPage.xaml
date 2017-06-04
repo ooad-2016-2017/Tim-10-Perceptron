@@ -162,7 +162,7 @@
                     </ListView>
 
                     <TextBlock x:Name="eventTextBlock" Text="Prijavljeni ste na event:" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,-40,0,0"/>
-                    <ListView ItemsSource="{x:Bind CustomerVM.Events}" IsItemClickEnabled="True" x:Name="EventList" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                    <ListView ItemsSource="{x:Bind CustomerVM.AuthenticationVM.Customer.Events}" IsItemClickEnabled="True" x:Name="EventList" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
                         <ListView.ItemTemplate>
                             <!--<DataTemplate x:DataType="local:Owner">-->
                             <DataTemplate>

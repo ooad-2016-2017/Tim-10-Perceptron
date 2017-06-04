@@ -143,7 +143,7 @@
     <Compile Include="DTO\AuthDTO.cs" />
     <Compile Include="Helpers\BindableBase.cs" />
     <Compile Include="Helpers\BindablePage.cs" />
-    <Compile Include="Helpers\CustomerVMFactory.cs" />
+    <Compile Include="Helpers\EventVMFactory.cs" />
     <Compile Include="Helpers\IEventVMFactory.cs" />
     <Compile Include="Helpers\INavigable.cs" />
     <Compile Include="Helpers\INavigationService.cs" />

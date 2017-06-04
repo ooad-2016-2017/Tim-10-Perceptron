@@ -11,6 +11,8 @@ using System.Collections.ObjectModel;
 using System.Collections;
 using InteraktivnaMapaEvenata.Helpers;
 using System.Windows.Input;
+using InteraktivnaMapaEvenata.Admin;
+using Windows.UI.Xaml.Controls;
 
 namespace InteraktivnaMapaEvenata.ViewModels
 {
@@ -19,34 +21,42 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public AuthenticationVM AuthenticationVM { get; set; }
 
         public ObservableRangeCollection<Event> Events { get; set; } = new ObservableRangeCollection<Event>();
-
         public ObservableRangeCollection<Owner> Owners { get; set; } = new ObservableRangeCollection<Owner>();
-
         public ObservableRangeCollection<Customer> Customers { get; set; } = new ObservableRangeCollection<Customer>();
-
         public ObservableRangeCollection<Flag> Flags { get; set; } = new ObservableRangeCollection<Flag>();
 
-        public IEventService _eventService { get; set; }
-
-        public IOwnerService _ownerService { get; set; }
-
-        public ICustomerService _customerService { get; set; }
-
+        public IEventService EventService { get; set; }
+        public IOwnerService OwnerService { get; set; }
+        public ICustomerService CustomerService { get; set; }
+        public IEventVMFactory EventVMFactory { get; set; }
+        public INavigationService Navigation { get; set; }
 
         public AdminVM(IEventService eventService,
+            IEventVMFactory eventVMFactory,
             IOwnerService ownerService,
-            ICustomerService customerService)
+            ICustomerService customerService,
+            INavigationService navigationService)
         {
-            _eventService = eventService;
-            _ownerService = ownerService;
-            _customerService = customerService;
+            EventService = eventService;
+            OwnerService = ownerService;
+            CustomerService = customerService;
+            EventVMFactory = eventVMFactory;
+            Navigation = navigationService;
         }
 
         public async Task LoadData()
         {
-            Events.AddRange(await _eventService.GetEvents());
-            Owners.AddRange(await _ownerService.GetOwners());
-            Customers.AddRange(await _customerService.GetCustomers());
+            Events.AddRange(await EventService.GetEvents());
+            Owners.AddRange(await OwnerService.GetOwners());
+            Customers.AddRange(await CustomerService.GetCustomers());
+        }
+
+        public void NavigateToEventDetails(object evnt)
+        {
+            Navigation.Navigate(typeof(AdminEventPage), EventVMFactory.Create(evnt as Event,
+                AuthenticationVM,
+                EventService,
+                Navigation));
         }
     }
 }

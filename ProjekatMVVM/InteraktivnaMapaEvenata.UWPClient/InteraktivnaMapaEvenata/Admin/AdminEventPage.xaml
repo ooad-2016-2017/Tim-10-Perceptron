@@ -7,11 +7,10 @@
     xmlns:Maps="using:Windows.UI.Xaml.Controls.Maps"
     x:Class="InteraktivnaMapaEvenata.Admin.AdminEventPage"
     mc:Ignorable="d">
-    <!--xmlns:Charts="using:Syncfusion.UI.Xaml.Charts"-->
     <ScrollViewer>
         <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
             <StackPanel Margin="0,0,0,188">
-                <TextBlock VerticalAlignment="Bottom" Foreground="Black" Margin="20,0,20,0" Text="{x:Bind Event.Name}" FontWeight="Bold" Style="{StaticResource HeaderTextBlockStyle}"/>
+                <TextBlock VerticalAlignment="Bottom" Foreground="Black" Margin="20,0,20,0" Text="{x:Bind EventVM.Event.Name}" FontWeight="Bold" Style="{StaticResource HeaderTextBlockStyle}"/>
                 <Image Margin="20,0,20,0" Source="/Assets/Images/eventstock.jpg" />
                 <StackPanel Orientation="Horizontal"/>
                 <Grid HorizontalAlignment="Stretch">
@@ -26,9 +25,8 @@
                     <CalendarDatePicker Header="Datum" Margin="0,0,20,0" HorizontalAlignment="Right" Grid.Column="1" IsEnabled="False" />
                 </Grid>
                 <TextBlock TextAlignment="Justify" Margin="20,0,20,0" TextWrapping="Wrap">
-                    <Run Text="{x:Bind Event.Description}"/>
+                    <Run Text="{x:Bind EventVM.Event.Description}"/>
                 </TextBlock>
-                <!--<Charts:PieSeries HorizontalAlignment="Stretch" Height="{Binding ElementName=LeftChart, Path=Width}" XBindingPath="Category" YBindingPath="Count" ItemsSource="{Binding Tax}" Name="LeftChart" />-->
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />

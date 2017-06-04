@@ -13,10 +13,6 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 
         public enum Genders { Male, Female, Unspecified }
         
-        public string Name { get; set; }
-        
-        public string Surname { get; set; }
-        
         public DateTime DateOfBirth { get; set; }
         
         public Genders Gender { get; set; }
@@ -25,7 +21,7 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 
         public ICollection<Promotion> FollowedPromotions { get; set; }
 
-        public ICollection<Event> FollowedEvents { get; set; }
+        public ICollection<Event> Events { get; set; }
 
         public ICollection<Customer> Friends { get; set; }
 

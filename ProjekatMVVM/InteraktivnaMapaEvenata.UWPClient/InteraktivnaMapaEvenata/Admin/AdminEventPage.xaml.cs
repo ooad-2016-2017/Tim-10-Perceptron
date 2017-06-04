@@ -1,4 +1,5 @@
 ﻿using InteraktivnaMapaEvenata.UWP.Models;
+using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -23,27 +24,17 @@ namespace InteraktivnaMapaEvenata.Admin
     /// </summary>
     public sealed partial class AdminEventPage : Page
     {
-        List<PaymentTier> series = new List<PaymentTier>();
-        Event Event;
+        EventVM EventVM;
 
         public AdminEventPage()
         {
             this.InitializeComponent();
-            Event = new Event();
-        }
-
-        public AdminEventPage(Event Event)
-        {
-            this.InitializeComponent();
-            this.Event = Event;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            if (e.Parameter is Event)
-                this.Event = (Event)e.Parameter;
+            this.EventVM = e.Parameter as EventVM;
         }
-
     }
 }

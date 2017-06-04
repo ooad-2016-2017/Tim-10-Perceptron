@@ -37,7 +37,7 @@ namespace InteraktivnaMapaEvenata.Admin
         private void EventsList_ItemClick(object sender, ItemClickEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
-            rootFrame.Navigate(typeof(AdminEventPage), e.ClickedItem);
+            AdminVM.NavigateToEventDetails(e.ClickedItem);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

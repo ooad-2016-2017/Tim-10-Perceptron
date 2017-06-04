@@ -99,7 +99,7 @@ namespace InteraktivnaMapaEvenata.CustomerViews
                 hamburgerButton.Margin = new Thickness(200, 0, 0, 0);
                 image.Margin = new Thickness(200, 0, 0, 0);
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/BackArrow.png"));
-                MySplitView.Visibility = Visibility.Collapsed;                
+                MySplitView.Visibility = Visibility.Collapsed;
             }
 
         }
