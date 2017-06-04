@@ -13,6 +13,11 @@ namespace InteraktivnaMapaEvenata.Services
     {
         public string Token { get; set; } = "";
 
+        public Task<Event> AddEvent(Event _event)
+        {
+            return Task.FromResult(_event);
+        }
+
         public Task<Event> GetEventById(int id)
         {
             List<UWP.Models.Owner> owners = new List<UWP.Models.Owner>();
