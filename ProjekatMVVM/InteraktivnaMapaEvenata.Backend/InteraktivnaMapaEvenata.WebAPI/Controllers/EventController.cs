@@ -52,7 +52,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         }
 
         // PUT: api/Event
-        //[Authorize(Roles = "OWNER,ADMIN")]
+        [Authorize(Roles = "OWNER,ADMIN")]
         public IHttpActionResult Put([FromBody]Event eventObj)
         {
             List<string> errors;

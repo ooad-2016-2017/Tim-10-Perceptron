@@ -2,12 +2,7 @@
 using Flurl.Http;
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
-using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.ServiceModel.Description;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.Services
@@ -25,9 +20,7 @@ namespace InteraktivnaMapaEvenata.Services
                                         .GetJsonAsync<Event>();
         }
 
-        /**
-         * It is also possible to use Get<List<Event>>(ServiceEndpoint)
-         * */
+        // It is also possible to use Get<List<Event>>(ServiceEndpoint).
         public async Task<List<Event>> GetEvents()
         {
             return await SecureUri.GetJsonAsync<List<Event>>();
@@ -41,6 +34,11 @@ namespace InteraktivnaMapaEvenata.Services
         public async Task SignOffUser(int eventId, Customer customer)
         {
             await WrapSecure(Endpoint.AppendPathSegment($"/signupcustomer/{eventId}")).PutJsonAsync(customer);
+        }
+
+        public async Task<Event> AddEvent(Event _event)
+        {
+            return await SecureUri.PostJsonAsync(_event).ReceiveJson<Event>();
         }
     }
 }
