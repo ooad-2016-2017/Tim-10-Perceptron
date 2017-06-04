@@ -37,7 +37,7 @@
         <HyperlinkButton x:Name="eventOrganizerHyperlink" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" Command="{x:Bind EventVM.NavigateToOwner}" Foreground="Orange" Content="{x:Bind EventVM.Event.Owner.OrganizationName}"/>
         <TextBlock Text="{x:Bind EventVM.Event.Description}" x:Name="eventInfoTextBlock" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="4" Foreground="White"/>
         <TextBlock Text="{x:Bind EventVM.PromoDescription}" x:Name="eventDiscountTextBlock" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="4" Foreground="White"/>
-        <Button x:Name="signUpButton" Command="{x:Bind EventVM.SignUp}" Grid.ColumnSpan="2" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Prijavi se" Foreground="White" Margin="0,0,0,0" Grid.RowSpan="2" Grid.Column="1"/>
+        <Button x:Name="signUpButton" Command="{x:Bind EventVM.SignUp}" Grid.ColumnSpan="2" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{x:Bind EventVM.SignText, Mode=TwoWay}" Foreground="White" Margin="0,0,0,0" Grid.RowSpan="2" Grid.Column="1"/>
         <Button x:Name="DetailsButton" Command="{x:Bind EventVM.NavigateToDetails}" Grid.ColumnSpan="2" Grid.Row="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="Detalji" Foreground="White" Margin="0,0,0,0" Grid.RowSpan="2" Grid.Column="3"/>
     </Grid>
 </UserControl>

@@ -3,11 +3,8 @@
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace InteraktivnaMapaEvenata.ViewModels
@@ -42,6 +39,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public ICommand NavigateToSettings{ get; set; }
         public ICommand NavigateToCustomerProfile { get; set; }
         public ICommand NavigateToOwnerProfile { get; set; }
+        public ICommand RefreshCustomer { get; set; }
         #endregion
 
         #region Initialization
@@ -59,6 +57,15 @@ namespace InteraktivnaMapaEvenata.ViewModels
             Notifications = new ObservableRangeCollection<Notification>();
             Events = new ObservableRangeCollection<Event>();
             EventsVMs = new ObservableRangeCollection<EventVM>();
+        }
+
+        void InitRelays()
+        {
+            RefreshCustomer = new RelayCommand(async () =>
+            {
+                var customer = await _customerService.GetCustomer(AuthenticationVM.Customer.CustomerId);
+
+            });
         }
 
         public EventVM CreateEventVM(Event item)
@@ -84,6 +91,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
             InitNavigation();
             InitCollections();
+            InitRelays();
 
             Events.CollectionChanged += handleEventAdd;
         }

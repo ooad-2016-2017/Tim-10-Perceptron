@@ -30,6 +30,7 @@ namespace InteraktivnaMapaEvenata.BLL
             return _context.Events.Include(x => x.Owner)
                 .Include(x => x.Flags)
                 .Include(x => x.Tags)
+                .Include(x => x.Customers)
                 .ToList();
         }
 

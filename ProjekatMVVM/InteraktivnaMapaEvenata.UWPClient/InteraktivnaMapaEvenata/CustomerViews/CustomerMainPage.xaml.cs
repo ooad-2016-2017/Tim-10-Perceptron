@@ -89,19 +89,19 @@ namespace InteraktivnaMapaEvenata.CustomerViews
         {
             if (MySplitView.Visibility == Visibility.Collapsed)
             {
-                hamburgerButton.Margin = new Thickness(0, 0, 0, 0);
+                CustomerVM.RefreshCustomer.Execute(sender);
+                hamburgerButton.Margin = new Thickness(200, 0, 0, 0);
                 image.Margin = new Thickness(0, 0, 0, 0);
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/FrontArrow.png"));                
                 MySplitView.Visibility = Visibility.Visible;
             }
             else
             {
-                hamburgerButton.Margin = new Thickness(200, 0, 0, 0);
+                hamburgerButton.Margin = new Thickness(0, 0, 0, 0);
                 image.Margin = new Thickness(200, 0, 0, 0);
                 image.Source = new BitmapImage(new Uri("ms-appx:///Assets/Images/BackArrow.png"));
                 MySplitView.Visibility = Visibility.Collapsed;
             }
-
         }
 
         private void findUsersButton_Click(object sender, RoutedEventArgs e)

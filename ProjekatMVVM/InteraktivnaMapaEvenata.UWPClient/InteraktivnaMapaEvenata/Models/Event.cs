@@ -34,5 +34,10 @@ namespace InteraktivnaMapaEvenata.UWP.Models
         public ICollection<EventFlag> Flags { get; set; }
 
         public ICollection<Tag> Tags { get; set; }
+
+        public Event()
+        {
+            Customers = new List<Customer>();
+        }
     }
 }
