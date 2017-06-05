@@ -21,7 +21,7 @@ public class Tower : MonoBehaviour {
 
 	void Update () {
 		_attackCounter -= Time.deltaTime;
-		if (_targetEnemy == null) {
+		if (_targetEnemy == null || _targetEnemy.IsDead) {
 			Enemy nearestEnemy = getNearestEnemyInRange ();
 			if (nearestEnemy != null
 			    && Vector2.Distance (transform.position, nearestEnemy.transform.position) <= _attackRadius)
@@ -87,7 +87,7 @@ public class Tower : MonoBehaviour {
 	private List<Enemy> getEnemiesInRange(){
 		List<Enemy> enemiesInRange = new List<Enemy> ();
 		foreach (Enemy enemy in GameManager.Instance.Enemies) 
-			if (Vector2.Distance (enemy.transform.localPosition, this.transform.localPosition) <= _attackRadius)
+			if (Vector2.Distance (enemy.transform.localPosition, this.transform.localPosition) <= _attackRadius && !enemy.IsDead)
 				enemiesInRange.Add (enemy);
 		
 		return enemiesInRange;

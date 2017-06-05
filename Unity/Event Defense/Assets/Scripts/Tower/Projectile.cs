@@ -22,4 +22,8 @@ public class Projectile : MonoBehaviour {
 		get { return _projectileType; }
 	}
 
+	void Start(){
+		GameManager.Instance.Projectiles.Add(this);
+	}
+
 }
