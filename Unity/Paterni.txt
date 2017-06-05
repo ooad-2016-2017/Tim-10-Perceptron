@@ -1,0 +1,12 @@
+Strukturalni paterni:
+
+Najviše su korišteni Composite patern i Flyweight patern. Što se tièe composite paterna, primjer gdje se  individualni objekti jednako tretiraju jeste kada se(npr) instancira više objekata tipa Enemy1. Svi objekti tipa Enemy1 se ponašaju jednako: hodaju po odreðenom putu i mogu biti pogoðeni od strane tower-a. 
+Primjer korištenja flyweight paterna jeste u samim tower-ima, dakle postoje tri tower-a koja imaju glavna stanja da gaðaju objekte tipa Enemy1, da mogu biti kupljeni od strane igraèa i da mogu biti naravno uništeni po potrebi. Sporedna stanja tih tower-a jeste zapravo njihove razlièite cijene, razlièiti objekti koje koriste za gaðanje, razlièit izgled i razlièita jaèina.
+
+Kreacijski paterni:
+
+Najviše su korišteni singleton patern, prototype patern, factory method patern. Primjer singleton paterna je klasa Singleton koja osigurava da klasa koja nasljeðuje od nje, ne bude instancirana više od jednom. Klase koje su naslijedile Singleton su sve manager klase: GameManager i TowerManager. Primjer prototype paterna jeste zapravo kloniranje objekata koji veæ postoje. Detaljnije, to je zapravo kloniranje objekta Enemy1 koji se nalazi u folderu Prefabs, te kloniranje objekata koji se nalaze u folderu Towers. Svaki Tower gameobjekat u Prefabs folderu Towers sadrži klasu Tower koja odreðuje izmeðu ostalog, koji projektil da instancira taj Tower. Dakle, klasa Tower u zavisnosti od objekta na koji je povezana, instancira objekat tipa Projectile. I to je primjer factory method paterna, gdje je zapravo Creator klasa Tower, a Product je Projectile klasa. 
+
+Paterni ponašanja:
+
+Najviše korišteni state patern i observer patern. Primjer state paterna je enum GameState koji sadrži više moguæih stanja igre i koji omoguæava igri da mijenja stanje odreðenih objekata u odnosu na taj enum. Npr kada je gameState = GameState.Next tada program zna da treba preimenovati button u Sljedeci Val. Primjer korištenja observer paterna jeste kada objekat tipa Enemy1 proðe kroz objekat tipa Exit, tada objekat tipa Enemy1 promijeni stanje tj. uništi se, a broj koji pokazuje koliko Enemy1 objekata je prošlo se poveæa za 1. Shodno tome, ako dovoljan broj objekata tipa Enemy1 proðe, igra se zaustavlja.
