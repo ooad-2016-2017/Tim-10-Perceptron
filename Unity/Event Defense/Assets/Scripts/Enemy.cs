@@ -21,7 +21,12 @@ public class Enemy : MonoBehaviour {
 	private int _rewardAmount;
 
 	private Transform _enemy;
-	private float _navigationTime = 0;
+	private float _navigationTime = 0;	
+	private bool _isDead = false;
+
+	public bool IsDead{
+		get{ return _isDead; }
+	}
 
 	void Start () {
 		_enemy = GetComponent<Transform> ();
@@ -29,7 +34,7 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void Update () {
-		if (_wayPoints != null) {
+		if (_wayPoints != null && !IsDead) {
 			_navigationTime += Time.deltaTime;
 			if (_navigationTime > _navigationUpdate) {
 				if (_target < _wayPoints.Length) 
@@ -50,6 +55,7 @@ public class Enemy : MonoBehaviour {
 			GameManager.Instance.TotalKilled++;
 			GameManager.Instance.AddMoney(_rewardAmount);
 			GameManager.Instance.IsWaveOver ();
+			_isDead = true;
 		}
 	}
 
@@ -62,10 +68,11 @@ public class Enemy : MonoBehaviour {
 			GameManager.Instance.RoundEscaped++;
 			GameManager.Instance.IsWaveOver ();
 		}
-		else if (other.tag == "projectile") {
-			Projectile projectile = other.gameObject.GetComponent<Projectile> ();
+		else if (other.tag == "projectile") {	
+			Projectile projectile = other.gameObject.GetComponent<Projectile> ();	
+			if(projectile == null) Destroy(other);
 			EnemyHit (projectile.GetAttackStrength);
-			Destroy (other.gameObject);
+			Destroy (other.gameObject);			
 		}
 	}
 

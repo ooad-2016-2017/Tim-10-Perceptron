@@ -42,17 +42,20 @@ public class GameManager : Singleton<GameManager> {
 	[SerializeField]
 	private Button _gameStatusButton;
 
-	private int _enemiesOnScreen = 0;
 	private int _waveNumber = 0;
 	private int _totalMoney = 10;
 	private int _totalEscaped = 0;
 	private int _roundEscaped = 0;
 	private int _totalKilled = 0;
-	private int _enemiesToSpawn = 8;
+	private int _spawnedEnemies = 0;
+
 	private GameStatus _currentState = GameStatus.Play;
 
 	[HideInInspector]
 	public List<Enemy> Enemies = new List<Enemy> ();
+
+	[HideInInspector]
+	public List<Projectile> Projectiles = new List<Projectile>();
 
 	public int TotalMoney{
 		get{
@@ -90,9 +93,9 @@ public class GameManager : Singleton<GameManager> {
 	}
 
 	IEnumerator SpawnEnemy(){
-		if (_enemiesPerSpawn > 0 && Enemies.Count < _totalEnemies) {	
+		if (_enemiesPerSpawn > 0 && _spawnedEnemies < _totalEnemies) {	
 			for (int i = 0; i < _enemiesPerSpawn; i++) {
-				if (Enemies.Count < _totalEnemies) {					
+				if (_spawnedEnemies < _totalEnemies) {				
 					GameObject newEnemy = Instantiate (_enemies [0]) as GameObject;
 					newEnemy.transform.position = _spawnPoint.transform.position;
 				}
@@ -104,6 +107,7 @@ public class GameManager : Singleton<GameManager> {
 
 	public void RegisterEnemy(Enemy enemy){
 		Enemies.Add (enemy);
+		_spawnedEnemies++;
 	}
 		
 	public void UnregisterEnemy(Enemy enemy){
@@ -127,9 +131,16 @@ public class GameManager : Singleton<GameManager> {
 		TotalMoney -= amount;
 	}
 
+	public void DestroyAllProjectiles(){
+		foreach(Projectile projectile in Projectiles){
+			Destroy(projectile);
+		}
+	}
+
 	public void IsWaveOver(){
-		_totalEscapedLabel.text = "Escaped " + _totalEscaped + "/10";
+		_totalEscapedLabel.text = "Proslo " + _totalEscaped + "/10";
 		if ((_roundEscaped + TotalKilled) == _totalEnemies) {
+			DestroyAllProjectiles();
 			SetCurrentGameState ();
 			ShowMenu ();
 		}
@@ -150,16 +161,16 @@ public class GameManager : Singleton<GameManager> {
 	public void ShowMenu(){
 		switch (_currentState) {
 		case GameStatus.Gameover:
-			_gameStatusLabel.text = "Play Again!";
+			_gameStatusLabel.text = "Igraj opet!";
 			break;
 		case GameStatus.Next:
-			_gameStatusLabel.text = "Next Wave";
+			_gameStatusLabel.text = "Sljedeci Val";
 			break;
 		case GameStatus.Play:
-			_gameStatusLabel.text = "Play";
+			_gameStatusLabel.text = "Pokreni";
 			break;
 		case GameStatus.Win:
-			_gameStatusLabel.text = "Play";
+			_gameStatusLabel.text = "Pokreni";
 			break;
 		}
 		_gameStatusButton.gameObject.SetActive (true);
@@ -175,17 +186,19 @@ public class GameManager : Singleton<GameManager> {
 			_totalEnemies = 3;
 			TotalEscaped = 0;
 			TotalMoney = 10;
+			TotalEscaped = 0;
+			_waveNumber = 0;			
 			_totalMoneyLabel.text = TotalMoney.ToString ();
 			TowerManager.Instance.DestroyAllTowers();
 			TowerManager.Instance.RenameTagsBuildSites();
-			_totalEscapedLabel.text = "Escaped " + TotalEscaped + "/10";
-			TotalEscaped = 0;
+			_totalEscapedLabel.text = "Proslo " + TotalEscaped + "/10";
 			break;
 		}
 		DestroyAllEnemies ();
+		_spawnedEnemies = 0;
 		TotalKilled = 0;
 		_roundEscaped = 0;
-		_currentWaveLabel.text = "Wave " + (_waveNumber + 1);
+		_currentWaveLabel.text = "Val " + (_waveNumber + 1);
 		StartCoroutine (SpawnEnemy ());
 		_gameStatusButton.gameObject.SetActive (false);
 	}
