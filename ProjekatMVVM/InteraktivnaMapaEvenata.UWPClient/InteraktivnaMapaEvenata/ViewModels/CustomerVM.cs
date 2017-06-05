@@ -27,6 +27,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
         #region Services
         private IEventService _eventService;
         private IOwnerService _ownerService;
+        private IOwnerDetailsVMFactory _ownerDetailsFactory;
         private ICustomerService _customerService;
         private INavigationService _navigationService;
         private IEventVMFactory _eventVMFactory;
@@ -77,11 +78,13 @@ namespace InteraktivnaMapaEvenata.ViewModels
         // TODO: Consider making this into a facade.
         public CustomerVM(ICustomerService customerService,
             IOwnerService ownerService,
+            IOwnerDetailsVMFactory ownerFactory,
             IEventService eventService,
             INavigationService navigationService,
             IEventVMFactory eventVMFactory,
             AuthenticationVM AuthenticationVM)
         {
+            _ownerDetailsFactory = ownerFactory;
             _eventService = eventService;
             _ownerService = ownerService;
             _customerService = customerService;

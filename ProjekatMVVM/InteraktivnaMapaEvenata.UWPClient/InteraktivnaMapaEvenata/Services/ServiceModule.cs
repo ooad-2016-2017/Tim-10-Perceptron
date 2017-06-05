@@ -26,10 +26,14 @@ namespace InteraktivnaMapaEvenata.Services
                 .AddSingleton<IOwnerService, OwnerService>()
                 .AddSingleton<INavigationService, NavigationService>();
 
+            // Register factories
+            services.AddSingleton<IEventVMFactory, EventVMFactory>()
+                .AddSingleton<IOwnerDetailsVMFactory, OwnerDetailsVMFactory>();
+
             // Register viewmodels
             services.AddSingleton<AuthenticationVM>()
-                .AddScoped<IEventVMFactory, EventVMFactory>()
                 .AddSingleton<AdminVM>()
+                .AddSingleton<OwnerDetailsVM>()
                 .AddSingleton<LoginVM>()
                 .AddSingleton<CustomerVM>()
                 .AddSingleton<OwnerEventListVM>()

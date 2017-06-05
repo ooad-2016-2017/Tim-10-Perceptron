@@ -1,5 +1,8 @@
 ﻿using InteraktivnaMapaEvenata.CustomerViews;
+using InteraktivnaMapaEvenata.Services;
 using InteraktivnaMapaEvenata.UserControls;
+using InteraktivnaMapaEvenata.UWP.Models;
+using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,56 +27,23 @@ namespace InteraktivnaMapaEvenata
     /// </summary>
     public sealed partial class CustomerOwnerProfile : Page
     {
+        public OwnerDetailsVM OwnerDetailsVM { get { return DataContext as OwnerDetailsVM; } }
 
-        //private UWP.Models.Owner owner;
-        public List<UWP.Models.Event> Events { get; set; }
         public EventBlockControl EventBlockControl { get; set; }
-        public UWP.Models.Owner Owner { get; set; }
-        public int Followers { get; set; }
-        public string FollowersText { get; set; }
 
         public CustomerOwnerProfile()
         {
             this.InitializeComponent();
-            this.DataContext = this;
-            Events = new List<UWP.Models.Event>();
-            /*
-             * ako customer prati followButton content = prekini pracenje ako ne prati followButton content = prati
-             */
+            this.DataContext = ServiceModule.GetService<OwnerDetailsVM>();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            // base.OnNavigatedTo(e);
             if (!Frame.CanGoBack)
             {
                 backButton.Visibility = Visibility.Visible;
             }
-            Owner = (UWP.Models.Owner)e.Parameter;
-            Events = (List<UWP.Models.Event>)Owner.Events;
-           // EventBlockControl = new EventBlockControl(Events[0]);
-            if (Owner.Followers == null) Followers = 0;
-            else Followers = Owner.Followers.Count;
-            FollowersText = "Pratilaca: " + Followers.ToString();
-        }
-        
-        private void backButton_Click(object sender, RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(CustomerMainPage));
-        }
-
-        private void followButton_Click(object sender, RoutedEventArgs e)
-        {
-            if ((string)followButton.Content == "Prati")
-            {
-                followButton.Content = "Ne prati";
-            }
-            else followButton.Content = "Prati";
-        }
-
-        private void flagButton_Click(object sender, RoutedEventArgs e)
-        {
-
+            DataContext = e.Parameter;
         }
     }
 }

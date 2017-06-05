@@ -147,9 +147,12 @@
     <Compile Include="Helpers\IEventVMFactory.cs" />
     <Compile Include="Helpers\INavigable.cs" />
     <Compile Include="Helpers\INavigationService.cs" />
+    <Compile Include="Helpers\IOwnerDetailsVMFactory.cs" />
     <Compile Include="Helpers\NavigationService.cs" />
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
+    <Compile Include="Helpers\OwnerDetailsVMFactory.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
+    <Compile Include="Owner\OwnerDetailsVM.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\CustomerService.cs" />
