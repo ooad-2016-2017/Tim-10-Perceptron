@@ -27,5 +27,12 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 
         public ICollection<Flag> Flags { get; set; }
 
+        public Customer()
+        {
+            Events = new List<Event>();
+            Friends = new List<Customer>();
+            Flags = new List<Flag>();
+            FollowedOwners = new List<Owner>();
+        }
     }
 }

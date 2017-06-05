@@ -65,24 +65,20 @@
         </VisualStateManager.VisualStateGroups>
 
 
-        <Button x:Name="backButton" Grid.Column="0" Grid.Row="0" Content="Nazad" HorizontalAlignment="Center" Click="backButton_Click" Visibility="Collapsed"/>
-        <TextBlock x:Name="orgNameTextBlock" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" Text="{x:Bind Owner.OrganizationName}"/>
+        <Button x:Name="backButton" Grid.Column="0" Grid.Row="0" Content="Nazad" HorizontalAlignment="Center" Command="{x:Bind OwnerDetailsVM.BackToMain}" Visibility="Collapsed"/>
+        <TextBlock x:Name="orgNameTextBlock" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" Text="{x:Bind OwnerDetailsVM.Owner.OrganizationName}"/>
         
-        <TextBlock x:Name="followersTextBlock" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{x:Bind FollowersText}"/>
+        <TextBlock x:Name="followersTextBlock" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{x:Bind OwnerDetailsVM.FollowersText}"/>
 
         <Image x:Name="profileImage" Source="ms-appx:///Assets/Images/profile.png" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="100" Height="100" />
 
-        <Button x:Name="followButton" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" Content="Prati" Click="followButton_Click" />
-        <Button x:Name="flagButton" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Stretch" Content="Prijavi" Click="flagButton_Click"/>
+        <Button x:Name="followButton" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" Content="Prati" Command="{x:Bind OwnerDetailsVM.ToggleFollow}" />
+        <Button x:Name="flagButton" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Stretch" Content="Prijavi" Command="{x:Bind OwnerDetailsVM.Flag}"/>
 
-        <ListView ItemsSource="{x:Bind Events}"
-    HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4">
+        <ListView ItemsSource="{x:Bind OwnerDetailsVM.Owner.Events}" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="4">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="Model:Event">
                     <StackPanel Orientation="Horizontal" Margin="6">
-                        <!--
-                        <SymbolIcon Symbol="Audio" Margin="0,0,12,0"/>
-                        -->
                         <StackPanel>
                             <TextBlock x:Name="eventNameTextBlock" Text="{x:Bind Name}" FontSize="17" FontWeight="Bold" Margin="0,0,0,5"/>
                             <TextBlock x:Name="eventDescriptionTextBlock" Text="{x:Bind Description}" Margin="0,0,0,20"/>

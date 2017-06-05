@@ -98,15 +98,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
-            <!--
-            <Button x:Name="o1" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Opacity="1" HorizontalAlignment="Stretch" Content="Organizator" Visibility="{Binding Visibility,ElementName=favOrgRectangle}" Click="o1_Click" />
-            -->
-
         </Grid>
 
         <Image x:Name="image" Grid.Column="0"  Grid.Row="6" HorizontalAlignment="Left" Width="40"  VerticalAlignment="Center" Grid.ColumnSpan="2" Source="Assets/Images/FrontArrow.png"/>
-        <Button x:Name="hamburgerButton" Width="40" Background="#CC007DD7" VerticalAlignment="Stretch" Foreground="{x:Null}" Click="hamburgerButton_Click" Opacity="0.8"/>
+        <Button x:Name="hamburgerButton" Width="40" Background="#CC007DD7" VerticalAlignment="Stretch" Click="hamburgerButton_Click" Opacity="0.8"/>
 
         <SplitView Name="MySplitView" 
                    DisplayMode="CompactOverlay" 
@@ -162,7 +157,7 @@
                     </ListView>
 
                     <TextBlock x:Name="eventTextBlock" Text="Prijavljeni ste na event:" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,-40,0,0"/>
-                    <ListView ItemsSource="{x:Bind CustomerVM.AuthenticationVM.Customer.Events}" IsItemClickEnabled="True" x:Name="EventList" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
+                    <ListView ItemsSource="{x:Bind CustomerVM.Events, Mode=OneWay}" IsItemClickEnabled="True" x:Name="EventList" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2">
                         <ListView.ItemTemplate>
                             <!--<DataTemplate x:DataType="local:Owner">-->
                             <DataTemplate>

@@ -3,11 +3,8 @@
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
 using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace InteraktivnaMapaEvenata.ViewModels
@@ -30,6 +27,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
         #region Services
         private IEventService _eventService;
         private IOwnerService _ownerService;
+        private IOwnerDetailsVMFactory _ownerDetailsFactory;
         private ICustomerService _customerService;
         private INavigationService _navigationService;
         private IEventVMFactory _eventVMFactory;
@@ -42,6 +40,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public ICommand NavigateToSettings{ get; set; }
         public ICommand NavigateToCustomerProfile { get; set; }
         public ICommand NavigateToOwnerProfile { get; set; }
+        public ICommand RefreshCustomer { get; set; }
         #endregion
 
         #region Initialization
@@ -61,6 +60,15 @@ namespace InteraktivnaMapaEvenata.ViewModels
             EventsVMs = new ObservableRangeCollection<EventVM>();
         }
 
+        void InitRelays()
+        {
+            RefreshCustomer = new RelayCommand(async () =>
+            {
+                var customer = await _customerService.GetCustomer(AuthenticationVM.Customer.CustomerId);
+
+            });
+        }
+
         public EventVM CreateEventVM(Event item)
         {
             return _eventVMFactory.Create(item, AuthenticationVM, _eventService, _navigationService);
@@ -70,11 +78,13 @@ namespace InteraktivnaMapaEvenata.ViewModels
         // TODO: Consider making this into a facade.
         public CustomerVM(ICustomerService customerService,
             IOwnerService ownerService,
+            IOwnerDetailsVMFactory ownerFactory,
             IEventService eventService,
             INavigationService navigationService,
             IEventVMFactory eventVMFactory,
             AuthenticationVM AuthenticationVM)
         {
+            _ownerDetailsFactory = ownerFactory;
             _eventService = eventService;
             _ownerService = ownerService;
             _customerService = customerService;
@@ -84,6 +94,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
             InitNavigation();
             InitCollections();
+            InitRelays();
 
             Events.CollectionChanged += handleEventAdd;
         }
