@@ -34,7 +34,6 @@ namespace InteraktivnaMapaEvenata
         public CustomerOwnerProfile()
         {
             this.InitializeComponent();
-            this.DataContext = ServiceModule.GetService<OwnerDetailsVM>();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

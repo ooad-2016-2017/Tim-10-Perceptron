@@ -10,9 +10,9 @@ namespace InteraktivnaMapaEvenata.Helpers
 {
     public class OwnerDetailsVMFactory : IOwnerDetailsVMFactory
     {
-        public OwnerDetailsVM Create(Owner owner, INavigationService navigation)
+        public OwnerDetailsVM Create(Owner owner, AuthenticationVM auth, INavigationService navigation)
         {
-            return new OwnerDetailsVM(owner, navigation);
+            return new OwnerDetailsVM(owner, auth, navigation);
         }
     }
 }

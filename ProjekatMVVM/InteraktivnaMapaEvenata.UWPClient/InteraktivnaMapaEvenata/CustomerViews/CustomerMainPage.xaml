@@ -77,9 +77,8 @@
             <Button Content="B" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center" Visibility="{Binding Visibility,ElementName=favOrgRectangle}" Click="Button_Click" />
             <TextBlock Text="Organizatori" Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" HorizontalAlignment="Center" Foreground="White" Visibility="{Binding Visibility,ElementName=favOrgRectangle}"/>
             <TextBox Text="{Binding FallbackValue=Pretraga}" Grid.Row="2" Grid.Column="6" Grid.ColumnSpan="2" Visibility="{Binding Visibility,ElementName=favOrgRectangle}"/>
-            <ListView ItemsSource="{x:Bind CustomerVM.Owners}" IsItemClickEnabled="True" x:Name="OwnersList" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="{Binding Visibility,ElementName=favOrgRectangle}">
+            <ListView ItemsSource="{x:Bind CustomerVM.Owners}" ItemClick="{x:Bind CustomerVM.OwnerClicked}" IsItemClickEnabled="True" x:Name="OwnersList" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Grid.RowSpan="6" Visibility="{Binding Visibility,ElementName=favOrgRectangle}">
                 <ListView.ItemTemplate>
-                    <!--<DataTemplate x:DataType="local:Owner">-->
                     <DataTemplate>
                         <Grid HorizontalAlignment="Stretch">
                             <Grid.ColumnDefinitions>

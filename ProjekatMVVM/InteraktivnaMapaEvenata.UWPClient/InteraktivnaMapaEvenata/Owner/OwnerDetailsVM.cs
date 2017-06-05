@@ -1,4 +1,5 @@
 ﻿using InteraktivnaMapaEvenata.Helpers;
+using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,10 @@ namespace InteraktivnaMapaEvenata.ViewModels
 {
     public class OwnerDetailsVM : BindableBase
     {
-        public string FollowLabel { get; set; }
+        string followLabel;
+        public string FollowLabel { get { return followLabel; } set { SetProperty(ref followLabel, value); } }
+
+        public AuthenticationVM AuthenticationVM { get; set; }
 
         public Owner Owner { get; set; }
 
@@ -21,6 +25,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public ICommand BackToMain { get; set; }
 
         public INavigationService _navigation;
+        public ICustomerService _customerService;
 
         public int Followers { get { return Owner.Followers?.Count ?? 0; } }
 
@@ -31,17 +36,34 @@ namespace InteraktivnaMapaEvenata.ViewModels
             ToggleFollow = new RelayCommand(() =>
             {
                 if (FollowLabel == "Prati")
+                {
                     FollowLabel = "Ne prati";
+                    _customerService.Follow(AuthenticationVM.Customer.CustomerId, Owner.OwnerId);
+                }
                 else
+                {
                     FollowLabel = "Prati";
+                }
             });
 
             BackToMain = new RelayCommand(() => _navigation.Navigate(typeof(CustomerMainPageVM)));
         }
 
-        public OwnerDetailsVM(Owner owner, INavigationService navigation)
+        public OwnerDetailsVM(Owner owner, AuthenticationVM authenticationVM, ICustomerService customerService, INavigationService navigation)
         {
             _navigation = navigation;
+            _customerService = customerService;
+
+            AuthenticationVM = authenticationVM;
+
+            if (authenticationVM.Customer.FollowedOwners == null)
+                authenticationVM.Customer.FollowedOwners = new List<Owner>();
+
+            if (authenticationVM.Customer.FollowedOwners.Where(x => x.OwnerId == owner.OwnerId).FirstOrDefault() == null)
+                FollowLabel = "Prati";
+            else
+                FollowLabel = "Ne prati";
+
             Owner = owner;
 
             if (Owner.Events == null)

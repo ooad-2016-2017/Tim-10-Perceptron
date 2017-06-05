@@ -6,6 +6,7 @@ using System;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Input;
+using Windows.UI.Xaml.Controls;
 
 namespace InteraktivnaMapaEvenata.ViewModels
 {
@@ -120,5 +121,12 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public void Deactivate(object parameter)
         {
         }
+
+        public void OwnerClicked(object sender, ItemClickEventArgs e)
+        {
+            _navigationService.Navigate(typeof(CustomerOwnerProfile), 
+                _ownerDetailsFactory.Create((Owner)e.ClickedItem, AuthenticationVM, _navigationService));
+        }
+
     }
 }

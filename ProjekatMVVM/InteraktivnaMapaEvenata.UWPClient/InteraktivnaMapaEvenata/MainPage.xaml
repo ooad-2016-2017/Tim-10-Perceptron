@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="White" x:Name="MainGrid">
+    <Grid Background="White" x:Name="MainGrid" Margin="0,0,-178,-283">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="59*"/>
@@ -26,15 +26,13 @@
 
         <TextBlock x:Name="prijavaTextBlock" Grid.Column="1" Grid.Row="1" Text="Prijava" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
 
-        <TextBox Text="{x:Bind Path=LoginVM.Username, Mode=TwoWay}" x:Name="UsernameBox" Grid.Column="1" Grid.Row="2" Height="30" Width="170" />
+        <TextBox Text="{x:Bind Path=LoginVM.Username, Mode=TwoWay}" x:Name="UsernameBox" Grid.Row="2" Height="30" Margin="0,26.333,0,33" Grid.Column="1" />
 
-        <PasswordBox Password="{x:Bind Path=LoginVM.Password, Mode=TwoWay}" x:Name="PasswordBox" Grid.Row="3" Height="30" VerticalAlignment="Top" Grid.Column="1" Width="170"/>
+        <PasswordBox Password="{x:Bind Path=LoginVM.Password, Mode=TwoWay}" x:Name="PasswordBox" Grid.Row="3" Height="30" VerticalAlignment="Top" Grid.Column="1"/>
 
-        <Button Command="{x:Bind LoginVM.LoginCommand}" x:Name="LoginButton" Grid.Column="1" Grid.Row="4" VerticalAlignment="Stretch" HorizontalAlignment="Center" Width="100" Content="Potvrdi" Foreground="Black" Margin="31.667,0.333,31.667,61"/>
+        <Button Command="{x:Bind LoginVM.LoginCommand}" x:Name="LoginButton" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" Content="Potvrdi" Foreground="Black"/>
 
-        <Button x:Name="registerButton" Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="120" Height="30" BorderThickness="0" Content="Novi Korisnik" Foreground="Black"/>
-
-        <Button x:Name="fbButton" Grid.Column="1" Grid.Row="5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="40" Height="40" Content="FB" Foreground="Black"/>
+        <Button x:Name="registerButton" Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="30" BorderThickness="0" Content="Novi Korisnik" Foreground="Black"/>
 
 
     </Grid>
