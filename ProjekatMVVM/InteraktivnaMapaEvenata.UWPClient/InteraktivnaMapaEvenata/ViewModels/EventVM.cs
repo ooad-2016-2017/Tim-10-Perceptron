@@ -3,10 +3,7 @@ using InteraktivnaMapaEvenata.Helpers;
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace InteraktivnaMapaEvenata.ViewModels

@@ -141,6 +141,7 @@
       <DependentUpon>CustomerUserProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="DTO\AuthDTO.cs" />
+    <Compile Include="DTO\EntityValidationErrorDTO.cs" />
     <Compile Include="Helpers\BindableBase.cs" />
     <Compile Include="Helpers\BindablePage.cs" />
     <Compile Include="Helpers\EventVMFactory.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Services\OwnerService.cs" />
     <Compile Include="Services\ServiceModule.cs" />
     <Compile Include="Services\UserService.cs" />
+    <Compile Include="Validation\EntityValidationException.cs" />
     <Compile Include="ViewModels\AdminVM.cs" />
     <Compile Include="ViewModels\AuthenticationVM.cs" />
     <Compile Include="ViewModels\BaseVM.cs" />
