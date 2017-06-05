@@ -21,6 +21,25 @@ namespace InteraktivnaMapaEvenata.BLL
             this._context = context;
         }
 
+        public CustomerDTO Follow(int customerId, int ownerId)
+        {
+            Customer customer = GetCustomerModel(customerId);
+            Owner owner = _context.Owners.Where(x => x.OwnerId == ownerId).FirstOrDefault();
+            customer.FollowedOwners.Add(owner);
+            return customer.ToCustomerDTO();
+        }
+
+        private Customer GetCustomerModel(int id)
+        {
+            return _context.Customers.Where(x => x.CustomerId == id)
+                        .Include(x => x.ApplicationUser)
+                        .Include(x => x.Events)
+                        .Include(x => x.FollowedOwners)
+                        .Include(x => x.FollowedPromotions)
+                        .Include(x => x.Friends)
+                        .FirstOrDefault();
+        }
+
         public CustomerDTO GetCustomer(string id)
         {
             Customer query = _context.Customers.Include(x => x.ApplicationUser)

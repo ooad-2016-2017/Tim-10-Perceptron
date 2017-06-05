@@ -54,9 +54,12 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         }
 
 
-        // POST: api/Customers
-        public void Post([FromBody]string value)
+        // POST: api/Customers/follow/{customerid}/{ownerid}
+        [Authorize(Roles="ADMIN,CUSTOMER")]
+        [Route("api/Customers/follow/{customerId}/{ownerId}")]
+        public IHttpActionResult Post(int customerId, int ownerId)
         {
+            return Ok(_service.Follow(customerId, ownerId));
         }
 
         // PUT: api/Customers/5
