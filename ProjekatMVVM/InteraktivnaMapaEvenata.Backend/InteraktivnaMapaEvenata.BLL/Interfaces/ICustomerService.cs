@@ -13,5 +13,7 @@ namespace InteraktivnaMapaEvenata.BLL.Interfaces
         List<CustomerDTO> GetCustomers();
 
         CustomerDTO Follow(int customerId, int ownerId);
+
+        CustomerDTO Unfollow(int customerId, int ownerId);
     }
 }

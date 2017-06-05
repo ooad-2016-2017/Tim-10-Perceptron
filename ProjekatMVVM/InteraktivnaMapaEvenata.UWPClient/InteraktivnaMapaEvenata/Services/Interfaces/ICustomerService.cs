@@ -14,5 +14,9 @@ namespace InteraktivnaMapaEvenata.Services.Interfaces
         Task<Customer> GetCustomer(string userId);
 
         Task<List<Customer>> GetCustomers();
+
+        Task<Customer> Follow(int customerId, int ownerId);
+
+        Task<Customer> Unfollow(int customerId, int ownerId);
     }
 }

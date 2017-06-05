@@ -26,8 +26,19 @@ namespace InteraktivnaMapaEvenata.BLL
             Customer customer = GetCustomerModel(customerId);
             Owner owner = _context.Owners.Where(x => x.OwnerId == ownerId).FirstOrDefault();
             customer.FollowedOwners.Add(owner);
+            _context.SaveChanges();
             return customer.ToCustomerDTO();
         }
+
+        public CustomerDTO Unfollow(int customerId, int ownerId)
+        {
+            Customer customer = GetCustomerModel(customerId);
+            Owner owner = _context.Owners.Where(x => x.OwnerId == ownerId).FirstOrDefault();
+            customer.FollowedOwners.Remove(owner);
+            _context.SaveChanges();
+            return customer.ToCustomerDTO();
+        }
+
 
         private Customer GetCustomerModel(int id)
         {

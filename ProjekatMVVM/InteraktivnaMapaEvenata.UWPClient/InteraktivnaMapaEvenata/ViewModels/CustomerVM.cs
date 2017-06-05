@@ -114,6 +114,8 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         public async void Activate(object parameter)
         {
+            Owners.Clear();
+            Events.Clear();
             Events.AddRange(await _eventService.GetEvents());
             Owners.AddRange(await _ownerService.GetOwners());
         }
@@ -125,7 +127,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public void OwnerClicked(object sender, ItemClickEventArgs e)
         {
             _navigationService.Navigate(typeof(CustomerOwnerProfile), 
-                _ownerDetailsFactory.Create((Owner)e.ClickedItem, AuthenticationVM, _navigationService));
+                _ownerDetailsFactory.Create((Owner)e.ClickedItem, AuthenticationVM, _customerService, _navigationService));
         }
 
     }

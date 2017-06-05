@@ -33,16 +33,17 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         void InitRelays()
         {
-            ToggleFollow = new RelayCommand(() =>
+            ToggleFollow = new RelayCommand(async () =>
             {
                 if (FollowLabel == "Prati")
                 {
                     FollowLabel = "Ne prati";
-                    _customerService.Follow(AuthenticationVM.Customer.CustomerId, Owner.OwnerId);
+                    AuthenticationVM.Customer = await _customerService.Follow(AuthenticationVM.Customer.CustomerId, Owner.OwnerId);
                 }
                 else
                 {
                     FollowLabel = "Prati";
+                    AuthenticationVM.Customer = await _customerService.Unfollow(AuthenticationVM.Customer.CustomerId, Owner.OwnerId);
                 }
             });
 

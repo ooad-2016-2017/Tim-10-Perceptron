@@ -1,4 +1,5 @@
-﻿using InteraktivnaMapaEvenata.UWP.Models;
+﻿using InteraktivnaMapaEvenata.Services.Interfaces;
+using InteraktivnaMapaEvenata.UWP.Models;
 using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace InteraktivnaMapaEvenata.Helpers
 {
     public interface IOwnerDetailsVMFactory
     {
-        OwnerDetailsVM Create(Owner owner, AuthenticationVM auth, INavigationService navigation);
+        OwnerDetailsVM Create(Owner owner, AuthenticationVM auth, ICustomerService customerService, INavigationService navigation);
     }
 }
