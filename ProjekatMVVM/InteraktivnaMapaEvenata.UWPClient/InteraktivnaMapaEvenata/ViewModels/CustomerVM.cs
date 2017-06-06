@@ -5,8 +5,10 @@ using InteraktivnaMapaEvenata.UWP.Models;
 using System;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 
 namespace InteraktivnaMapaEvenata.ViewModels
@@ -102,21 +104,6 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
             Events.CollectionChanged += handleEventAdd;
 
-            Task.Factory.StartNew(async () =>
-            {
-                for (;;)
-                {
-                    var events = await _eventService.GetEvents();
-
-                    //lock (Events)
-                    //{
-                        var newEvents = Events.Where(candidate => Events.Where(x => x.EventId == candidate.EventId).FirstOrDefault() == null).ToList();
-                        Events.AddRange(newEvents);
-                    //}
-                    await Task.Delay(TimeSpan.FromSeconds(5));
-                }
-                int xx = 2;
-            }, TaskCreationOptions.LongRunning);
         }
 
         // TODO: Handle removes
@@ -137,10 +124,35 @@ namespace InteraktivnaMapaEvenata.ViewModels
             Events.Clear();
             Events.AddRange(await _eventService.GetEvents());
             Owners.AddRange(await _ownerService.GetOwners());
+
+            tokenSource = new CancellationTokenSource();
+            CancellationToken ct = tokenSource.Token;
+            await Task.Run(async () =>
+            {
+                //ct.ThrowIfCancellationRequested();
+                while (true)
+                {
+                    var events = await _eventService.GetEvents();
+                    if (ct.IsCancellationRequested)
+                        ct.ThrowIfCancellationRequested();
+                    var newEvents = events.Where(candidate => Events.Where(x => x.EventId == candidate.EventId).FirstOrDefault() == null).ToList();
+                    if (newEvents != null && newEvents.Count > 0)
+                    {
+                        await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+                        () =>
+                        {
+                            Events.AddRange(newEvents);
+                        });
+                    }
+                    Task.Delay(TimeSpan.FromSeconds(5)).Wait();
+                }
+            }, tokenSource.Token);
         }
 
+        CancellationTokenSource tokenSource;
         public void Deactivate(object parameter)
         {
+            //tokenSource?.Cancel();
         }
 
         public void OwnerClicked(object sender, ItemClickEventArgs e)

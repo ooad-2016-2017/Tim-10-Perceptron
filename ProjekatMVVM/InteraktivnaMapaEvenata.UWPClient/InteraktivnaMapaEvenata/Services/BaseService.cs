@@ -12,6 +12,17 @@ namespace InteraktivnaMapaEvenata.Services
 {
     public class BaseService
     {
+        public IFlurlClient SecureUri
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(Token))
+                    return new FlurlClient(Endpoint);
+                else
+                    return Endpoint.WithHeader("Authorization", $"Bearer {Token}");
+            }
+        }
+
         public BaseService() { }
 
         public static string Token { get; set; }
@@ -37,16 +48,6 @@ namespace InteraktivnaMapaEvenata.Services
             return FromJson<T>(await result.Content.ReadAsStringAsync());
         }
 
-        public IFlurlClient SecureUri
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(Token))
-                    return new FlurlClient(Endpoint);
-                else
-                    return Endpoint.WithHeader("Authorization", $"Bearer {Token}");
-            }
-        }
 
         public IFlurlClient WrapSecure(IFlurlClient client)
         {

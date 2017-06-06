@@ -20,7 +20,6 @@ namespace InteraktivnaMapaEvenata.Services
                                         .GetJsonAsync<Event>();
         }
 
-        // It is also possible to use Get<List<Event>>(ServiceEndpoint).
         public async Task<List<Event>> GetEvents()
         {
             return await SecureUri.GetJsonAsync<List<Event>>();
