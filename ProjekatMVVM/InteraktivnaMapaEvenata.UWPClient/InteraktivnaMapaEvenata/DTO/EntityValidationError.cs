@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace InteraktivnaMapaEvenata.DTO
 {
-    public class EntityValidationErrorDTO
+    public class EntityValidationError
     {
-        public List<string> errors { get; set; }
+        public string MessageBody { get; set; }
+
+        public ModelStateDTO ModelStateDTO { get; set; }
     }
 }

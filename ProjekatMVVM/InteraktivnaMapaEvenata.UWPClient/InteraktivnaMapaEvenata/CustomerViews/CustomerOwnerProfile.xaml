@@ -68,7 +68,7 @@
         <Button x:Name="backButton" Grid.Column="0" Grid.Row="0" Content="Nazad" HorizontalAlignment="Center" Command="{x:Bind OwnerDetailsVM.BackToMain}" Visibility="Collapsed"/>
         <TextBlock x:Name="orgNameTextBlock" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="20" Text="{x:Bind OwnerDetailsVM.Owner.OrganizationName}"/>
         
-        <TextBlock x:Name="followersTextBlock" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{x:Bind OwnerDetailsVM.FollowersText ,Mode=OneWay}"/>
+        <TextBlock x:Name="followersTextBlock" Grid.Column="1" Grid.Row="2" VerticalAlignment="Bottom" HorizontalAlignment="Right" Text="{x:Bind OwnerDetailsVM.FollowersText, Mode=OneWay}"/>
 
         <Image x:Name="profileImage" Source="ms-appx:///Assets/Images/profile.png" Grid.Column="2" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="2" Width="100" Height="100" />
 

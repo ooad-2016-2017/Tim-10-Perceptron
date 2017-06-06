@@ -1,9 +1,6 @@
 ﻿using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using Flurl;
 using Flurl.Http;
@@ -18,21 +15,53 @@ namespace InteraktivnaMapaEvenata.Services
 
         public async Task<User> GetUser(string userId) { return await Endpoint.AppendPathSegment("UserInfo").WithOAuthBearerToken(Token).GetJsonAsync<User>(); }
 
-        public Task<Customer> RegisterCustomer(Customer customer)
+        public async Task<Customer> RegisterCustomer(Customer customer)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await Endpoint.AppendPathSegment("customer")
+                    .PostJsonAsync(customer)
+                    .ReceiveJson<Customer>();
+            }
+            catch (FlurlHttpException e)
+            {
+                if (e.Call.Response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    throw new EntityValidationException(FromJson<EntityValidationError>(e.Call.ErrorResponseBody));
+                }
+                else
+                {
+                    throw;
+                }
+            }
         }
 
-        public Task<Owner> RegisterOwner(Owner owner)
+        public async Task<Owner> RegisterOwner(Owner owner)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await Endpoint.AppendPathSegment("owner")
+                    .PostJsonAsync(owner)
+                    .ReceiveJson<Owner>();
+            }
+            catch (FlurlHttpException e)
+            {
+                if (e.Call.Response.StatusCode == System.Net.HttpStatusCode.BadRequest)
+                {
+                    throw new EntityValidationException(FromJson<EntityValidationError>(e.Call.ErrorResponseBody));
+                }
+                else
+                {
+                    throw;
+                }
+            }
         }
 
         public async Task<User> RegisterUser(User user)
         {
             try
             {
-                return await Endpoint.AppendPathSegment("customer")
+                return await Endpoint.AppendPathSegment("user")
                     .PostJsonAsync(user)
                     .ReceiveJson<User>();
             }
@@ -40,7 +69,7 @@ namespace InteraktivnaMapaEvenata.Services
             {
                 if (e.Call.Response.StatusCode == System.Net.HttpStatusCode.BadRequest)
                 {
-                    throw new EntityValidationException(FromJson<EntityValidationErrorDTO>(e.Call.ErrorResponseBody));
+                    throw new EntityValidationException(FromJson<EntityValidationError>(e.Call.ErrorResponseBody));
                 }
                 else
                 {

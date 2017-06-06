@@ -25,6 +25,8 @@ namespace InteraktivnaMapaEvenata.BLL
         {
             Customer customer = GetCustomerModel(customerId);
             Owner owner = _context.Owners.Where(x => x.OwnerId == ownerId).FirstOrDefault();
+            if (customer.FollowedOwners.Where(x => x.OwnerId == owner.OwnerId).FirstOrDefault() != null)
+                return customer.ToCustomerDTO();
             customer.FollowedOwners.Add(owner);
             _context.SaveChanges();
             return customer.ToCustomerDTO();
@@ -35,10 +37,10 @@ namespace InteraktivnaMapaEvenata.BLL
             Customer customer = GetCustomerModel(customerId);
             Owner owner = _context.Owners.Where(x => x.OwnerId == ownerId).FirstOrDefault();
             customer.FollowedOwners.Remove(owner);
+            owner.Followers.Remove(owner.Followers.Where(x => x.CustomerId == customerId).FirstOrDefault());
             _context.SaveChanges();
             return customer.ToCustomerDTO();
         }
-
 
         private Customer GetCustomerModel(int id)
         {
