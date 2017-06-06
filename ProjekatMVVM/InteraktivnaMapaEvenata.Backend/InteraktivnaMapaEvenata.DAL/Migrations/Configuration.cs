@@ -64,7 +64,6 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
                 {
                     AllowOnlyAlphanumericUserNames = true,
                     RequireUniqueEmail = true,
-
                 };
 
                 const string ownerRole = "OWNER";

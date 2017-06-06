@@ -9,7 +9,7 @@ namespace InteraktivnaMapaEvenata.UWP.Models
     public class User
     {
         public string Name { get; set; }
-        
+
         public string Surname { get; set; }
         
         public string Email { get; set; }
@@ -22,6 +22,6 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 
         public string Role { get; set; }
 
-        public ICollection<Notification> Notifications { get; set; }       
+        public ICollection<Notification> Notifications { get; set; }
     }
 }

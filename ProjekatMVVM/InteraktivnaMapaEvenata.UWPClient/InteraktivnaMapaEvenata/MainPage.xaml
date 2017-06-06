@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="White" x:Name="MainGrid" Margin="0,0,-150,-77">
+    <Grid Background="White" x:Name="MainGrid" Margin="0,0,-500,-379">
 
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="59*"/>

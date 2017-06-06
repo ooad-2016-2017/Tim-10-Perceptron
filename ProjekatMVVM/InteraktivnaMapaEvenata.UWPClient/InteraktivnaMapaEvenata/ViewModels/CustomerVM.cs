@@ -5,6 +5,7 @@ using InteraktivnaMapaEvenata.UWP.Models;
 using System;
 using System.Collections.Specialized;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
@@ -12,6 +13,8 @@ namespace InteraktivnaMapaEvenata.ViewModels
 {
     public class CustomerVM : BaseVM, INavigable
     {
+        public Event ReferenceEvent { get; set; }
+
         #region ViewModels
         public AuthenticationVM AuthenticationVM { get; private set; }
         #endregion
@@ -38,7 +41,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
         public ICommand ToggleHamburer { get; set; }
         public ICommand FindUsers { get; set; }
         public ICommand ToggleFavorites { get; set; }
-        public ICommand NavigateToSettings{ get; set; }
+        public ICommand NavigateToSettings { get; set; }
         public ICommand NavigateToCustomerProfile { get; set; }
         public ICommand NavigateToOwnerProfile { get; set; }
         public ICommand RefreshCustomer { get; set; }
@@ -98,6 +101,22 @@ namespace InteraktivnaMapaEvenata.ViewModels
             InitRelays();
 
             Events.CollectionChanged += handleEventAdd;
+
+            Task.Factory.StartNew(async () =>
+            {
+                for (;;)
+                {
+                    var events = await _eventService.GetEvents();
+
+                    //lock (Events)
+                    //{
+                        var newEvents = Events.Where(candidate => Events.Where(x => x.EventId == candidate.EventId).FirstOrDefault() == null).ToList();
+                        Events.AddRange(newEvents);
+                    //}
+                    await Task.Delay(TimeSpan.FromSeconds(5));
+                }
+                int xx = 2;
+            }, TaskCreationOptions.LongRunning);
         }
 
         // TODO: Handle removes
@@ -126,7 +145,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         public void OwnerClicked(object sender, ItemClickEventArgs e)
         {
-            _navigationService.Navigate(typeof(CustomerOwnerProfile), 
+            _navigationService.Navigate(typeof(CustomerOwnerProfile),
                 _ownerDetailsFactory.Create((Owner)e.ClickedItem, AuthenticationVM, _customerService, _navigationService));
         }
 

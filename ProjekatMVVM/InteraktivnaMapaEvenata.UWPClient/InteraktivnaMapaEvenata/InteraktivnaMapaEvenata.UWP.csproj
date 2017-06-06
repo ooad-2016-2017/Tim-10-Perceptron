@@ -141,7 +141,10 @@
       <DependentUpon>CustomerUserProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="DTO\AuthDTO.cs" />
-    <Compile Include="DTO\EntityValidationErrorDTO.cs" />
+    <Compile Include="DTO\EntityValidationError.cs" />
+    <Compile Include="DTO\ModelStateDTO.cs" />
+    <Compile Include="DTO\UserValidationErrorDTO.cs" />
+    <Compile Include="DTO\OwnerValidationErrorsDTO.cs" />
     <Compile Include="Helpers\BindableBase.cs" />
     <Compile Include="Helpers\BindablePage.cs" />
     <Compile Include="Helpers\EventVMFactory.cs" />

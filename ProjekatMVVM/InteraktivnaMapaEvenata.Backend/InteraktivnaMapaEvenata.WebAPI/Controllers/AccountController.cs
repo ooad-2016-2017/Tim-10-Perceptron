@@ -19,6 +19,9 @@ using InteraktivnaMapaEvenata.WebAPI.Results;
 using InteraktivnaMapaEvenata.Models;
 using System.Linq;
 using Newtonsoft.Json;
+using InteraktivnaMapaEvenata.DAL;
+using System.ComponentModel;
+using System.Net;
 
 namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 {
@@ -29,15 +32,22 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
-        public AccountController()
-        {
-        }
+        public AccountController() { }
 
         public AccountController(ApplicationUserManager userManager,
             ISecureDataFormat<AuthenticationTicket> accessTokenFormat)
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
+        }
+
+        ApplicationDbContext _context;
+        public ApplicationDbContext ApplicationDbContext
+        {
+            get
+            {
+                return _context = _context ?? Request.GetOwinContext().Get<ApplicationDbContext>();
+            }
         }
 
         public ApplicationUserManager UserManager
@@ -70,7 +80,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         //}
 
         // GET api/Account/UserInfo
-        [Authorize(Roles="ADMIN,OWNER,CUSTOMER")]
+        [Authorize(Roles = "ADMIN,OWNER,CUSTOMER")]
         [Route("UserInfo")]
         public IHttpActionResult GetAccount()
         {
@@ -80,7 +90,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         }
 
         // GET api/Account/UserInfo/{userId}
-        [Authorize(Roles="ADMIN,OWNER,CUSTOMER")]
+        [Authorize(Roles = "ADMIN,OWNER,CUSTOMER")]
         [Route("UserInfo")]
         public IHttpActionResult GetAccount(string userId)
         {
@@ -150,7 +160,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 
             IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword,
                 model.NewPassword);
-            
+
             if (!result.Succeeded)
             {
                 return GetErrorResult(result);
@@ -283,9 +293,9 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
             if (hasRegistered)
             {
                 Authentication.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-                
-                 ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
-                    OAuthDefaults.AuthenticationType);
+
+                ClaimsIdentity oAuthIdentity = await user.GenerateUserIdentityAsync(UserManager,
+                   OAuthDefaults.AuthenticationType);
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
@@ -345,6 +355,61 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
             return logins;
         }
 
+        bool IsUsernameUnique(string username) { return UserManager.Users.Where(x => x.UserName == username).FirstOrDefault() == null; }
+
+        bool IsEmailUnique(string email) { return UserManager.Users.Where(x => x.Email == email).FirstOrDefault() == null; }
+
+        //POST api/Account/owner
+        [AllowAnonymous]
+        [Route("Register/owner")]
+        public async Task<IHttpActionResult> Register(RegisterOwnerBindingModel model)
+        {
+            if (!IsUsernameUnique(model.Username))
+                ModelState.AddModelError("Username", "Username already taken");
+
+            if (!IsEmailUnique(model.Email))
+                ModelState.AddModelError("Email", "Email already taken");
+
+            var errorList = ModelState.ToDictionary(
+                kvp => kvp.Key.Remove(0, 5),
+                kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray()
+            );
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            ApplicationUser user = new ApplicationUser()
+            {
+                Email = model.Email,
+                UserName = model.Username,
+                Surname = model.Surname
+            };
+
+            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+
+            if (!result.Succeeded)
+                return GetErrorResult(result);
+
+            result = await UserManager.AddToRoleAsync(user.Id, "OWNER");
+
+            if (!result.Succeeded)
+                return GetErrorResult(result);
+
+            Owner addedOwner = ApplicationDbContext.Owners.Add(new Owner()
+            {
+                ApplicationUser = user,
+                OrganizationName = model.OrganizationName,
+                SelectedTierId = model.PaymentTier.PaymentTierId,
+                SelectedTier = model.PaymentTier
+            });
+
+            ApplicationDbContext.SaveChanges();
+
+            return Ok(addedOwner);
+        }
+
         // POST api/Account/Register
         [AllowAnonymous]
         [Route("Register")]
@@ -395,7 +460,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
             result = await UserManager.AddLoginAsync(user.Id, info.Login);
             if (!result.Succeeded)
             {
-                return GetErrorResult(result); 
+                return GetErrorResult(result);
             }
             return Ok();
         }

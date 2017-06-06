@@ -1,11 +1,8 @@
 ﻿using InteraktivnaMapaEvenata.Helpers;
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace InteraktivnaMapaEvenata.ViewModels
@@ -29,7 +26,8 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         public int Followers { get { return Owner.Followers?.Count ?? 0; } }
 
-        public string FollowersText { get { return $"Pratilaca {Followers}"; } }
+        public string followersText;
+        public string FollowersText { get { return followersText; } set { SetProperty(ref followersText, value); } }
 
         void InitRelays()
         {
@@ -38,11 +36,15 @@ namespace InteraktivnaMapaEvenata.ViewModels
                 if (FollowLabel == "Prati")
                 {
                     FollowLabel = "Ne prati";
+                    Owner.Followers.Add(AuthenticationVM.Customer);
+                    FollowersText = $"Broj pratilaca: {Owner.Followers.Count}";
                     AuthenticationVM.Customer = await _customerService.Follow(AuthenticationVM.Customer.CustomerId, Owner.OwnerId);
                 }
                 else
                 {
                     FollowLabel = "Prati";
+                    Owner.Followers.Remove(Owner.Followers.Where(x => x.CustomerId == AuthenticationVM.Customer.CustomerId).FirstOrDefault());
+                    FollowersText = $"Broj pratilaca: {Owner.Followers.Count}";
                     AuthenticationVM.Customer = await _customerService.Unfollow(AuthenticationVM.Customer.CustomerId, Owner.OwnerId);
                 }
             });
@@ -54,6 +56,8 @@ namespace InteraktivnaMapaEvenata.ViewModels
         {
             _navigation = navigation;
             _customerService = customerService;
+
+            FollowersText = $"Broj pratilaca: {owner.Followers.Count}";
 
             AuthenticationVM = authenticationVM;
 
