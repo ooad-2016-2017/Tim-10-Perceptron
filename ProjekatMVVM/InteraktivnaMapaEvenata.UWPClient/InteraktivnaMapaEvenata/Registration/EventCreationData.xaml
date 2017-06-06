@@ -1,0 +1,59 @@
+﻿<Page
+    x:Class="InteraktivnaMapaEvenata.Registration.EventCreationData"
+     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InteraktivnaMapaEvenata"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Height="1550.4">
+
+    <Grid x:Name="grid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="0,0,0,447.4">
+
+        <ScrollViewer Height="{Binding Height,ElementName=grid}" RenderTransformOrigin="0.5,0.5" Margin="-0.204,0.2,0.204,64.6" UseLayoutRounding="False" d:LayoutRounding="Auto">
+            <ScrollViewer.RenderTransform>
+                <CompositeTransform SkewX="0.357" TranslateX="2.394"/>
+            </ScrollViewer.RenderTransform>
+
+            <Grid Height="1000">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition />
+                    <RowDefinition />
+
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="eventNameTextBlock" Grid.Column="1" Grid.ColumnSpan="4" Text="Podaci o eventu" HorizontalAlignment="Center" FontSize="30"/>
+                <TextBlock x:Name="startTextBlock" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Pocetak" HorizontalAlignment="Center" FontSize="20"  Grid.RowSpan="2"/>
+                <TimePicker Time="{x:Bind EventRegistrationVM.StartTime, Mode=TwoWay}" x:Name="startCalendar" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                <TextBlock x:Name="endTextBlock" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Text="Zavrsetak" HorizontalAlignment="Right" FontSize="20" VerticalAlignment="Center"/>
+                <TimePicker Time="{x:Bind EventRegistrationVM.FinishTime, Mode=TwoWay}" x:Name="endCalendar" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" />
+                <TextBlock x:Name="tagsTextBlock" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2" Text="Tagovi" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top" Grid.RowSpan="1"/>
+                <TextBox Text ="{x:Bind Path=EventRegistrationVM.Tags, Mode=TwoWay }" x:Name="tagsTextBox"  Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Stretch"  Grid.RowSpan="1"/>
+                <TextBox Text ="{x:Bind Path=EventRegistrationVM.Info, Mode=TwoWay }" x:Name="descriptionTextBlox"  Grid.Column="3" Grid.Row="4" Grid.ColumnSpan="2" VerticalAlignment="Stretch"  Grid.RowSpan="1"/>
+                <TextBlock x:Name="descriptionTextBlock" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Text="Opis" HorizontalAlignment="Center" FontSize="20" VerticalAlignment="Top" Grid.RowSpan="1"/>
+
+                <Button Command="{x:Bind EventRegistrationVM.NextData}" x:Name="contButton" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" Content="Dalje" />
+                <TextBlock x:Name="nameTextBlock" Text ="Naziv eventa" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" FontSize="20" VerticalAlignment="Center"  HorizontalAlignment="Center"/>
+                <TextBox Text ="{x:Bind Path=EventRegistrationVM.Name, Mode=TwoWay }" x:Name="nameTextBox" Grid.Column="3" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Height="32"/>
+                <HyperlinkButton x:Name="cancelLink" Content="Otkazi" Grid.Column="1" HorizontalAlignment="Left"  Grid.Row="5" VerticalAlignment="Top" />
+
+            </Grid>
+        </ScrollViewer>
+
+    </Grid>
+</Page>
+
+
+

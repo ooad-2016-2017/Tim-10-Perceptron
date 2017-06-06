@@ -32,7 +32,7 @@
 
         <Button Command="{x:Bind LoginVM.LoginCommand}" x:Name="LoginButton" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" Content="Potvrdi" Foreground="Black"/>
 
-        <Button x:Name="registerButton" Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Height="30" BorderThickness="0" Content="Novi Korisnik" Foreground="Black"/>
+        <Button Command="{x:Bind LoginVM.RegisterCommand}" x:Name="registerButton" Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="120" Height="30" BorderThickness="0" Content="Novi Korisnik" Foreground="Black"/>
 
 
     </Grid>

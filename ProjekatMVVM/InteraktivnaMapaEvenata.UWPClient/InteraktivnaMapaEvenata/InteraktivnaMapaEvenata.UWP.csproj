@@ -154,6 +154,21 @@
     <Compile Include="Helpers\OwnerDetailsVMFactory.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
     <Compile Include="Owner\OwnerDetailsVM.cs" />
+    <Compile Include="Registration\CustomerRegistrationInterests.xaml.cs" />
+    <Compile Include="Registration\CustomerRegistrationLoginData.xaml.cs" />
+    <Compile Include="Registration\CustomerRegistrationPersonalData.xaml.cs" />
+    <Compile Include="Registration\CustomerRegistrationSuccess.xaml.cs" />
+    <Compile Include="Registration\EventCreationData.xaml.cs" />
+    <Compile Include="Registration\EventCreationLocation.xaml.cs" />
+    <Compile Include="Registration\EventCreationPromotion.xaml.cs" />
+    <Compile Include="Registration\OwnerRegistrationLoginData.xaml.cs" />
+    <Compile Include="Registration\OwnerRegistrationOrganizationInfo.xaml.cs" />
+    <Compile Include="Registration\OwnerRegistrationPaymentInfo.xaml.cs" />
+    <Compile Include="Registration\OwnerRegistrationPaymentTier.xaml.cs" />
+    <Compile Include="Registration\OwnerRegistrationSuccess.xaml.cs" />
+    <Compile Include="Registration\RegistrationPicker.xaml.cs">
+      <DependentUpon>RegistrationPicker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\CustomerService.cs" />
@@ -210,18 +225,18 @@
       <DependentUpon>OwnerEditProfile.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registration\KreiranjeEventa1.xaml.cs" />
-    <Compile Include="Registration\KreiranjeEventa2.xaml.cs" />
-    <Compile Include="Registration\KreiranjeEventa3.xaml.cs" />
-    <Compile Include="Registration\RegistracijaKorisnika1.xaml.cs" />
-    <Compile Include="Registration\RegistracijaKorisnika2.xaml.cs" />
-    <Compile Include="Registration\RegistracijaKorisnika3.xaml.cs" />
-    <Compile Include="Registration\RegistracijaKorisnika4.xaml.cs" />
-    <Compile Include="Registration\RegistracijaOrganizatora2.xaml.cs" />
-    <Compile Include="Registration\RegistracijaOrganizatora3.xaml.cs" />
-    <Compile Include="Registration\RegistracijaOrganizatora4.xaml.cs" />
-    <Compile Include="Registration\RegistracijaOrganizatora5.xaml.cs" />
-    <Compile Include="Registration\RegistracijaOrgnizatora1.xaml.cs" />
+    <Compile Include="Registration\Old\KreiranjeEventa1.xaml.cs" />
+    <Compile Include="Registration\Old\KreiranjeEventa2.xaml.cs" />
+    <Compile Include="Registration\Old\KreiranjeEventa3.xaml.cs" />
+    <Compile Include="Registration\Old\RegistracijaKorisnika1.xaml.cs" />
+    <Compile Include="Registration\Old\RegistracijaKorisnika2.xaml.cs" />
+    <Compile Include="Registration\Old\RegistracijaKorisnika3.xaml.cs" />
+    <Compile Include="Registration\Old\RegistracijaKorisnika4.xaml.cs" />
+    <Compile Include="Registration\Old\RegistracijaOrganizatora2.xaml.cs" />
+    <Compile Include="Registration\Old\RegistracijaOrganizatora3.xaml.cs" />
+    <Compile Include="Registration\Old\RegistracijaOrganizatora4.xaml.cs" />
+    <Compile Include="Registration\Old\RegistracijaOrganizatora5.xaml.cs" />
+    <Compile Include="Registration\Old\RegistracijaOrgnizatora1.xaml.cs" />
     <Compile Include="UserControls\EventBlockControl.xaml.cs">
       <DependentUpon>EventBlockControl.xaml</DependentUpon>
     </Compile>
@@ -231,10 +246,14 @@
     <Compile Include="UserControls\ModalControl.xaml.cs">
       <DependentUpon>ModalControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\CustomerRegistrationVM.cs" />
     <Compile Include="ViewModels\CustomerVM.cs" />
+    <Compile Include="ViewModels\EventRegistrationVM.cs" />
     <Compile Include="ViewModels\EventVM.cs" />
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\OwnerEventListVM.cs" />
+    <Compile Include="ViewModels\OwnerRegistrationVM.cs" />
+    <Compile Include="ViewModels\UserRegistrationVM.cs" />
     <Compile Include="Workers\EventTask.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -359,53 +378,105 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Registration\KreiranjeEventa1.xaml">
+    <Page Include="Registration\CustomerRegistrationInterests.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\KreiranjeEventa2.xaml">
+    <Page Include="Registration\CustomerRegistrationLoginData.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\KreiranjeEventa3.xaml">
+    <Page Include="Registration\CustomerRegistrationPersonalData.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\RegistracijaKorisnika1.xaml">
+    <Page Include="Registration\CustomerRegistrationSuccess.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\RegistracijaKorisnika2.xaml">
+    <Page Include="Registration\EventCreationData.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\RegistracijaKorisnika3.xaml">
+    <Page Include="Registration\EventCreationLocation.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\RegistracijaKorisnika4.xaml">
+    <Page Include="Registration\EventCreationPromotion.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\RegistracijaOrganizatora2.xaml">
+    <Page Include="Registration\Old\KreiranjeEventa1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\RegistracijaOrganizatora3.xaml">
+    <Page Include="Registration\Old\KreiranjeEventa2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\RegistracijaOrganizatora4.xaml">
+    <Page Include="Registration\Old\KreiranjeEventa3.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\RegistracijaOrganizatora5.xaml">
+    <Page Include="Registration\Old\RegistracijaKorisnika1.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Registration\RegistracijaOrgnizatora1.xaml">
+    <Page Include="Registration\Old\RegistracijaKorisnika2.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\Old\RegistracijaKorisnika3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\Old\RegistracijaKorisnika4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\Old\RegistracijaOrganizatora2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\Old\RegistracijaOrganizatora3.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\Old\RegistracijaOrganizatora4.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\Old\RegistracijaOrganizatora5.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\Old\RegistracijaOrgnizatora1.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\OwnerRegistrationLoginData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\OwnerRegistrationOrganizationInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\OwnerRegistrationPaymentInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\OwnerRegistrationPaymentTier.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\OwnerRegistrationSuccess.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Registration\RegistrationPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\EventBlockControl.xaml">
       <SubType>Designer</SubType>

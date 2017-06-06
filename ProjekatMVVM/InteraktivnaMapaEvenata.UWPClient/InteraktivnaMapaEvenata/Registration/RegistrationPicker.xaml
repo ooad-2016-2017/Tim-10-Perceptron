@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="InteraktivnaMapaEvenata.Registration.RegistrationPicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InteraktivnaMapaEvenata.Registration"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Style="{StaticResource StandardPage}">
+        <Grid.Resources>
+            <Style BasedOn="{StaticResource NormalText}" TargetType="TextBlock" />
+        </Grid.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Button Command="{x:Bind UserRegistrationVM.NavigateCustomer}" x:Name="customerButton" FontSize="40" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="0" Content="Mušterija" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+        <Rectangle RadiusX="5" RadiusY="4" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"  Grid.RowSpan="2" Stroke="White" StrokeThickness="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Button Command="{x:Bind UserRegistrationVM.NavigateOwner}" x:Name="ownerButton" FontSize="40" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="2" BorderThickness="0" Content="Vlasnik" Background="Transparent" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Foreground="White"/>
+        <Rectangle RadiusX="5" RadiusY="4" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3"  Grid.RowSpan="2" Stroke="White" StrokeThickness="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+
+
+    </Grid>
+</Page>

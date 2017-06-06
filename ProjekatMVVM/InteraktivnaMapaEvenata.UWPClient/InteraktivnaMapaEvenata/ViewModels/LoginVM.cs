@@ -3,6 +3,7 @@ using InteraktivnaMapaEvenata.Admin;
 using InteraktivnaMapaEvenata.CustomerViews;
 using InteraktivnaMapaEvenata.DTO;
 using InteraktivnaMapaEvenata.Helpers;
+using InteraktivnaMapaEvenata.Registration;
 using InteraktivnaMapaEvenata.Services;
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
@@ -49,6 +50,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         #region Commands
         public ICommand LoginCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
         #endregion
 
         public LoginVM(AuthenticationVM authenticationVM,
@@ -66,9 +68,15 @@ namespace InteraktivnaMapaEvenata.ViewModels
             this._navigation = navigation;
 
             LoginCommand = new RelayCommand(DoLogin);
+            RegisterCommand = new RelayCommand(DoRegister);
         }
 
         // TODO: Handle network errors
+
+        private void DoRegister()
+        {
+            _navigation.Navigate(typeof(RegistrationPicker), ServiceModule.GetService<UserRegistrationVM>());
+        }
 
         private async void DoLogin()
         {
