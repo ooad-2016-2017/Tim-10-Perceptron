@@ -10,15 +10,9 @@
     <Grid Background="White" x:Name="MainGrid">
 
         <Grid.ColumnDefinitions>
-<<<<<<< HEAD
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-=======
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
->>>>>>> 7ebca8a01863ddaffb041bd9a4dff3efc5badcb4
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -30,19 +24,15 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.ColumnSpan="1" x:Name="prijavaTextBlock" Grid.Column="1" Grid.Row="1" Text="Prijava" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
+        <TextBlock x:Name="prijavaTextBlock" Grid.Column="1" Grid.Row="1" Text="Prijava" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="50"/>
 
-        <TextBox Text="{x:Bind Path=LoginVM.Username, Mode=TwoWay}" x:Name="UsernameBox" Grid.Row="2" Height="30" Grid.ColumnSpan="1" Grid.Column="1" />
+        <TextBox Text="{x:Bind Path=LoginVM.Username, Mode=TwoWay}" x:Name="UsernameBox" Grid.Row="2" Height="30" Margin="0,26.333,0,33" Grid.Column="1" />
 
-        <PasswordBox Password="{x:Bind Path=LoginVM.Password, Mode=TwoWay}" x:Name="PasswordBox" Grid.Row="3" Height="30" VerticalAlignment="Top" Grid.ColumnSpan="1" Grid.Column="1"/>
+        <PasswordBox Password="{x:Bind Path=LoginVM.Password, Mode=TwoWay}" x:Name="PasswordBox" Grid.Row="3" Height="30" VerticalAlignment="Top" Grid.Column="1"/>
 
-        <Button Command="{x:Bind LoginVM.LoginCommand}" x:Name="LoginButton" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" Grid.ColumnSpan="1" Content="Potvrdi" Foreground="Black"/>
+        <Button Command="{x:Bind LoginVM.LoginCommand}" x:Name="LoginButton" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Stretch" Content="Potvrdi" Foreground="Black"/>
 
-<<<<<<< HEAD
-        <Button x:Name="registerButton" Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Grid.ColumnSpan="1" Height="30" BorderThickness="0" Content="Novi Korisnik" Foreground="Black"/>
-=======
         <Button Command="{x:Bind LoginVM.RegisterCommand}" x:Name="registerButton" Grid.Column="1" Grid.Row="4" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="120" Height="30" BorderThickness="0" Content="Novi Korisnik" Foreground="Black"/>
->>>>>>> 7ebca8a01863ddaffb041bd9a4dff3efc5badcb4
 
 
     </Grid>
