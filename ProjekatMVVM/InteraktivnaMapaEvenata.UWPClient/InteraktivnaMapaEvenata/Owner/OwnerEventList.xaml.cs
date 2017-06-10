@@ -8,13 +8,20 @@ namespace InteraktivnaMapaEvenata
 {
     public sealed partial class OwnerEventList : Page
     {
-        public AuthenticationVM AuthenticationVM { get; set; }
+    
+        public OwnerEventListVM OwnerEventListVM { get { return DataContext as OwnerEventListVM; } }
 
         public OwnerEventList()
         {
             this.InitializeComponent();
-            DataContext = ServiceModule.Container.GetService<OwnerEventListVM>();
+            DataContext = ServiceModule.GetService<OwnerEventListVM>();
             NavigationCacheMode = NavigationCacheMode.Required;            
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            DataContext = ServiceModule.GetService<OwnerEventListVM>();
         }
     }
 }

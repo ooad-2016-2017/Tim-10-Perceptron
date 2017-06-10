@@ -29,7 +29,7 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
             return Ok(owner);
         }
 
-        [Route("ByUser")]
+        [Route("api/Owners/ByUser/{userId}")]
         public IHttpActionResult Get(string userId)
         {
             OwnerDTO owner = _service.GetOwner(userId);

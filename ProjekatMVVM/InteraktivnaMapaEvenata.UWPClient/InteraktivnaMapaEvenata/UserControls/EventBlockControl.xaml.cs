@@ -1,4 +1,6 @@
-﻿using InteraktivnaMapaEvenata.UWP.Models;
+﻿using InteraktivnaMapaEvenata.Services;
+using InteraktivnaMapaEvenata.UWP.Models;
+using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -19,7 +21,8 @@ using Windows.UI.Xaml.Navigation;
 namespace InteraktivnaMapaEvenata.UserControls
 {
     public sealed partial class EventBlockControl : UserControl
-    {   
+    {
+        public EventVM EventVM { get { return DataContext as EventVM; } }
 
         public EventBlockControl()
         {

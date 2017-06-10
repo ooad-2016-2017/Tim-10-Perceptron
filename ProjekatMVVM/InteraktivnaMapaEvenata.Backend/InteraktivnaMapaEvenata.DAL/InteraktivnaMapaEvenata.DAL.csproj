@@ -67,11 +67,17 @@
   <ItemGroup>
     <Compile Include="ApplicationDbContext.cs" />
     <Compile Include="DatabaseInitializer.cs" />
+    <Compile Include="Migrations\201706081911325_test.cs" />
+    <Compile Include="Migrations\201706081911325_test.Designer.cs">
+      <DependentUpon>201706081911325_test.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +85,11 @@
       <Project>{36b62ec1-9a33-4ff8-a2c0-a56af0ac8bed}</Project>
       <Name>InteraktivnaMapaEvenata.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201706081911325_test.resx">
+      <DependentUpon>201706081911325_test.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

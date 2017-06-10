@@ -8,33 +8,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace InteraktivnaMapaEvenata.ViewModels
 {
     public class OwnerEventListVM : BaseVM
     {
-        public List<Event> Events { get; set; }
+        public AuthenticationVM AuthenticationVM { get; set; }
+        public ObservableRangeCollection<Event> Events { get; set;  } = new ObservableRangeCollection<Event>();        
 
         public int EventCount { get { return Events.Count; } }
 
         public INavigationService NavigationService { get; set; }
-
         public IEventService EventService { get; set; }
+        public ICommand FIllWithUserData { get; set; }
+        public IEventVMFactory EventVMFactory { get; private set; }
 
-        public ICommand FIllWithUserData { get; set; }        
-
-        public OwnerEventListVM(IEventService EventService,
-            INavigationService NavigationService)
+        public OwnerEventListVM(IEventService eventService,
+            INavigationService navigationService,
+            AuthenticationVM authenticationVM,
+            IEventVMFactory eventVMFactory)
         {
-            this.EventService = EventService;
-            this.NavigationService = NavigationService;
+            EventVMFactory = eventVMFactory;
+            AuthenticationVM = authenticationVM;
+            EventService = eventService;
+            NavigationService = navigationService;
             SetEvents();
             FIllWithUserData = new RelayCommand<object>(ComponentAdd, showUserData);
         }
 
-        public async void SetEvents()
+        public void SetEvents()
         {
-            Events = await EventService.GetEvents();
+            Events.AddRange(AuthenticationVM.Owner.Events);
         }        
 
         public bool showUserData(object parameter)
@@ -47,5 +53,11 @@ namespace InteraktivnaMapaEvenata.ViewModels
             NavigationService.GoBack();
         }
 
+        public void EventClicked(object sender, ItemClickEventArgs e)
+        {
+            NavigationService.Navigate(typeof(OwnerEditEvent)/*, 
+                EventVMFactory.Create(e.ClickedItem as Event, AuthenticationVM, EventService, NavigationService)*/);
+        }
+   
     }
 }

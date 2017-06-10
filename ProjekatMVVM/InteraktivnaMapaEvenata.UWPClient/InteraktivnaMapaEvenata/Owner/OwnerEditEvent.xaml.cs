@@ -7,13 +7,19 @@ namespace InteraktivnaMapaEvenata
 {
     public sealed partial class OwnerEditEvent : Page
     {
-        public int EventId { get; set; }
+        public EventVM EventVM { get { return DataContext as EventVM; } }
 
         public OwnerEditEvent(OwnerEventListVM OwnerEventListVM)
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Required;
-            DataContext = ServiceModule.GetService<OwnerEventListVM>();
+            DataContext = ServiceModule.GetService<EventVM>();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            DataContext = e.Parameter;
         }
     }
 }

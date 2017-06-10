@@ -64,6 +64,9 @@ namespace InteraktivnaMapaEvenata.ViewModels
         }
 
         public Customer Customer { get { return _CurrentUser as Customer; } set { _CurrentUser = value; } }
+        public Owner Owner { get { return _CurrentUser as Owner ; } set { _CurrentUser = value; } }
+        public User Admin { get { return _CurrentUser as User; } set { _CurrentUser = value; } }
+        
 
         public void Authenticate()
         {

@@ -16,6 +16,10 @@ namespace InteraktivnaMapaEvenata.ViewModels
 
         #region Properties
         public string PromoDescription { get { return Event?.Promotion?.Description ?? ""; } }
+
+        public string Name { get { return Event?.Name ?? ""; } set { Event.Name = value; } }
+        public string Description { get { return Event?.Description ?? ""; } set { Event.Description = value; } }
+
         #endregion
 
         #region Model
