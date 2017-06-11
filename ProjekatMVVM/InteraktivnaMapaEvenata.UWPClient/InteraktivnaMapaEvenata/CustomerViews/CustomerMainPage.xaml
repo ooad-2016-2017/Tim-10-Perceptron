@@ -156,7 +156,7 @@
                     </ListView>
 
                     <TextBlock x:Name="eventTextBlock" Text="Prijavljeni ste na event:" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Foreground="White" Margin="0,-40,0,0"/>
-                    <ListView ItemsSource="{x:Bind CustomerVM.Events, Mode=OneWay}" IsItemClickEnabled="True" x:Name="EventList" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="2">
+                    <ListView ItemsSource="{x:Bind CustomerVM.Events, Mode=OneWay}" IsItemClickEnabled="True" x:Name="EventList" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" Grid.RowSpan="3">
                         <ListView.ItemTemplate>
                             <!--<DataTemplate x:DataType="local:Owner">-->
                             <DataTemplate>
@@ -169,14 +169,12 @@
                                         <RowDefinition />
                                     </Grid.RowDefinitions>
                                     <StackPanel Name="EventName" Margin="5,0,0,0" Grid.Column="0" Grid.ColumnSpan="15">
-                                        <TextBlock Text="{Binding Name}" Style="{StaticResource BodyTextBlockStyle}"/>
+                                        <TextBlock Foreground="White" Text="{Binding Name}" Style="{StaticResource BodyTextBlockStyle}"/>
                                     </StackPanel>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
-                    </ListView>
-
-                    <Button x:Name="CloseEventsButton" Grid.Column="1" HorizontalAlignment="Stretch" Height="50" Content="Events near me" Foreground="White" Grid.ColumnSpan="3" Grid.Row="6" Click="CloseEventsButton_Click"/>
+                    </ListView>                  
 
                 </Grid>
             </SplitView.Pane>

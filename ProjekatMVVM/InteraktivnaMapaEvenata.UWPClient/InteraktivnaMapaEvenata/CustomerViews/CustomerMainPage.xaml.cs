@@ -7,6 +7,7 @@ using System.Collections.Specialized;
 using Windows.Devices.Geolocation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Controls.Maps;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
@@ -75,6 +76,9 @@ namespace InteraktivnaMapaEvenata.CustomerViews
                     MainCustomerMap.Center = _myLocation;
                     MainCustomerMap.ZoomLevel = 13;
                     MainCustomerMap.LandmarksVisible = true;
+
+                    AddMapIcon(_myLocation);
+
                     break;
 
                 case GeolocationAccessStatus.Denied:
@@ -142,6 +146,17 @@ namespace InteraktivnaMapaEvenata.CustomerViews
         {
             findUsersRectangle.Visibility = Visibility.Collapsed;
             favOrgRectangle.Visibility = Visibility.Collapsed;
+        }
+
+        private void AddMapIcon(Geopoint location)
+        {
+            MapIcon mapIcon = new MapIcon();
+            mapIcon.Location = location;
+            mapIcon.NormalizedAnchorPoint = new Windows.Foundation.Point(0.5, 1.0);
+            mapIcon.Title = "Vasa lokacija";
+            mapIcon.ZIndex = 0;
+
+            MainCustomerMap.MapElements.Add(mapIcon);
         }
 
     }
