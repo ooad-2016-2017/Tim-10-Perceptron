@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Controls;
 
@@ -145,7 +146,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
                         });
                     }
                     Task.Delay(TimeSpan.FromSeconds(5)).Wait();
-                }
+                }   
             }, tokenSource.Token);
         }
 
@@ -160,6 +161,7 @@ namespace InteraktivnaMapaEvenata.ViewModels
             _navigationService.Navigate(typeof(CustomerOwnerProfile),
                 _ownerDetailsFactory.Create((Owner)e.ClickedItem, AuthenticationVM, _customerService, _navigationService));
         }
+        
 
     }
 }

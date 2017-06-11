@@ -17,7 +17,7 @@ namespace InteraktivnaMapaEvenata.CustomerViews
         public CustomerVM CustomerVM { get { return base.DataContext as CustomerVM; } set { base.DataContext = value; } }
 
         public List<MarkerControl> MarkerControl { get; set; } = new List<MarkerControl>();
-
+        
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -37,6 +37,7 @@ namespace InteraktivnaMapaEvenata.CustomerViews
             GetLocation();
             DataContext = ServiceModule.GetService<CustomerVM>();
             CustomerVM.EventsVMs.CollectionChanged += EventChanged;
+            
         }
 
         // https://stackoverflow.com/questions/1427471/observablecollection-not-noticing-when-item-in-it-changes-even-with-inotifyprop
@@ -65,12 +66,13 @@ namespace InteraktivnaMapaEvenata.CustomerViews
                 case GeolocationAccessStatus.Allowed:
 
                     // Get the current location.
-                    Geolocator geolocator = new Geolocator();
+                    Geolocator geolocator = new Geolocator { DesiredAccuracyInMeters = 10 };
+                    geolocator.DesiredAccuracy = PositionAccuracy.High;
                     Geoposition pos = await geolocator.GetGeopositionAsync();
-                    Geopoint myLocation = pos.Coordinate.Point;
+                    Geopoint _myLocation = pos.Coordinate.Point;
 
                     // Set the map location.
-                    MainCustomerMap.Center = myLocation;
+                    MainCustomerMap.Center = _myLocation;
                     MainCustomerMap.ZoomLevel = 13;
                     MainCustomerMap.LandmarksVisible = true;
                     break;
@@ -141,5 +143,6 @@ namespace InteraktivnaMapaEvenata.CustomerViews
             findUsersRectangle.Visibility = Visibility.Collapsed;
             favOrgRectangle.Visibility = Visibility.Collapsed;
         }
+
     }
 }
