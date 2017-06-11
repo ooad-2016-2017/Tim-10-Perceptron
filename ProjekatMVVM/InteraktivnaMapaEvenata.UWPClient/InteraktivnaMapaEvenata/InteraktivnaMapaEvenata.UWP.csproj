@@ -156,7 +156,13 @@
     <Compile Include="Helpers\ObservableRangeCollection.cs" />
     <Compile Include="Helpers\OwnerDetailsVMFactory.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
+    <Compile Include="OwnerEditEvent.xaml.cs">
+      <DependentUpon>OwnerEditEvent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Owner\OwnerDetailsVM.cs" />
+    <Compile Include="Owner\OwnerEventList.xaml.cs">
+      <DependentUpon>OwnerEventList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Registration\CustomerRegistrationInterests.xaml.cs" />
     <Compile Include="Registration\CustomerRegistrationLoginData.xaml.cs" />
     <Compile Include="Registration\CustomerRegistrationPersonalData.xaml.cs" />
@@ -215,14 +221,8 @@
     <Compile Include="Owner\OwnerPayment.xaml.cs">
       <DependentUpon>OwnerPayment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Owner\OwnerEventList.xaml.cs">
-      <DependentUpon>OwnerEventList.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Owner\OwnerAccountType.xaml.cs">
       <DependentUpon>OwnerAccountType.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Owner\OwnerEditEvent.xaml.cs">
-      <DependentUpon>OwnerEditEvent.xaml</DependentUpon>
     </Compile>
     <Compile Include="Owner\OwnerEditProfile.xaml.cs">
       <DependentUpon>OwnerEditProfile.xaml</DependentUpon>
@@ -357,6 +357,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="OwnerEditEvent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Owner\OwnerEventList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Owner\OwnerMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -365,15 +373,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Owner\OwnerEventList.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Owner\OwnerAccountType.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Owner\OwnerEditEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

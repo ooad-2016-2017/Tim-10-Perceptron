@@ -21,5 +21,10 @@ namespace InteraktivnaMapaEvenata
             base.OnNavigatedTo(e);
             DataContext = e.Parameter;
         }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+        }
     }
 }

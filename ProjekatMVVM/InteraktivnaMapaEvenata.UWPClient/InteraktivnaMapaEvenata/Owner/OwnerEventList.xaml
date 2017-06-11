@@ -44,7 +44,7 @@
     </Page.Resources>
 
     <Grid x:Name="grid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
@@ -92,9 +92,9 @@
                 </VisualState>
             </VisualStateGroup>
         </VisualStateManager.VisualStateGroups>
-        
-        
-<!--
+
+
+        <!--
         <TextBlock x:Name="createdEventsTextBlock" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="4" Text="{x:Bind Events.Count}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="25"/>
 -->
 

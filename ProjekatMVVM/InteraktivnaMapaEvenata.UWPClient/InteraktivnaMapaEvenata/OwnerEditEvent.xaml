@@ -11,7 +11,7 @@
     <Page.Resources>
         <!--models namespace definiran u Page xmlns:local
         Ako ne prepoznaje StavkaKorpe uraditi build sa xmlns:local u page pa onda unijeti DataType atribut nakon sto je build ispravan-->
-        <DataTemplate x:Key="EventTemplate"  x:DataType="viewmodel:EventVM">
+        <DataTemplate x:Key="EventTemplate" x:DataType="viewmodel:EventVM">
             <Grid >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />

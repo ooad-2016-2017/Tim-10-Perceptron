@@ -58,6 +58,6 @@ namespace InteraktivnaMapaEvenata.ViewModels
             NavigationService.Navigate(typeof(OwnerEditEvent)/*, 
                 EventVMFactory.Create(e.ClickedItem as Event, AuthenticationVM, EventService, NavigationService)*/);
         }
-   
+
     }
 }
