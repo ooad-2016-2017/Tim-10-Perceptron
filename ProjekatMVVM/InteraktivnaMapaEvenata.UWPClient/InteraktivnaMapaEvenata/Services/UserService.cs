@@ -19,7 +19,8 @@ namespace InteraktivnaMapaEvenata.Services
         {
             try
             {
-                return await Endpoint.AppendPathSegment("customer")
+                return await Endpoint.AppendPathSegment("Register")
+                    .AppendPathSegment("customer")
                     .PostJsonAsync(customer)
                     .ReceiveJson<Customer>();
             }
@@ -40,7 +41,8 @@ namespace InteraktivnaMapaEvenata.Services
         {
             try
             {
-                return await Endpoint.AppendPathSegment("owner")
+                return await Endpoint.AppendPathSegment("Register")
+                    .AppendPathSegment("owner")
                     .PostJsonAsync(owner)
                     .ReceiveJson<Owner>();
             }

@@ -14,13 +14,13 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
                         CustomerId = c.Int(nullable: false, identity: true),
                         DateOfBirth = c.DateTime(nullable: false),
                         Gender = c.Int(nullable: false),
-                        ApplicationUser_Id = c.String(nullable: false, maxLength: 128),
+                        ApplicationUserId = c.String(nullable: false, maxLength: 128),
                         Customer_CustomerId = c.Int(),
                     })
                 .PrimaryKey(t => t.CustomerId)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUserId)
                 .ForeignKey("dbo.Customers", t => t.Customer_CustomerId)
-                .Index(t => t.ApplicationUser_Id)
+                .Index(t => t.ApplicationUserId)
                 .Index(t => t.Customer_CustomerId);
             
             CreateTable(
@@ -101,13 +101,13 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
                         OwnerId = c.Int(nullable: false, identity: true),
                         OrganizationName = c.String(nullable: false),
                         SelectedTierId = c.Int(),
-                        ApplicationUser_Id = c.String(nullable: false, maxLength: 128),
+                        ApplicationUserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.OwnerId)
-                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUser_Id)
+                .ForeignKey("dbo.AspNetUsers", t => t.ApplicationUserId)
                 .ForeignKey("dbo.PaymentTiers", t => t.SelectedTierId)
                 .Index(t => t.SelectedTierId)
-                .Index(t => t.ApplicationUser_Id);
+                .Index(t => t.ApplicationUserId);
             
             CreateTable(
                 "dbo.Events",
@@ -326,7 +326,6 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
             DropForeignKey("dbo.Customers", "Customer_CustomerId", "dbo.Customers");
             DropForeignKey("dbo.Flags", "FlaggedStateId", "dbo.FlagStates");
             DropForeignKey("dbo.Flags", "CustomerId", "dbo.Customers");
-            DropForeignKey("dbo.Customers", "ApplicationUser_Id", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Owners", "SelectedTierId", "dbo.PaymentTiers");
             DropForeignKey("dbo.Flags", "Owner_OwnerId1", "dbo.Owners");
@@ -351,9 +350,10 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
             DropForeignKey("dbo.Events", "EventStateId", "dbo.EventStates");
             DropForeignKey("dbo.EventCustomers", "Customer_CustomerId", "dbo.Customers");
             DropForeignKey("dbo.EventCustomers", "Event_EventId", "dbo.Events");
-            DropForeignKey("dbo.Owners", "ApplicationUser_Id", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Owners", "ApplicationUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.Notifications", "DestinationUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
+            DropForeignKey("dbo.Customers", "ApplicationUserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropIndex("dbo.OwnerCustomers", new[] { "Customer_CustomerId" });
             DropIndex("dbo.OwnerCustomers", new[] { "Owner_OwnerId" });
@@ -379,7 +379,7 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
             DropIndex("dbo.Events", new[] { "OwnerId" });
             DropIndex("dbo.Events", new[] { "PromotionId" });
             DropIndex("dbo.Events", new[] { "EventStateId" });
-            DropIndex("dbo.Owners", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.Owners", new[] { "ApplicationUserId" });
             DropIndex("dbo.Owners", new[] { "SelectedTierId" });
             DropIndex("dbo.Notifications", new[] { "DestinationUserId" });
             DropIndex("dbo.Notifications", new[] { "SourceId" });
@@ -389,7 +389,7 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.Customers", new[] { "Customer_CustomerId" });
-            DropIndex("dbo.Customers", new[] { "ApplicationUser_Id" });
+            DropIndex("dbo.Customers", new[] { "ApplicationUserId" });
             DropTable("dbo.OwnerCustomers");
             DropTable("dbo.TagEvents");
             DropTable("dbo.PromotionCustomers");

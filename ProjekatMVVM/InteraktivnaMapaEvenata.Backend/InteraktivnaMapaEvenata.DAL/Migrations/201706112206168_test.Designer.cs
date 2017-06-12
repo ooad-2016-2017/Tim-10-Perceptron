@@ -13,7 +13,7 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201706081911325_test"; }
+            get { return "201706112206168_test"; }
         }
         
         string IMigrationMetadata.Source

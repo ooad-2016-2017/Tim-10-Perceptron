@@ -15,5 +15,7 @@ namespace InteraktivnaMapaEvenata.BLL.Interfaces
         OwnerDTO GetOwner(string id);
 
         List<OwnerDTO> GetOwners();
+
+        Owner AddOwner(Owner owner);
     }
 }

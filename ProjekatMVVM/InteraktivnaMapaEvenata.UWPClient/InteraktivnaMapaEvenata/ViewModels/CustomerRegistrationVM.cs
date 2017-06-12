@@ -3,17 +3,15 @@ using InteraktivnaMapaEvenata.Registration;
 using InteraktivnaMapaEvenata.Services.Interfaces;
 using InteraktivnaMapaEvenata.UWP.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
 using static InteraktivnaMapaEvenata.UWP.Models.Customer;
 
-namespace InteraktivnaMapaEvenata.ViewModels {
-    public class CustomerRegistrationVM : BindableBase {
+namespace InteraktivnaMapaEvenata.ViewModels
+{
+    public class CustomerRegistrationVM : BindableBase
+    {
         #region services
         INavigationService _navigation;
         ICustomerService _customer;
@@ -193,6 +191,20 @@ namespace InteraktivnaMapaEvenata.ViewModels {
             try
             {
                 _navigation.Navigate(typeof(CustomerRegistrationSuccess), this);
+                Customer customer = new Customer()
+                {
+                    Name = FirstName,
+                    Surname = LastName,
+                    Email = Email,
+                    Username = Username,
+                    IsBanned = false,
+                    Role = "OWNER",
+                    DateOfBirth = DateOfBirth.DateTime,
+                    Gender = Gender,
+                    Password = Password
+                };
+
+                customer = await _user.RegisterCustomer(customer);
             }
             catch (Exception e)
             {

@@ -62,7 +62,6 @@ namespace InteraktivnaMapaEvenata.DAL.Migrations
 
                 userManager.UserValidator = new UserValidator<ApplicationUser>(userManager)
                 {
-                    AllowOnlyAlphanumericUserNames = true,
                     RequireUniqueEmail = true,
                 };
 

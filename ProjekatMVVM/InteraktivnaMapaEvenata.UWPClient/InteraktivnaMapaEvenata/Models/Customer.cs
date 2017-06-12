@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
 
 namespace InteraktivnaMapaEvenata.UWP.Models
 {
@@ -10,7 +13,7 @@ namespace InteraktivnaMapaEvenata.UWP.Models
         public enum Genders { Male, Female, Unspecified }
         
         public DateTime DateOfBirth { get; set; }
-        
+
         public Genders Gender { get; set; }
 
         public ICollection<Owner> FollowedOwners { get; set; }
@@ -22,6 +25,8 @@ namespace InteraktivnaMapaEvenata.UWP.Models
         public ICollection<Customer> Friends { get; set; }
 
         public ICollection<Flag> Flags { get; set; }
+
+        public int GenderId { get; set; }
 
         public Customer()
         {

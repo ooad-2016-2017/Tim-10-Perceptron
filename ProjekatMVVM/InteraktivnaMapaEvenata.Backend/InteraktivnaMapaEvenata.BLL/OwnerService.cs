@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using InteraktivnaMapaEvenata.Models;
 using InteraktivnaMapaEvenata.DAL;
 using InteraktivnaMapaEvenata.BLL.Interfaces;
@@ -19,6 +17,13 @@ namespace InteraktivnaMapaEvenata.BLL
         public OwnersService(ApplicationDbContext context)
         {
             _context = context;
+        }
+
+        public Owner AddOwner(Owner owner)
+        {
+            owner = _context.Owners.Add(owner);
+            _context.SaveChanges();
+            return owner;
         }
 
         public OwnerDTO GetOwner(int id)

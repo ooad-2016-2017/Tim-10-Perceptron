@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using InteraktivnaMapaEvenata.Models;
+using Newtonsoft.Json.Converters;
 
 namespace InteraktivnaMapaEvenata.WebAPI.Models
 {
@@ -77,9 +78,15 @@ namespace InteraktivnaMapaEvenata.WebAPI.Models
     {
         [Required]
         [DataType(DataType.Date)]
-        [Display(Name = "Birthday")]
-        public DateTime Birthday { get; set; }
+        [Display(Name = "DateOfBirth")]
+        public DateTime DateOfBirth { get; set; }
+
+        [Required]
+        [Range(0, 2)]
+        [Display(Name = "Gender")]
+        public int Gender { get; set; }
     }
+
 
     public class RegisterExternalBindingModel
     {

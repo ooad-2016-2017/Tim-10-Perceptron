@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace InteraktivnaMapaEvenata.Models
 {
@@ -30,6 +28,8 @@ namespace InteraktivnaMapaEvenata.Models
         public ICollection<Flag> Flags { get; set; }
 
         [Required]
+        public string ApplicationUserId { get; set; }
+        [ForeignKey("ApplicationUserId")]
         public ApplicationUser ApplicationUser { get; set; }
     }
 }

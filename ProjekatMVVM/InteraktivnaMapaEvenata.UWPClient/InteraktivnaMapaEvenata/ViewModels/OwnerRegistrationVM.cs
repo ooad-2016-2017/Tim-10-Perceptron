@@ -11,8 +11,10 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.UI.Popups;
 
-namespace InteraktivnaMapaEvenata.ViewModels {
-    public class OwnerRegistrationVM : BindableBase {
+namespace InteraktivnaMapaEvenata.ViewModels
+{
+    public class OwnerRegistrationVM : BindableBase
+    {
         #region services
         INavigationService _navigation;
         IOwnerService _owner;
@@ -118,6 +120,17 @@ namespace InteraktivnaMapaEvenata.ViewModels {
                 throw new Exception("Prazno polje");
         }
 
+        private void ValidatePassword(string field)
+        {
+            ValidateEmpty(field);
+
+            if (field.Length < 3)
+                throw new Exception("Password mora sadrzavati najmanje 3 karaktera");
+
+            if (!field.Any(char.IsDigit) || !field.Any(char.IsUpper) || field.All(char.IsLetterOrDigit))
+                throw new Exception("Password mora sadrzavati barem jedan broj i barem jedno veliko slovo i barem jedan karakter (trolololo)");
+        }
+
         private void ValidateEmail()
         {
             string email = Email;
@@ -133,7 +146,7 @@ namespace InteraktivnaMapaEvenata.ViewModels {
             try
             {
                 ValidateEmpty(Username);
-                ValidateEmpty(Password);
+                ValidatePassword(Password);
                 ValidateEmpty(Email);
                 ValidateEmail();
                 _navigation.Navigate(typeof(OwnerRegistrationOrganizationInfo), this);
@@ -189,9 +202,20 @@ namespace InteraktivnaMapaEvenata.ViewModels {
         {
             try
             {
-
                 _navigation.Navigate(typeof(OwnerRegistrationSuccess), this);
-            } catch(Exception e)
+                Owner owner = new Owner
+                {
+                    Username = Username,
+                    Password = Password,
+                    Email = Email,
+                    OrganizationName = OrganizationName,
+                    Name = OwnerName,
+                    Surname = OwnerName,
+                };
+
+                owner = await _user.RegisterOwner(owner);
+            }
+            catch (Exception e)
             {
                 var dialog = new MessageDialog(e.Message, "Greska");
                 await dialog.ShowAsync();

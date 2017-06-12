@@ -34,6 +34,8 @@ namespace InteraktivnaMapaEvenata.Models
         public ICollection<Notification> Notifications { get; set; }
 
         [Required]
+        public string ApplicationUserId { get; set; }
+        [ForeignKey("ApplicationUserId")]
         public ApplicationUser ApplicationUser { get; set; }
     }
 }

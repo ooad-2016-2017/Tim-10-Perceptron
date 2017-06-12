@@ -22,6 +22,8 @@ namespace InteraktivnaMapaEvenata.UWP.Models
 
         public string Role { get; set; }
 
+        public string Password { get; set; }
+
         public ICollection<Notification> Notifications { get; set; }
     }
 }

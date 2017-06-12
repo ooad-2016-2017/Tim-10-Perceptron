@@ -18,10 +18,9 @@ using InteraktivnaMapaEvenata.WebAPI.Providers;
 using InteraktivnaMapaEvenata.WebAPI.Results;
 using InteraktivnaMapaEvenata.Models;
 using System.Linq;
-using Newtonsoft.Json;
-using InteraktivnaMapaEvenata.DAL;
-using System.ComponentModel;
-using System.Net;
+using Ninject;
+using InteraktivnaMapaEvenata.BLL.Interfaces;
+using System.Data.Entity.Validation;
 
 namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 {
@@ -32,6 +31,11 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         private const string LocalLoginProvider = "Local";
         private ApplicationUserManager _userManager;
 
+        [Inject]
+        public IOwnersService OwnerService { private get; set; }
+        [Inject]
+        public ICustomerService CustomerService { private get; set; }
+
         public AccountController() { }
 
         public AccountController(ApplicationUserManager userManager,
@@ -39,15 +43,6 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
         {
             UserManager = userManager;
             AccessTokenFormat = accessTokenFormat;
-        }
-
-        ApplicationDbContext _context;
-        public ApplicationDbContext ApplicationDbContext
-        {
-            get
-            {
-                return _context = _context ?? Request.GetOwinContext().Get<ApplicationDbContext>();
-            }
         }
 
         public ApplicationUserManager UserManager
@@ -361,6 +356,70 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 
         //POST api/Account/owner
         [AllowAnonymous]
+        [Route("Register/customer")]
+        public async Task<IHttpActionResult> RegisterCustomer(RegisterCustomerBindingModel model)
+        {
+            if (!IsUsernameUnique(model.Username))
+                ModelState.AddModelError("Username", "Username already taken");
+
+            if (!IsEmailUnique(model.Email))
+                ModelState.AddModelError("Email", "Email already taken");
+
+            var errorList = ModelState.ToDictionary(
+                kvp => kvp.Key.Remove(0, 5),
+                kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray()
+            );
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            ApplicationUser user = new ApplicationUser()
+            {
+                Name = model.Name,
+                Email = model.Email,
+                UserName = model.Username,
+                Surname = model.Surname
+            };
+
+            IdentityResult result;
+
+            try
+            {
+                result = await UserManager.CreateAsync(user, model.Password);
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                    foreach (var ve in eve.ValidationErrors)
+                        ModelState.AddModelError(ve.PropertyName, ve.ErrorMessage);
+                return BadRequest(ModelState);
+            }
+
+            if (!result.Succeeded)
+                return GetErrorResult(result);
+
+            result = await UserManager.AddToRoleAsync(user.Id, "CUSTOMER");
+
+            if (!result.Succeeded)
+                return GetErrorResult(result);
+
+
+            Customer customer = CustomerService.AddCustomer(new Customer()
+            {
+                ApplicationUserId = user.Id,
+                DateOfBirth = model.DateOfBirth,
+                Gender = (Customer.Genders)model.Gender
+            });
+
+            return Ok(customer);
+        }
+
+
+
+        //POST api/Account/owner
+        [AllowAnonymous]
         [Route("Register/owner")]
         public async Task<IHttpActionResult> Register(RegisterOwnerBindingModel model)
         {
@@ -382,12 +441,25 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
 
             ApplicationUser user = new ApplicationUser()
             {
+                Name = model.Name,
                 Email = model.Email,
                 UserName = model.Username,
                 Surname = model.Surname
             };
 
-            IdentityResult result = await UserManager.CreateAsync(user, model.Password);
+            IdentityResult result;
+
+            try
+            {
+                result = await UserManager.CreateAsync(user, model.Password);
+            }
+            catch (DbEntityValidationException e)
+            {
+                foreach (var eve in e.EntityValidationErrors)
+                    foreach (var ve in eve.ValidationErrors)
+                        ModelState.AddModelError(ve.PropertyName, ve.ErrorMessage);
+                return BadRequest(ModelState);
+            }
 
             if (!result.Succeeded)
                 return GetErrorResult(result);
@@ -397,17 +469,16 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
             if (!result.Succeeded)
                 return GetErrorResult(result);
 
-            Owner addedOwner = ApplicationDbContext.Owners.Add(new Owner()
+            
+            OwnerService.AddOwner(new Owner()
             {
-                ApplicationUser = user,
+                ApplicationUserId  = user.Id,
                 OrganizationName = model.OrganizationName,
-                SelectedTierId = model.PaymentTier.PaymentTierId,
-                SelectedTier = model.PaymentTier
+                SelectedTierId = model?.PaymentTier?.PaymentTierId,
+                SelectedTier = model?.PaymentTier
             });
 
-            ApplicationDbContext.SaveChanges();
-
-            return Ok(addedOwner);
+            return Ok();
         }
 
         // POST api/Account/Register

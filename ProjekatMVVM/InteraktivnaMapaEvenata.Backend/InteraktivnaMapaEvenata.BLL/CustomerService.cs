@@ -96,5 +96,12 @@ namespace InteraktivnaMapaEvenata.BLL
                 .Select(x => x.ToCustomerDTO())
                 .ToList();
         }
+
+        public Customer AddCustomer(Customer customer)
+        {
+            customer = _context.Customers.Add(customer);
+            _context.SaveChanges();
+            return customer;
+        }
     }
 }

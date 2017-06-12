@@ -77,19 +77,17 @@ namespace InteraktivnaMapaEvenata.BLL
 
         public Event SignUpCustomer(int id, CustomerDTO customer)
         {
-            // Checks if a customer has signed up for an event
             Event evnt = _context.Events.Where(x => x.EventId == id)
                                         .Include(x => x.Customers)
                                         .FirstOrDefault();
 
-            Customer query = evnt.Customers
+            Customer cust = evnt.Customers
                                  .Where(x => x.CustomerId == customer.CustomerId)
                                  .FirstOrDefault();
 
-            if (query == null)
+            if (cust == null)
             {
-                Customer cst = _context.Customers.Where(x => x.CustomerId == customer.CustomerId).FirstOrDefault();
-                evnt.Customers.Add(cst);
+                evnt.Customers.Add(cust);
                 _context.SaveChanges();
             }
 
