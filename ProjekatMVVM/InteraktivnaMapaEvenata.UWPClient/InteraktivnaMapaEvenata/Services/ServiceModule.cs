@@ -41,7 +41,8 @@ namespace InteraktivnaMapaEvenata.Services
                 .AddSingleton<OwnerRegistrationVM>()
                 .AddSingleton<UserRegistrationVM>()
                 .AddSingleton<EventRegistrationVM>()
-                .AddSingleton<CustomerRegistrationVM>();
+                .AddSingleton<CustomerRegistrationVM>()
+                .AddSingleton<OwnerVM>();
 
             Container = services.BuildServiceProvider();
         }

@@ -15,6 +15,8 @@ namespace InteraktivnaMapaEvenata.Services
     {
         public override string ServiceEndpoint { get { return "/api/Owners"; } }
 
+        public async Task<Event> GetLastEvent() { return await Endpoint.AppendPathSegment("LatestEvent").GetJsonAsync<Event>(); }
+
         public async Task<Owner> GetOwner(string id) { return await WrapSecure(Endpoint.AppendPathSegment("/ByUser").AppendPathSegment(id)).GetJsonAsync<Owner>(); }
 
         public async Task<Owner> GetOwner(int ownerId) { return await WrapSecure(Endpoint.AppendPathSegment(ownerId)).GetJsonAsync<Owner>(); }

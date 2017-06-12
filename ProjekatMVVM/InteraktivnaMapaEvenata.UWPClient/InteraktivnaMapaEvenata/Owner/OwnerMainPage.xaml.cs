@@ -1,9 +1,12 @@
 ﻿using InteraktivnaMapaEvenata.OwnerViews;
+using InteraktivnaMapaEvenata.Services;
+using InteraktivnaMapaEvenata.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -23,9 +26,24 @@ namespace InteraktivnaMapaEvenata
     /// </summary>
     public sealed partial class OwnerMainPage : Page
     {
+        OwnerVM OwnerVM { get { return DataContext as OwnerVM; } }
         public OwnerMainPage()
         {
             this.InitializeComponent();
+            DataContext = ServiceModule.GetService<CustomerVM>();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            DataContext = ServiceModule.GetService<CustomerVM>();
+            OwnerVM?.Activate(e.Parameter);
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+            OwnerVM?.Deactivate(e.Parameter);
         }
 
         private void viewEventsButton_Click(object sender, RoutedEventArgs e)

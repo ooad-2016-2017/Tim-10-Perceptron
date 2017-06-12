@@ -256,6 +256,7 @@
     <Compile Include="ViewModels\LoginVM.cs" />
     <Compile Include="ViewModels\OwnerEventListVM.cs" />
     <Compile Include="ViewModels\OwnerRegistrationVM.cs" />
+    <Compile Include="ViewModels\OwnerVM.cs" />
     <Compile Include="ViewModels\UserRegistrationVM.cs" />
     <Compile Include="Workers\EventTask.cs" />
   </ItemGroup>
