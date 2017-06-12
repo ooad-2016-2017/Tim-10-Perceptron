@@ -21,5 +21,7 @@ namespace InteraktivnaMapaEvenata.BLL.Interfaces
         Event SignUpCustomer(int id, CustomerDTO customer);
 
         Event SignOffCustomer(int id, CustomerDTO customer);
+
+        Event GetLatestEvent(int ownerId);
     }
 }

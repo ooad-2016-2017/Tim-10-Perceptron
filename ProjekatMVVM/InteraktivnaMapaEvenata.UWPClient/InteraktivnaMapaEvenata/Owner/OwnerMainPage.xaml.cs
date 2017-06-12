@@ -36,7 +36,7 @@ namespace InteraktivnaMapaEvenata
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            DataContext = ServiceModule.GetService<CustomerVM>();
+            DataContext = ServiceModule.GetService<OwnerVM>();
             OwnerVM?.Activate(e.Parameter);
         }
 

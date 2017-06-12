@@ -2,6 +2,7 @@
 using InteraktivnaMapaEvenata.Common.DTOs;
 using InteraktivnaMapaEvenata.Common.Mappers;
 using InteraktivnaMapaEvenata.Models;
+using Ninject;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,16 @@ namespace InteraktivnaMapaEvenata.WebAPI.Controllers
             if (owner == null)
                 return BadRequest($"Owner with userId ${userId} not found.");
             return Ok(owner);
+        }
+
+        [Inject]
+        public IEventService EventService { private get; set; }
+
+        [Route("api/Owners/LatestEvent/{eventId}")]
+        [Authorize(Roles="ADMIN,OWNER")]
+        public IHttpActionResult GetLatest(int eventId)
+        {
+            return Ok(EventService.GetLatestEvent(eventId));
         }
 
         // GET: api/Owners

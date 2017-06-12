@@ -1,5 +1,6 @@
 ﻿using InteraktivnaMapaEvenata.Helpers;
 using InteraktivnaMapaEvenata.Services.Interfaces;
+using InteraktivnaMapaEvenata.UWP.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,50 +17,43 @@ namespace InteraktivnaMapaEvenata.ViewModels
     public class OwnerVM : BaseVM, INavigable
     {
         public IOwnerService OwnerService { get; set; }
-
+        public AuthenticationVM AuthenticationVM { get; set; }
         CancellationTokenSource tokenSource;
-        public OwnerVM(IOwnerService ownerService)
+
+        public OwnerVM(IOwnerService ownerService,
+            AuthenticationVM authenticationVM)
         {
+            AuthenticationVM = authenticationVM;
             OwnerService = ownerService;
         }
-        private SerialDevice device;
-        DataWriter writer = null;
-
         public async void Activate(object parameter)
         {
             tokenSource = new CancellationTokenSource();
-            CancellationToken ct = tokenSource.Token;
             await Task.Run(async () =>
             {
                 //ct.ThrowIfCancellationRequested();
-                while (true)
+                string selector = SerialDevice.GetDeviceSelector("COM7");
+                DeviceInformationCollection devices = await DeviceInformation.FindAllAsync(selector);
+                if (devices.Count > 0)
                 {
+                    DeviceInformation deviceInfo = devices[0];
+                    SerialDevice serialDevice = await SerialDevice.FromIdAsync(deviceInfo.Id);
+                    serialDevice.BaudRate = 9600;
+                    serialDevice.DataBits = 8;
+                    serialDevice.StopBits = SerialStopBitCount.Two;
+                    serialDevice.Parity = SerialParity.None;
+                    DataWriter dataWriter = new DataWriter(serialDevice.OutputStream);
 
-
-                    string selector = SerialDevice.GetDeviceSelector("COM4");
-                    DeviceInformationCollection devices = await DeviceInformation.FindAllAsync(selector);
-                    if (devices.Count > 0)
+                    while (true)
                     {
-                        DeviceInformation deviceInfo = devices[0];
-                        SerialDevice serialDevice = await SerialDevice.FromIdAsync(deviceInfo.Id);
-                        serialDevice.BaudRate = 9600;
-                        serialDevice.DataBits = 8;
-                        serialDevice.StopBits = SerialStopBitCount.Two;
-                        serialDevice.Parity = SerialParity.None;
-
-                        DataWriter dataWriter = new DataWriter(serialDevice.OutputStream);
-                        dataWriter.WriteString("your message here");
+                        Event evnt = await OwnerService.GetLastEvent(AuthenticationVM.Owner.OwnerId);
+                        dataWriter.WriteString(evnt.EventId.ToString());
                         await dataWriter.StoreAsync();
-                        dataWriter.DetachStream();
-                        dataWriter = null;
+                        Task.Delay(TimeSpan.FromSeconds(5)).Wait();
                     }
-                    else
-                    {
-                        MessageDialog popup = new MessageDialog("Sorry, no device found.");
-                        await popup.ShowAsync();
-                    }
+                    dataWriter.DetachStream();
                 }
-            }, tokenSource.Token);
+            });
         }
 
         public void Deactivate(object parameter)

@@ -15,6 +15,6 @@ namespace InteraktivnaMapaEvenata.Services.Interfaces
 
         Task<List<Owner>> GetOwners();
 
-        Task<Event> GetLastEvent();
+        Task<Event> GetLastEvent(int onwerId);
     }
 }

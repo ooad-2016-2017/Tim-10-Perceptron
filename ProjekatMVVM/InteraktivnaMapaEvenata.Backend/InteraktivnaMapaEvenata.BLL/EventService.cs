@@ -39,6 +39,13 @@ namespace InteraktivnaMapaEvenata.BLL
             return _context.Events.Where(x => x.EventId == id).FirstOrDefault();
         }
 
+        public Event GetLatestEvent(int ownerId)
+        {
+            return _context.Events.Where(x => x.OwnerId == ownerId)
+                .OrderByDescending(x => x.StartDate)
+                .FirstOrDefault();
+        }
+
         public Event AddEvent(Event eventObj)
         {
             Owner owner = _context.Owners.Where(x => x.OwnerId == eventObj.OwnerId).FirstOrDefault();
